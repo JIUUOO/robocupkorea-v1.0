@@ -93,12 +93,6 @@ header .dropdown-is-inactive {
   }
 }
 
-header .menu-is-mobile {
-  position: inherit;
-  display: flex;
-  flex-direction: row;
-  height: 100%;
-}
 @media (width < 768px) {
   header .menu-is-mobile {
     position: absolute;
@@ -107,16 +101,9 @@ header .menu-is-mobile {
     width: 100%;
     height: calc(100vh - 100%);
 
-    padding: 0 calc(100vw - 768px);
-
     display: flex;
     flex-direction: column;
     padding: 0 24px 24px 24px;
-
     overflow-y: scroll;
-
-    background-color: white;
-    opacity: 1;
-    transition: opacity ease 0.15s;
   }
 }

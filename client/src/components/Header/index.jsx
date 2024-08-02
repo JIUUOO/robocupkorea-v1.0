@@ -1,15 +1,15 @@
 import { useContext, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { PATH } from "../../routes/path";
-import rcka from "../../assets/logos/RCKA.png";
-import "./styles.css";
-import DropdownMenu from "./components/DropdownMenu";
-import DropdownItem from "./components/DropdownItem";
-import MobileIcon from "./components/MobileIcon";
 import { NavContext } from "../../contexts/NavContext";
+import rcka from "../../assets/logos/RCKA.png";
+import DropdownMenu from "./components/DropdownMenu";
+import DropdownTitle from "./components/DropdownTitle";
+import DropdownItem from "./components/DropdownItem";
 import ChildDropdownMenu from "./components/ChildDropdownMenu";
 import ChildDropdownTitle from "./components/ChildDropdownTitle";
-import DropdownTitle from "./components/DropdownTitle";
+import MobileIcon from "./components/MobileIcon";
+import "./styles.css";
 
 export default function Header() {
   const {
@@ -56,7 +56,9 @@ export default function Header() {
 
   useEffect(() => {
     if (isMobileNavOpen) {
-      setStyleMenu("menu-is-mobile");
+      setStyleMenu(
+        "bg-white md:inherit md:flex md:flex-row md:h-full transition ease duration-200 menu-is-mobile"
+      );
     } else {
       setStyleMenu(
         "absolute w-0 h-0 overflow-hidden opacity-0 md:static md:flex md:flex-row md:w-auto md:h-full md:opacity-100"

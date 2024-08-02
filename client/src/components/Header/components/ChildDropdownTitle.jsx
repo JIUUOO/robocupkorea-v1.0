@@ -9,7 +9,7 @@ export default function NestedDropdownTitle({ id, children }) {
 
   return (
     <div
-      className={`py-1 md:px-3.5 md:flex md:justify-between md:items-center cursor-default ${style} transition ease duration-200`}
+      className={`py-1 md:px-3.5 md:flex md:justify-between md:items-center font-semibold md:font-normal cursor-default ${style} transition ease duration-200`}
     >
       {children}
       <ChevronIcon direction="right" id={id} />

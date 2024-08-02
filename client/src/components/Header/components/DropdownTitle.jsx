@@ -8,7 +8,7 @@ export default function DropdownTitle({ id, children }) {
   const style = showDropdown === id ? "opacity-100" : "opacity-70";
 
   return (
-    <div className={`${style} cursor-default`}>
+    <div className={`${style} cursor-default font-semibold`}>
       {children}
       <ChevronIcon direction="down" id={id} />
     </div>

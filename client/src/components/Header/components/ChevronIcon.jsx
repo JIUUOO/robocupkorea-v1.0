@@ -23,7 +23,7 @@ export default function ChevronIcon({ direction, id }) {
     return (
       <img
         src={chevronRight}
-        className={`inline pl-3 h-3 ${style} text-sm transition ease duration-200`}
+        className={`inline pl-3 h-3 ${style} text-sm transition ease duration-200 hidden md:inline`}
         alt="chevronRight"
       ></img>
     );
