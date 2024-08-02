@@ -1,6 +1,11 @@
+<<<<<<< .merge_file_8jvJQB
 <<<<<<< HEAD
 node_modules
 =======
 node_modules
 .DS_Store
 >>>>>>> develop
+=======
+node_modules
+.DS_Store
+>>>>>>> .merge_file_nhCXpZ
