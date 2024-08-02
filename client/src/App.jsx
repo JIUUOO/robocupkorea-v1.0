@@ -7,6 +7,8 @@ import CommitteePage from "./pages/CommitteePage";
 import EventsLatestPage from "./pages/EventsLatestPage";
 import EventsArchivePage from "./pages/EventsArchivePage";
 
+import "./styles/App.css";
+
 function App() {
   return (
     <Router>
