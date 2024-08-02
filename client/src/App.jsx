@@ -4,16 +4,20 @@ import Header from "./components/Header";
 import MainPage from "./pages/MainPage";
 import AboutPage from "./pages/AboutPage";
 import CommitteePage from "./pages/CommitteePage";
+import EventsLatestPage from "./pages/EventsLatestPage";
+import EventsArchivePage from "./pages/EventsArchivePage";
 
 function App() {
   return (
     <Router>
       <Header />
-      <main>
+      <main className="mt-16 md:mt-20">
         <Routes>
           <Route path={PATH.MAIN} Component={MainPage} />
           <Route path={PATH.ABOUT} Component={AboutPage} />
           <Route path={PATH.COMMITTEE} Component={CommitteePage} />
+          <Route path={PATH.EVENTS_LATEST} Component={EventsLatestPage} />
+          <Route path={PATH.EVENTS_ARCHIVE} Component={EventsArchivePage} />
         </Routes>
       </main>
     </Router>

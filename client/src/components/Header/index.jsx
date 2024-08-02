@@ -201,10 +201,10 @@ export default function Header() {
                   <DropdownTitle id="EVENTS">로보컵 이벤트</DropdownTitle>
                 </div>
                 <DropdownMenu id="EVENTS">
-                  <DropdownItem to={PATH.CHALLENGE}>
+                  <DropdownItem to={PATH.EVENTS_LATEST}>
                     제 5회 한국창의코딩대회
                   </DropdownItem>
-                  <DropdownItem to={PATH.CHALLENGE_ARCHIVE}>
+                  <DropdownItem to={PATH.EVENTS_ARCHIVE}>
                     이벤트 아카이브
                   </DropdownItem>
                 </DropdownMenu>
