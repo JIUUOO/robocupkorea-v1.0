@@ -20,6 +20,8 @@ function App() {
           <Route path={PATH.COMMITTEE} Component={CommitteePage} />
           <Route path={PATH.EVENTS_LATEST} Component={EventsLatestPage} />
           <Route path={PATH.EVENTS_ARCHIVE} Component={EventsArchivePage} />
+          <Route path={PATH.EVENTS_ARCHIVE} Component={EventsArchivePage} />
+          <Route path={PATH.EVENTS_ARCHIVE} Component={EventsArchivePage} />
         </Routes>
       </main>
     </Router>
