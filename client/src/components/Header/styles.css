@@ -1,0 +1,122 @@
+/* dropdown */
+@media (width >= 768px) {
+  header .dropdown-is-active {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    top: 100%;
+    left: inherit;
+
+    background: white;
+    padding: 10px 0;
+    border-radius: 10px;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+
+    opacity: 1;
+    transition: opacity ease 0.3s;
+  }
+}
+@media (width < 768px) {
+  header .dropdown-is-active {
+    display: flex;
+    flex-direction: column;
+    padding: 6px 0;
+  }
+}
+header .dropdown-is-inactive {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  left: inherit;
+  opacity: 0;
+}
+
+@media (width >= 768px) {
+  header .dropdown--nested-is-active {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    top: inherit;
+    left: 100%;
+    margin-top: -42px;
+
+    background: white;
+    padding: 10px 0;
+    border-radius: 10px;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+
+    opacity: 1;
+    transition: opacity ease 0.3s;
+    white-space: nowrap;
+  }
+  header .dropdown--nested-is-inactive {
+    position: absolute;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    left: inherit;
+    opacity: 0;
+  }
+}
+@media (width < 768px) {
+  header .dropdown--nested-is-active,
+  header .dropdown--nested-is-inactive {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 12px;
+  }
+}
+
+@media (width >= 768px) {
+  header .dropdown__head {
+    padding: 0 5px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+}
+@media (width < 768px) {
+  header .dropdown__head {
+    font-size: 18px;
+
+    /* opening each border */
+    border-top: 1px solid black;
+    padding: 10px 0;
+  }
+
+  /* closing the last border */
+  header .dropdown__head:nth-last-child(1) {
+    border-bottom: 1px solid black;
+  }
+}
+
+header .menu-is-mobile {
+  position: inherit;
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+}
+@media (width < 768px) {
+  header .menu-is-mobile {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: calc(100vh - 100%);
+
+    padding: 0 calc(100vw - 768px);
+
+    display: flex;
+    flex-direction: column;
+    padding: 0 24px 24px 24px;
+
+    overflow-y: scroll;
+
+    background-color: white;
+    opacity: 1;
+    transition: opacity ease 0.15s;
+  }
+}
