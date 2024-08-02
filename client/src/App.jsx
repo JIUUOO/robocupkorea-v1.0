@@ -6,6 +6,8 @@ import AboutPage from "./pages/AboutPage";
 import CommitteePage from "./pages/CommitteePage";
 import EventsLatestPage from "./pages/EventsLatestPage";
 import EventsArchivePage from "./pages/EventsArchivePage";
+import NoticeEventsPage from "./pages/NoticeEventsPage";
+import NoticeRulesPage from "./pages/NoticeRulesPage";
 
 import "./styles/App.css";
 
@@ -21,7 +23,8 @@ function App() {
           <Route path={PATH.EVENTS_LATEST} Component={EventsLatestPage} />
           <Route path={PATH.EVENTS_ARCHIVE} Component={EventsArchivePage} />
           <Route path={PATH.EVENTS_ARCHIVE} Component={EventsArchivePage} />
-          <Route path={PATH.EVENTS_ARCHIVE} Component={EventsArchivePage} />
+          <Route path={PATH.NOTICE_EVENTS} Component={NoticeEventsPage} />
+          <Route path={PATH.NOTICE_RULES} Component={NoticeRulesPage} />
         </Routes>
       </main>
     </Router>

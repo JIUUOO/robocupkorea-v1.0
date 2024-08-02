@@ -1,15 +1,15 @@
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Container, Title } from "../components/layouts";
 import axios from "axios";
 
 export default function NoticeEventsPage() {
-  const [notice, setNotice] = useEffect([]);
+  const [notice, setNotice] = useState([]);
 
   useEffect(() => {
     const getApi = async () => {
-      const respond = axios.get("localhost:8080/api/notice/meta");
+      const respond = await axios.get("http://localhost:8080/api/notice/meta");
 
-      setNotice(repond);
+      setNotice(respond);
     };
 
     getApi();
@@ -18,9 +18,11 @@ export default function NoticeEventsPage() {
   return (
     <Container>
       <Title>이벤트 소식</Title>
-      {notice.map(() => {
-        return <div>{notice.title}</div>;
-      })}
+      {notice.length
+        ? notice.map((notice) => {
+            return <div>{notice.title}</div>;
+          })
+        : undefined}
     </Container>
   );
 }
