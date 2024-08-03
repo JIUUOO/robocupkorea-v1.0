@@ -1,0 +1,29 @@
+.brancket-counter {
+  counter-reset: item;
+  list-style: none;
+  padding-left: 20px;
+}
+
+.brancket-counter > li {
+  counter-increment: item;
+  position: relative;
+}
+
+.brancket-counter > li::before {
+  content: counter(item) ") ";
+  position: absolute;
+  left: -20px;
+}
+
+.right-position {
+  display: grid;
+  place-items: center;
+}
+
+@media (width > 980px) {
+  .right-position {
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+  }
+}
