@@ -220,8 +220,10 @@ export default function Header() {
                   <DropdownTitle id="NOTICE">공지사항</DropdownTitle>
                 </div>
                 <DropdownMenu id="NOTICE">
-                  <DropdownItem to={PATH.NOTICE}>이벤트 소식</DropdownItem>
-                  <DropdownItem to={PATH.NOTICE}>리그 규정</DropdownItem>
+                  <DropdownItem to={PATH.NOTICE_EVENTS}>
+                    이벤트 소식
+                  </DropdownItem>
+                  <DropdownItem to={PATH.NOTICE_RULES}>리그 규정</DropdownItem>
                 </DropdownMenu>
               </li>
             </ul>
