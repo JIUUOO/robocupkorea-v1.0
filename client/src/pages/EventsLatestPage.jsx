@@ -1,9 +1,9 @@
 import { Container, Title, Subtitle } from "../components/layouts";
-import "./styles.css";
+import "../styles/EventsLatestPage.css";
 
 export default function EventsLatestPage() {
   return (
-    <Container>
+    <Container className="events-latest-page">
       <Title>
         <div className="text-2xl">제 5회</div>
         <div className="text-rose-700">한국창의코딩대회</div>

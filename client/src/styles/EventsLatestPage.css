@@ -1,29 +1,29 @@
-.brancket-counter {
+.events-latest-page .brancket-counter {
   counter-reset: item;
   list-style: none;
   padding-left: 20px;
 }
 
-.brancket-counter > li {
+.events-latest-page .brancket-counter > li {
   counter-increment: item;
   position: relative;
 }
 
-.brancket-counter > li::before {
+.events-latest-page .brancket-counter > li::before {
   content: counter(item) ") ";
   position: absolute;
   left: -20px;
 }
 
-.right-position {
+.events-latest-page .right-position {
   display: grid;
   place-items: center;
 }
 
 @media (width > 980px) {
-  .right-position {
+  .events-latest-page .right-position {
     position: absolute;
     bottom: 0px;
-    right: 0px;
+    right: 40px;
   }
 }
