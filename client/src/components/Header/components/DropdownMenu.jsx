@@ -8,7 +8,7 @@ export default function DropdownMenu({ id, children }) {
   useEffect(() => {
     if (showDropdown === id && style === "dropdown-is-inactive") {
       setStyle(
-        "dropdown-is-active shadow ring ring-inset ring-1 ring-gray-100 rounded-lg"
+        "dropdown-is-active md:shadow md:ring md:ring-inset md:ring-1 md:ring-gray-100 md:rounded-lg"
       );
     } else if (style !== "dropdown-is-inactive") {
       setStyle("dropdown-is-inactive");

@@ -56,10 +56,12 @@ export default function Header() {
 
   useEffect(() => {
     if (isMobileNavOpen) {
+      // mobile sized
       setStyleMenu(
         "bg-white md:inherit md:flex md:flex-row md:h-full transition ease duration-200 menu-is-mobile"
       );
     } else {
+      // monitor sized
       setStyleMenu(
         "absolute w-0 h-0 overflow-hidden opacity-0 md:static md:flex md:flex-row md:w-auto md:h-full md:opacity-100"
       );
