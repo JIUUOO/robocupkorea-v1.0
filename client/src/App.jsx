@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { PATH } from "./routes/path";
 import Header from "./components/Header";
+import Footer from "./components/Footer";
 import MainPage from "./pages/MainPage";
 import AboutPage from "./pages/AboutPage";
 import CommitteePage from "./pages/CommitteePage";
@@ -32,6 +33,7 @@ function App() {
           <Route path={PATH.NOTICE_RULES_DETAIL} Component={NoticeDetailPage} />
         </Routes>
       </main>
+      <Footer />
     </Router>
   );
 }

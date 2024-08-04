@@ -8,7 +8,12 @@ module.exports = {
         DEFAULT: "1rem",
       },
     },
-    extend: {},
+    extend: {
+      spacing: {
+        xxs: "375px",
+        md: "768px",
+      },
+    },
   },
   plugins: [],
 };

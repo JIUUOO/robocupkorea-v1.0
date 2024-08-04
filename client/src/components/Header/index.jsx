@@ -9,7 +9,7 @@ import DropdownItem from "./components/DropdownItem";
 import ChildDropdownMenu from "./components/ChildDropdownMenu";
 import ChildDropdownTitle from "./components/ChildDropdownTitle";
 import MobileIcon from "./components/MobileIcon";
-import "./styles.css";
+import "../../styles/Header.css";
 
 export default function Header() {
   const {
