@@ -19,11 +19,3 @@
   display: grid;
   place-items: center;
 }
-
-@media (width > 980px) {
-  .events-latest-page .right-position {
-    position: absolute;
-    bottom: 0px;
-    right: 40px;
-  }
-}

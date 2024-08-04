@@ -1,7 +1,17 @@
+import { useEffect } from "react";
 import { Container, Title, Subtitle } from "../components/layouts";
 import "../styles/EventsLatestPage.css";
+import {
+  initializeScrollBehavior,
+  cleanupScrollBehavior,
+} from "../styles/scrollBehavior";
 
 export default function EventsLatestPage() {
+  useEffect(() => {
+    initializeScrollBehavior();
+
+    return () => cleanupScrollBehavior();
+  }, []);
   return (
     <Container className="events-latest-page">
       <Title>
@@ -9,6 +19,46 @@ export default function EventsLatestPage() {
         <div className="text-rose-700">한국창의코딩대회</div>
       </Title>
       <Subtitle>Creative Coding Challenge Korea 2024</Subtitle>
+
+      <div className="right-position">
+        <div className="flex justify-end mb-5">
+          <div className="content bg-sky-500/100 flex items-center justify-center text-white w-80 h-16 rounded-lg">
+            Rescue Basic(U12,U19)
+          </div>
+        </div>
+
+        <div className="flex justify-end mb-5">
+          <div className="content bg-sky-500/80 flex items-center justify-center text-white w-80 h-16 rounded-lg">
+            Maze Basic(U12,U19)
+          </div>
+        </div>
+
+        <div className="flex justify-end mb-5">
+          <div className="content bg-sky-500/60 flex items-center justify-center text-white w-80 h-16 rounded-lg">
+            OnStage(Open)
+          </div>
+        </div>
+
+        <div className="flex justify-end mb-5">
+          <div className="content bg-blue-500/60 flex items-center justify-center text-white w-80 h-16 rounded-lg">
+            iCool Challenge
+            <br /> CospaceRescue(U12,U19)
+          </div>
+        </div>
+
+        <div className="flex justify-end mb-5">
+          <div className="content bg-blue-500/80 flex items-center justify-center text-white w-80 h-16 rounded-lg">
+            iCool Challenge
+            <br /> Autonomous Driving(FS, U12,U19)
+          </div>
+        </div>
+
+        <div className="flex justify-end mb-5">
+          <div className="content bg-blue-500/100 flex items-center justify-center text-white w-80 h-16 rounded-lg">
+            Rookie Challeng(초등 1-2)
+          </div>
+        </div>
+      </div>
 
       <ol className="list-decimal list-inside text-rose-700">
         <li>
@@ -119,38 +169,6 @@ export default function EventsLatestPage() {
           loading="lazy"
           referrerpolicy="no-referrer-when-downgrade"
         ></iframe>
-      </div>
-
-      <div className="right-position">
-        <div className="flex justify-end mb-5">
-          <div className="content bg-sky-500 flex items-center justify-center text-white w-80 h-16 rounded-lg">
-            Rescue Basic(U12,U19)123123
-          </div>
-        </div>
-
-        <div className="flex justify-end mb-5">
-          <div className="content bg-sky-500 flex items-center justify-center text-white w-80 h-16 rounded-lg">
-            Rescue Basic(U12,U19)
-          </div>
-        </div>
-
-        <div className="flex justify-end mb-5">
-          <div className="content bg-sky-500 flex items-center justify-center text-white w-80 h-16 rounded-lg">
-            Rescue Basic(U12,U19)
-          </div>
-        </div>
-
-        <div className="flex justify-end mb-5">
-          <div className="content bg-sky-500 flex items-center justify-center text-white w-80 h-16 rounded-lg">
-            Rescue Basic(U12,U19)
-          </div>
-        </div>
-
-        <div className="flex justify-end mb-5">
-          <div className="content bg-sky-500 flex items-center justify-center text-white w-80 h-16 rounded-lg">
-            Rescue Basic(U12,U19)
-          </div>
-        </div>
       </div>
     </Container>
   );
