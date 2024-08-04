@@ -10,13 +10,16 @@ import EventsArchivePage from "./pages/EventsArchivePage";
 import NoticeEventsPage from "./pages/NoticeEventsPage";
 import NoticeRulesPage from "./pages/NoticeRulesPage";
 import NoticeDetailPage from "./pages/NoticeDetailPage";
-
+import ScrollToTop from "./hooks/ScrollToTop";
+import CloseNav from "./hooks/CloseNav";
 import "./styles/App.css";
 
 function App() {
   return (
     <Router>
       <Header />
+      <ScrollToTop />
+      <CloseNav />
       <main className="mt-16 md:mt-20">
         <Routes>
           <Route path={PATH.MAIN} Component={MainPage} />
