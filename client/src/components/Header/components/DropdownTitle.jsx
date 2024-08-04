@@ -7,7 +7,7 @@ export default function DropdownTitle({ id, children }) {
 
   const style =
     showDropdown === id
-      ? "opacity-100 md:shadow md:ring md:ing-inset md:ring-1 md:ring-gray-100 md:rounded-lg"
+      ? "opacity-100 md:shadow md:ring md:ring-inset md:ring-1 md:ring-gray-100 md:rounded-lg"
       : "opacity-70";
 
   return (

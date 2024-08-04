@@ -73,9 +73,9 @@ export default function Header() {
       <div className="container h-full">
         <div className="flex flex-row justify-between items-center h-full">
           <nav className="flex flex-row items-center h-full">
-            <div className="inline-block mr-16">
+            <div className="">
               <Link to={PATH.MAIN}>
-                <img src={rckaLogo} className="h-12 md:h-14" alt="rcka" />
+                <img src={rckaLogo} className="h-12 md:h-14 mr-16" alt="rcka" />
               </Link>
             </div>
             <ul className={styleMenu}>
