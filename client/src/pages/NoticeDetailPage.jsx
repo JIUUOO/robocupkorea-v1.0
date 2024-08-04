@@ -50,7 +50,7 @@ export default function NoticeDetailPage() {
               ? files.map((file) => {
                   return (
                     <li key={file._id}>
-                      <div className="inline-block p-1.5 mb-2 border rounded-lg">
+                      <div className="inline-block mb-2 font-light underline underline-offset-4 decoration-1 decoration-zinc-300 hover:decoration-zinc-700 rounded-lg">
                         <a href={`${apiBaseUrl}/file/${file._id}/${file.name}`}>
                           {file.name}
                         </a>
