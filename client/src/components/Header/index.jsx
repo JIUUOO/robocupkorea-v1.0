@@ -63,7 +63,7 @@ export default function Header() {
     } else {
       // monitor sized
       setStyleMenu(
-        "absolute w-0 h-0 overflow-hidden opacity-0 md:static md:flex md:flex-row md:w-auto md:h-full md:opacity-100"
+        "absolute w-0 h-0 overflow-hidden opacity-0 md:static md:flex md:flex-row md:w-auto md:h-full md:opacity-100 md:px-1"
       );
     }
   }, [isMobileNavOpen]);
@@ -73,9 +73,9 @@ export default function Header() {
       <div className="container h-full">
         <div className="flex flex-row justify-between items-center h-full">
           <nav className="flex flex-row items-center h-full">
-            <div className="">
+            <div className="mr-16">
               <Link to={PATH.MAIN}>
-                <img src={rckaLogo} className="h-12 md:h-14 mr-16" alt="rcka" />
+                <img src={rckaLogo} className="h-12 md:h-14" alt="rcka" />
               </Link>
             </div>
             <ul className={styleMenu}>
