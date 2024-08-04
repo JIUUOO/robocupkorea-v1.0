@@ -2,13 +2,13 @@ import { useContext, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { PATH } from "../../routes/path";
 import { NavContext } from "../../contexts/NavContext";
-import rcka from "../../assets/logos/RCKA.png";
+import rckaLogo from "../../assets/logos/RCKA.png";
+import MobileIcon from "./components/MobileIcon";
 import DropdownMenu from "./components/DropdownMenu";
 import DropdownTitle from "./components/DropdownTitle";
 import DropdownItem from "./components/DropdownItem";
 import ChildDropdownMenu from "./components/ChildDropdownMenu";
 import ChildDropdownTitle from "./components/ChildDropdownTitle";
-import MobileIcon from "./components/MobileIcon";
 import "../../styles/Header.css";
 
 export default function Header() {
@@ -73,7 +73,7 @@ export default function Header() {
           <nav className="flex flex-row items-center h-full">
             <div className="inline-block mr-16">
               <Link to={PATH.MAIN}>
-                <img src={rcka} className="h-12 md:h-14" alt="rcka" />
+                <img src={rckaLogo} className="h-12 md:h-14" alt="rcka" />
               </Link>
             </div>
             <ul className={styleMenu}>

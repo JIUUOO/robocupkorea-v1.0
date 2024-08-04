@@ -15,7 +15,7 @@ export default function ChevronIcon({ direction, id }) {
     return (
       <img
         src={chevronDown}
-        className={`inline mb-1 w-5 h-3 ${style} transition ease duration-200`}
+        className={`inline mb-1 pl-1 h-3 ${style} transition ease duration-200`}
         alt="chevronDown"
       ></img>
     );

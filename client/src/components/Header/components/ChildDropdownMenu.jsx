@@ -13,7 +13,9 @@ export default function NestedDropdownMenu({ id, children }) {
         showChildDropdown === id &&
         styleNestedDropdownMenu === "dropdown--nested-is-inactive"
       ) {
-        SetStyleNestedDropdownMenu("dropdown--nested-is-active");
+        SetStyleNestedDropdownMenu(
+          "dropdown--nested-is-active shadow ring ring-inset ring-1 ring-gray-100 rounded-lg"
+        );
       } else if (styleNestedDropdownMenu !== "dropdown--nested-is-inactive") {
         SetStyleNestedDropdownMenu("dropdown--nested-is-inactive");
       }

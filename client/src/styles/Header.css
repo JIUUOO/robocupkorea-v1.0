@@ -5,13 +5,11 @@
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    top: 100%;
+    top: 87%;
     left: inherit;
 
     background: white;
     padding: 10px 0;
-    border-radius: 10px;
-    box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
 
     opacity: 1;
     transition: opacity ease 0.3s;
@@ -45,8 +43,6 @@ header .dropdown-is-inactive {
 
     background: white;
     padding: 10px 0;
-    border-radius: 10px;
-    box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
 
     opacity: 1;
     transition: opacity ease 0.3s;
@@ -72,7 +68,6 @@ header .dropdown-is-inactive {
 
 @media (width >= 768px) {
   header .dropdown__head {
-    padding: 0 5px;
     height: 100%;
     display: flex;
     align-items: center;
