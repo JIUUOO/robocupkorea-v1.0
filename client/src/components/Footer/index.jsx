@@ -8,7 +8,7 @@ import MenuItem from "./components/MenuItem";
 
 export default function Footer() {
   const menuStyle = "pb-4";
-  const menuHeadStyle = "pb-2 font-light";
+  const menuHeadStyle = "pb-1 font-light";
 
   return (
     <footer className="mt-12">
