@@ -109,13 +109,13 @@ export default function Header() {
                       RoboCupJunior
                     </ChildDropdownTitle>
                     <ChildDropdownMenu id="JUNIOR">
-                      <DropdownItem to={PATH.JUNIOR_SOCCER}>
+                      <DropdownItem to={PATH.LEAGUES_JUNIOR_SOCCER}>
                         Soccer
                       </DropdownItem>
-                      <DropdownItem to={PATH.JUNIOR_ONSTAGE}>
+                      <DropdownItem to={PATH.LEAGUES_JUNIOR_ONSTAGE}>
                         OnStage
                       </DropdownItem>
-                      <DropdownItem to={PATH.JUNIOR_RESCUE}>
+                      <DropdownItem to={PATH.LEAGUES_JUNIOR_RESCUE}>
                         Rescue
                       </DropdownItem>
                     </ChildDropdownMenu>
@@ -128,19 +128,19 @@ export default function Header() {
                       RoboCupSoccer
                     </ChildDropdownTitle>
                     <ChildDropdownMenu id="SOCCER">
-                      <DropdownItem to={PATH.SOCCER_HUMANOID}>
+                      <DropdownItem to={PATH.LEAGUES_SOCCER_HUMANOID}>
                         Humanoid
                       </DropdownItem>
-                      <DropdownItem to={PATH.SOCCER_STANDARDPLAFORM}>
+                      <DropdownItem to={PATH.LEAGUES_SOCCER_STANDARD_PLATFORM}>
                         Standard Platform
                       </DropdownItem>
-                      <DropdownItem to={PATH.SOCCER_MIDDLESIZE}>
+                      <DropdownItem to={PATH.LEAGUES_SOCCER_MIDDLE_SIZE}>
                         Middle Size
                       </DropdownItem>
-                      <DropdownItem to={PATH.SOCCER_SMALLSIZE}>
+                      <DropdownItem to={PATH.LEAGUES_SOCCER_SMALL_SIZE}>
                         Small Size
                       </DropdownItem>
-                      <DropdownItem to={PATH.SOCCER_SIMULATION}>
+                      <DropdownItem to={PATH.LEAGUES_SOCCER_SIMULATION}>
                         Simulation
                       </DropdownItem>
                     </ChildDropdownMenu>
@@ -153,8 +153,10 @@ export default function Header() {
                       RoboCupRescue
                     </ChildDropdownTitle>
                     <ChildDropdownMenu id="RESCUE">
-                      <DropdownItem to={PATH.RESCUE_ROBOT}>Robot</DropdownItem>
-                      <DropdownItem to={PATH.RESCUE_SIMULATION}>
+                      <DropdownItem to={PATH.LEAGUES_RESCUE_ROBOT}>
+                        Robot
+                      </DropdownItem>
+                      <DropdownItem to={PATH.LEAGUES_RESCUE_SIMULATION}>
                         Simulation
                       </DropdownItem>
                     </ChildDropdownMenu>
@@ -167,13 +169,17 @@ export default function Header() {
                       RoboCup@Home
                     </ChildDropdownTitle>
                     <ChildDropdownMenu id="ATHOME">
-                      <DropdownItem to={PATH.ATHOME_OPENPLATFORM}>
+                      <DropdownItem to={PATH.LEAGUES_ATHOME_OPENPLATFORM}>
                         Open Platform
                       </DropdownItem>
-                      <DropdownItem to={PATH.ATHOME_DOMESTICSTANDARDPLATFORM}>
+                      <DropdownItem
+                        to={PATH.LEAGUES_ATHOME_DOMESTIC_STANDARD_PLATFORM}
+                      >
                         Domestic Standard Platform
                       </DropdownItem>
-                      <DropdownItem to={PATH.ATHOME_SOCIALSTANDARDPLATFORM}>
+                      <DropdownItem
+                        to={PATH.LEAGUES_ATHOME_SOCIAL_STANDARD_PLATFORM}
+                      >
                         Social Standard Platform
                       </DropdownItem>
                     </ChildDropdownMenu>
@@ -186,10 +192,10 @@ export default function Header() {
                       RoboCupIndustrial
                     </ChildDropdownTitle>
                     <ChildDropdownMenu id="INDUSTRIAL">
-                      <DropdownItem to={PATH.INDUSTRIAL_ROBOCUPATWORK}>
+                      <DropdownItem to={PATH.LEAGUES_INDUSTRIAL_ROBOCUP_ATWORK}>
                         RoboCup@Work
                       </DropdownItem>
-                      <DropdownItem to={PATH.INDUSTRIAL_LOGISTICS}>
+                      <DropdownItem to={PATH.LEAGUES_INDUSTRIAL_LOGISTICS}>
                         Logistics
                       </DropdownItem>
                     </ChildDropdownMenu>
