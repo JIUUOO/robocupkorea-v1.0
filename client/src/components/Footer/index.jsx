@@ -36,11 +36,13 @@ export default function Footer() {
             </li>
             <li className={menuStyle}>
               <div className={menuHeadStyle}>로보컵 리그</div>
-              <MenuItem to={PATH.COMMITTEE}>RoboCupJunior</MenuItem>
-              <MenuItem to={PATH.COMMITTEE}>RoboCupSoccer</MenuItem>
-              <MenuItem to={PATH.COMMITTEE}>RoboCupRescue</MenuItem>
-              <MenuItem to={PATH.COMMITTEE}>RoboCup@Home</MenuItem>
-              <MenuItem to={PATH.COMMITTEE}>RoboCupIndustrial</MenuItem>
+              <MenuItem to={PATH.LEAGUES_JUNIOR}>RoboCupJunior</MenuItem>
+              <MenuItem to={PATH.LEAGUES_SOCCER}>RoboCupSoccer</MenuItem>
+              <MenuItem to={PATH.LEAGUES_RESCUE}>RoboCupRescue</MenuItem>
+              <MenuItem to={PATH.LEAGUES_ATHOME}>RoboCup@Home</MenuItem>
+              <MenuItem to={PATH.LEAGUES_INDUSTRIAL}>
+                RoboCupIndustrial
+              </MenuItem>
             </li>
             <li className={menuStyle}>
               <div className={menuHeadStyle}>로보컵 이벤트</div>

@@ -1,17 +1,19 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { PATH } from "./routes/path";
+import ScrollToTop from "./hooks/ScrollToTop";
+import CloseNav from "./hooks/CloseNav";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import MainPage from "./pages/MainPage";
 import AboutPage from "./pages/AboutPage";
 import CommitteePage from "./pages/CommitteePage";
+import RoboCupLeaguesPage from "./pages/RoboCupLeaguePages/RoboCupJuniorPage";
 import EventsLatestPage from "./pages/EventsLatestPage";
 import EventsArchivePage from "./pages/EventsArchivePage";
 import NoticeEventsPage from "./pages/NoticeEventsPage";
 import NoticeRulesPage from "./pages/NoticeRulesPage";
 import NoticeDetailPage from "./pages/NoticeDetailPage";
-import ScrollToTop from "./hooks/ScrollToTop";
-import CloseNav from "./hooks/CloseNav";
+
 import "./styles/App.css";
 
 function App() {
@@ -25,6 +27,16 @@ function App() {
           <Route path={PATH.MAIN} Component={MainPage} />
           <Route path={PATH.ABOUT} Component={AboutPage} />
           <Route path={PATH.COMMITTEE} Component={CommitteePage} />
+
+          <Route path={PATH.LEAGUES_JUNIOR} Component={RoboCupLeaguesPage} />
+          <Route path={PATH.LEAGUES_SOCCER} Component={RoboCupLeaguesPage} />
+          <Route path={PATH.LEAGUES_RESCUE} Component={RoboCupLeaguesPage} />
+          <Route path={PATH.LEAGUES_ATHOME} Component={RoboCupLeaguesPage} />
+          <Route
+            path={PATH.LEAGUES_INDUSTRIAL}
+            Component={RoboCupLeaguesPage}
+          />
+
           <Route path={PATH.EVENTS_LATEST} Component={EventsLatestPage} />
           <Route path={PATH.EVENTS_ARCHIVE} Component={EventsArchivePage} />
           <Route path={PATH.NOTICE_EVENTS} Component={NoticeEventsPage} />
