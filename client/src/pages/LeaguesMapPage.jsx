@@ -1,14 +1,13 @@
 import { useLocation } from "react-router-dom";
 import { Container, Title, Subtitle } from "../components/layouts";
 import { PATH } from "../routes/path";
-import { useState } from "react";
 
 export default function LeaguesMapPage() {
   const { pathname } = useLocation();
 
   const leagues = [
     {
-      pathname: "/leagues/junior",
+      pathname: PATH.LEAGUES_JUNIOR,
       title: "RoboCupJunior",
       description: "주니어!",
       child: [
@@ -27,7 +26,7 @@ export default function LeaguesMapPage() {
       ],
     },
     {
-      pathname: "/leagues/soccer",
+      pathname: PATH.LEAGUES_SOCCER,
       title: "RoboCupSoccer",
       description: "주니어!",
       child: [
@@ -54,7 +53,7 @@ export default function LeaguesMapPage() {
       ],
     },
     {
-      pathname: "/leagues/rescue",
+      pathname: PATH.LEAGUES_RESCUE,
       title: "RoboCupRescue",
       description: "주니어!",
       child: [
@@ -69,7 +68,7 @@ export default function LeaguesMapPage() {
       ],
     },
     {
-      pathname: "/leagues/athome",
+      pathname: PATH.LEAGUES_ATHOME,
       title: "RoboCup@Home",
       description: "주니어!",
       child: [
@@ -88,7 +87,7 @@ export default function LeaguesMapPage() {
       ],
     },
     {
-      pathname: "/leagues/industrial",
+      pathname: PATH.LEAGUES_INDUSTRIAL,
       title: "RoboCupIndustrial",
       description: "주니어!",
       child: [
