@@ -9,11 +9,11 @@ export default function MainPage() {
     name == showAccordion ? setShowAcoordian(null) : setShowAcoordian(name);
 
   const styleAccordionHead =
-    "inline-block p-4 w-full ring ring-inset ring-2 ring-gray-600 opacity-100 rounded-lg text-lg cursor-pointer";
+    "inline-block p-4 mb-4 w-full ring ring-inset ring-1 ring-gray-600 opacity-100 rounded-lg text-lg cursor-pointer";
   const styleAccordionBody = (name) =>
     name === showAccordion
-      ? "max-h-[140px] w-full overflow-hidden transition-[max-height] ease duration-500"
-      : "max-h-0 overflow-hidden transition-[max-height] ease duration-500";
+      ? "max-h-[20rem] w-full overflow-hidden text-base break-keep transition-[max-height] ease duration-500"
+      : "max-h-0 overflow-hidden text-base break-keep transition-[max-height] ease duration-500";
 
   useEffect(() => {
     const handleScroll = () => {
@@ -27,13 +27,13 @@ export default function MainPage() {
   return (
     <div
       className={`${
-        scrollY ? "bg-white" : "bg-black/[.92]"
+        scrollY ? "bg-white" : "bg-black/[.92]--"
       } transition ease duration-300`}
     >
       <div className="max-w-[1536px] m-auto p-0">
-        <div className="mb-10 h-[calc(100vh-4rem)] md:h-[calc(100vh-5rem)]">
+        <div className="mb-10">
           <iframe
-            className="w-full max-h-[calc(100vh-4rem)] md:max-h-[calc(100vh-5rem)] aspect-video select-none pointer-events-none"
+            className="w-full aspect-video select-none pointer-events-none"
             src="https://www.youtube.com/embed/QB5dvHHnSMk?si=H8vYmersBfckFq5m&autoplay=1&mute=1&loop=1&controls=0&color=white&modestbranding=0&rel=0&playsinline=1&enablejsapi=18&playlist=QB5dvHHnSMk"
             title="RoboCup RCAP Pyeongchang 2023"
             allow="autoplay;"
@@ -61,7 +61,6 @@ export default function MainPage() {
             </div>
           </div>
         </div>
-
         <div
           onClick={() => handleAcoordianClick("ROBOCUP")}
           className={styleAccordionHead}
