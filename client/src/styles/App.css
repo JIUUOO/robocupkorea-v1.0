@@ -68,4 +68,5 @@
 body {
   font-family: "Noto Sans KR", sans-serif;
   font-weight: 400;
+  user-select: none;
 }
