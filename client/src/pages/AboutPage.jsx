@@ -1,5 +1,4 @@
 import { Container, Title, Subtitle } from "../components/layouts";
-import robotNewsLogo from "../assets/logos/Robot_News.png";
 
 export default function About() {
   return (
@@ -19,7 +18,11 @@ export default function About() {
       </div>
       <div className="flex items-center">
         <div>
-          <img src={robotNewsLogo} className="w-32 mr-3" alt="Robot_News.png" />
+          <img
+            src="/logos/Robot_News.png"
+            className="w-32 mr-3"
+            alt="Robot_News.png"
+          />
         </div>
         <div>
           <a

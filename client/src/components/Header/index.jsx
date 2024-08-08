@@ -2,7 +2,7 @@ import { useContext, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { PATH } from "../../routes/path";
 import { NavContext } from "../../contexts/NavContext";
-import rckaLogo from "../../assets/logos/RCKA.png";
+
 import MobileIcon from "./components/MobileIcon";
 import DropdownMenu from "./components/DropdownMenu";
 import DropdownTitle from "./components/DropdownTitle";
@@ -75,7 +75,7 @@ export default function Header() {
           <nav className="flex flex-row items-center h-full">
             <div className="mr-16">
               <Link to={PATH.MAIN}>
-                <img src={rckaLogo} className="h-12 md:h-14" alt="rcka" />
+                <img src="/logos/RCKA.png" className="h-12 md:h-14" alt="rcka" />
               </Link>
             </div>
             <ul className={styleMenu}>

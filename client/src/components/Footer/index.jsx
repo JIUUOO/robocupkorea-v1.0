@@ -1,9 +1,5 @@
 import { Link } from "react-router-dom";
 import { PATH } from "../../routes/path";
-import rckaLogo from "../../assets/logos/RCKA.png";
-import institute1Logo from "../../assets/logos/Ministry_of_Trade_Industry_and_Energy.jpg";
-import institute2Logo from "../../assets/logos/National_Tax_Service.jpg";
-import institute3Logo from "../../assets/logos/Anti-Corruption_and_Civil_rights_Commission.jpg";
 import MenuItem from "./components/MenuItem";
 
 export default function Footer() {
@@ -17,7 +13,7 @@ export default function Footer() {
           <div className="pb-8">
             <Link to={PATH.MAIN}>
               <img
-                src={rckaLogo}
+                src="/logos/RCKA.png"
                 className="inline h-12 md:h-14 mb-2"
                 alt="RCKA.png"
               />
@@ -67,7 +63,11 @@ export default function Footer() {
                 rel="noreferrer"
                 target="_blank"
               >
-                <img src={institute1Logo} className="h-10" alt="institute1" />
+                <img
+                  src="/logos/Ministry_of_Trade_Industry_and_Energy.jpg"
+                  className="h-10"
+                  alt="institute1"
+                />
               </a>
             </div>
             <div>
@@ -77,7 +77,11 @@ export default function Footer() {
                 rel="noreferrer"
                 target="_blank"
               >
-                <img src={institute2Logo} className="h-10" alt="institute2" />
+                <img
+                  src="/logos/National_Tax_Service.jpg"
+                  className="h-10"
+                  alt="institute2"
+                />
               </a>
             </div>
             <div>
@@ -87,7 +91,11 @@ export default function Footer() {
                 rel="noreferrer"
                 target="_blank"
               >
-                <img src={institute3Logo} className="h-10" alt="institute3" />
+                <img
+                  src="/logos/Anti-Corruption_and_Civil_rights_Commission.jpg"
+                  className="h-10"
+                  alt="institute3"
+                />
               </a>
             </div>
           </div>
