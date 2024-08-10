@@ -8,10 +8,12 @@ export default function MainPage() {
   const handleAcoordianClick = (name) =>
     name === showAccordion ? setShowAcoordian(null) : setShowAcoordian(name);
 
+  const styleAccordionWrap =
+    "inline-block mb-4 w-full ring ring-inset ring-1 ring-gray-600 opacity-100 rounded-lg";
   const styleAccordionHead =
-    "inline-block p-4 mb-4 w-full ring ring-inset ring-1 ring-gray-600 opacity-100 rounded-lg";
+    "p-4 flex items-end justify-between cursor-pointer";
   const styleAccordionBody = (name) =>
-    `overflow-hidden font-light break-keep transition-[max-height] ease duration-500 ${
+    `overflow-hidden font-light transition-[max-height] ease duration-500 ${
       name === showAccordion ? "max-h-[40rem] w-full" : "max-h-0"
     }`;
   const styleChevronIcon = (name) =>
@@ -35,10 +37,10 @@ export default function MainPage() {
       </div>
       <Container>
         <div>
-          <div className={styleAccordionHead}>
+          <div className={styleAccordionWrap}>
             <div
               onClick={() => handleAcoordianClick("RCKA")}
-              className="flex items-end justify-between cursor-pointer"
+              className={styleAccordionHead}
             >
               한국로보컵협회는 어떤 단체인가요?
               <img
@@ -48,7 +50,7 @@ export default function MainPage() {
               />
             </div>
             <div className={styleAccordionBody("RCKA")}>
-              <div className="pt-3 p-1">
+              <div className="px-3 pb-3">
                 &nbsp;한국로보컵협회(RCKA) 홈페이지를 방문해주신 여러분께 깊이
                 감사드립니다. 사단법인 한국로보컵협회(이하 RCKA)는 로봇을
                 연구하는 학생들을 위해 국가적 및 국제적 로봇 이벤트인
@@ -61,10 +63,10 @@ export default function MainPage() {
             </div>
           </div>
         </div>
-        <div className={styleAccordionHead}>
+        <div className={styleAccordionWrap}>
           <div
             onClick={() => handleAcoordianClick("ROBOCUP")}
-            className="flex items-end justify-between cursor-pointer"
+            className={styleAccordionHead}
           >
             로보컵 리그는 어떤 행사인가요?
             <img
@@ -74,7 +76,7 @@ export default function MainPage() {
             />
           </div>
           <div className={styleAccordionBody("ROBOCUP")}>
-            <div className="pt-3 p-1">
+            <div className="px-3 pb-3">
               &nbsp;로보컵 리그의 설립목적은 양질의 다양한 로봇교육 제공에
               있습니다. 청소년 학생들의 경우 로보컵 리그를 통하여 여러
               로봇분야-전자, 하드웨어, 소프트웨어 등-에 대한 기술능력을 직접

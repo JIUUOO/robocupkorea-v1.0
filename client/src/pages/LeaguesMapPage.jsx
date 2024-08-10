@@ -17,7 +17,7 @@ export default function LeaguesMapPage() {
         },
         {
           text: "로보컵주니어(RoboCupJunior)는 각각 협력적인 측면과 경쟁적인 측면을 강조하는 여러 도전 과제를 제공합니다. 어린 학생들을 위해 로봇 분야에 대한 흥미로운 소개, 전자, 하드웨어 및 소프트웨어와의 실제 경험을 통해 기술적 능력을 개발하는 새로운 방법, 그리고 다른 참가자들과 기술을 공유하면서 팀워크에 대해 배울 수 있는 매우 동기 부여적인 기회를 제공합니다. 참가자 혼자서 문제를 해결하는 것이 아닌, 다양한 관심사와 강점을 가진 참가자들이 공동의 목표를 달성하기 위해 팀으로 함께 일할 수 있는 독특한 기회를 제공합니다.",
-        }
+        },
       ],
 
       child: [
@@ -121,7 +121,6 @@ export default function LeaguesMapPage() {
           <Subtitle>로보컵 리그</Subtitle>
 
           <div className="flex items-center">
-
             <div className="w-3/5">
               <img className="w-full" src={`${league.img}`} alt="Not Founded" />
             </div>
@@ -138,17 +137,21 @@ export default function LeaguesMapPage() {
                 );
               })}
             </div>
-
           </div>
 
           <div>
+            <p className="mb-2">관련 링크</p>
             {league.child.map((childLeague, index) => {
               return (
-                <div
-                  className="slide-right"
-                  style={{ animationDelay: `${index * 0.1}s` }}
-                >
-                  <a href={childLeague.href}>{childLeague.title}</a>
+                <div>
+                  <div
+                    className="slide-right ring ring-1 ring-black p-2 inline-block ring-inset rounded-lg mb-1"
+                    style={{ animationDelay: `${index * 0.1}s` }}
+                  >
+                    <a href={childLeague.href}>
+                      {childLeague.title} 종목 알아보기
+                    </a>
+                  </div>
                 </div>
               );
             })}
