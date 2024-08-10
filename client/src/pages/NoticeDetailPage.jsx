@@ -4,6 +4,7 @@ import { Container, Title, Subtitle } from "../components/layouts";
 import axios from "axios";
 
 export default function NoticeDetailPage() {
+  const [loading, setLoading] = useState(true);
   const apiBaseUrl = process.env.REACT_APP_API_BASE_URL;
   const { id } = useParams();
   const [notice, setNotice] = useState({
@@ -29,6 +30,7 @@ export default function NoticeDetailPage() {
         const fileRespond = await Promise.all(fileRequest);
         const fileData = fileRespond.map((respond) => respond.data);
         setFiles(fileData);
+        setLoading(false);
       } catch (error) {
         console.log(error);
       }
@@ -42,31 +44,38 @@ export default function NoticeDetailPage() {
     <Container>
       <Title>{notice.title}</Title>
       <Subtitle>공지사항</Subtitle>
-      <div>
-        <div className="min-h-10 pb-6">{notice.content}</div>
+
+      {loading ? (
+        <div>Loading...(이펙트추가예정)</div>
+      ) : (
         <div>
-          <ul>
-            {files.length
-              ? files.map((file) => {
-                  return (
-                    <li key={file._id}>
-                      <div className="inline-block mb-2 font-light underline underline-offset-4 decoration-1 decoration-zinc-300 hover:decoration-zinc-700 rounded-lg">
-                        <a href={`${apiBaseUrl}/file/${file._id}/${file.name}`}>
-                          {file.name}
-                        </a>
-                      </div>
-                    </li>
-                  );
-                })
+          <div className="min-h-10 pb-6">{notice.content}</div>
+          <div>
+            <ul>
+              {files.length
+                ? files.map((file) => {
+                    return (
+                      <li key={file._id}>
+                        <div className="inline-block mb-2 font-light underline underline-offset-4 decoration-1 decoration-zinc-300 hover:decoration-zinc-700 rounded-lg">
+                          <a
+                            href={`${apiBaseUrl}/file/${file._id}/${file.name}`}
+                          >
+                            {file.name}
+                          </a>
+                        </div>
+                      </li>
+                    );
+                  })
+                : undefined}
+            </ul>
+          </div>
+          <div className="text-right font-light pt-10">
+            {notice.date
+              ? `${notice.author}/${notice.date.split("T")[0]}`
               : undefined}
-          </ul>
+          </div>
         </div>
-        <div className="text-right font-light pt-10">
-          {notice.date
-            ? `${notice.author}/${notice.date.split("T")[0]}`
-            : undefined}
-        </div>
-      </div>
+      )}
     </Container>
   );
 }

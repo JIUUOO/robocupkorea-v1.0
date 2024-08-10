@@ -2,6 +2,7 @@ import { useContext, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { PATH } from "../../routes/path";
 import { NavContext } from "../../contexts/NavContext";
+
 import MobileIcon from "./components/MobileIcon";
 import DropdownMenu from "./components/DropdownMenu";
 import DropdownTitle from "./components/DropdownTitle";
@@ -108,7 +109,7 @@ export default function Header() {
                     onMouseEnter={() => handleNestDropdownEnter("JUNIOR")}
                     onMouseLeave={() => handleNestDropdownEnter(null)}
                   >
-                    <ChildDropdownTitle id="JUNIOR">
+                    <ChildDropdownTitle id="JUNIOR" routes={PATH.LEAGUES_JUNIOR}>
                       RoboCupJunior
                     </ChildDropdownTitle>
                     <ChildDropdownMenu id="JUNIOR">

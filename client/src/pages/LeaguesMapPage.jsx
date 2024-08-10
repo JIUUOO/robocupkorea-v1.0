@@ -13,7 +13,7 @@ export default function LeaguesMapPage() {
       img: "/images/RCJ_Soccer_1.jpg",
       descriptions: [
         {
-          text: "로보컵주니어(RoboCupJunior)는 19세까지의 학생들을 대상으로 프로젝트 지향적인 종목을 경쟁하는 부문입니다. 시니어 리그에 참여할 자원이 없는 학부생뿐만 아니라 초, 중등 어린이들에게 로보컵(RoboCup)을 소개하기 위해 고안되었습니다. 주니어 리그의 초점은 교육에 있습니다. 참가자들에게 국제 교류 프로그램에 참여하고 해외에서 온 다른 참가자들을 만나는 경험을 공유할 수 있는 기회를 제공합니다.",
+          text: "로보컵주니어(RoboCupJunior)는 19세까지의 학생들을 대상으로 프로젝트 지향적인 종목을 경쟁하는 부문입니다. 시니어 리그에 참여할 자원이 없는 학부생뿐만 아니라 초, 중등 어린이들까지 로보컵(RoboCup)을 경험할 수 있습니다. 주니어 리그의 초점은 교육에 있습니다. 참가자들에게 국제 교류 프로그램에 참여하고 해외에서 온 다른 참가자들을 만나는 경험을 공유할 수 있는 기회를 제공합니다.",
         },
         {
           text: "로보컵주니어(RoboCupJunior)는 각각 협력적인 측면과 경쟁적인 측면을 강조하는 여러 도전 과제를 제공합니다. 어린 학생들을 위해 로봇 분야에 대한 흥미로운 소개, 전자, 하드웨어 및 소프트웨어와의 실제 경험을 통해 기술적 능력을 개발하는 새로운 방법, 그리고 다른 참가자들과 기술을 공유하면서 팀워크에 대해 배울 수 있는 매우 동기 부여적인 기회를 제공합니다. 참가자 혼자서 문제를 해결하는 것이 아닌, 다양한 관심사와 강점을 가진 참가자들이 공동의 목표를 달성하기 위해 팀으로 함께 일할 수 있는 독특한 기회를 제공합니다.",
@@ -38,7 +38,7 @@ export default function LeaguesMapPage() {
     {
       pathname: PATH.LEAGUES_SOCCER,
       title: "RoboCupSoccer",
-      description: "주니어!",
+      descriptions: [{ text: "주니어!" }],
       child: [
         {
           href: PATH.LEAGUES_SOCCER_HUMANOID,
@@ -65,7 +65,7 @@ export default function LeaguesMapPage() {
     {
       pathname: PATH.LEAGUES_RESCUE,
       title: "RoboCupRescue",
-      description: "주니어!",
+      descriptions: [{ text: "주니어!" }],
       child: [
         {
           href: PATH.LEAGUES_RESCUE_ROBOT,
@@ -80,7 +80,7 @@ export default function LeaguesMapPage() {
     {
       pathname: PATH.LEAGUES_ATHOME,
       title: "RoboCup@Home",
-      description: "주니어!",
+      descriptions: [{ text: "주니어!" }],
       child: [
         {
           href: PATH.LEAGUES_ATHOME_OPENPLATFORM,
@@ -99,7 +99,7 @@ export default function LeaguesMapPage() {
     {
       pathname: PATH.LEAGUES_INDUSTRIAL,
       title: "RoboCupIndustrial",
-      description: "주니어!",
+      descriptions: [{ text: "주니어!" }],
       child: [
         {
           href: PATH.LEAGUES_INDUSTRIAL_ROBOCUP_ATWORK,
@@ -120,16 +120,16 @@ export default function LeaguesMapPage() {
           <Title>{league.title}</Title>
           <Subtitle>로보컵 리그</Subtitle>
 
-          <div className="flex items-center">
-            <div className="w-3/5">
+          <div className="flex flex-col md:flex-row">
+            <div className="fade-in w-full md:w-3/5">
               <img className="w-full" src={`${league.img}`} alt="Not Founded" />
             </div>
 
-            <div className="w-2/5 ml-5 overflow-hidden">
+            <div className="w-full md:w-2/5 md:ml-5 overflow-hidden">
               {league.descriptions.map((description, index) => {
                 return (
                   <div
-                    className="slide-right mb-10"
+                    className="slide-right mb-10 width"
                     style={{ animationDelay: `${index * 0.1}s` }}
                   >
                     {description.text}
@@ -139,19 +139,13 @@ export default function LeaguesMapPage() {
             </div>
           </div>
 
-          <div>
-            <p className="mb-2">관련 링크</p>
+          <div className="flex flex-row justify-center gap-60 overflow-hidden">
             {league.child.map((childLeague, index) => {
               return (
-                <div>
-                  <div
-                    className="slide-right ring ring-1 ring-black p-2 inline-block ring-inset rounded-lg mb-1"
-                    style={{ animationDelay: `${index * 0.1}s` }}
-                  >
-                    <a href={childLeague.href}>
-                      {childLeague.title} 종목 알아보기
-                    </a>
-                  </div>
+                <div
+                  className="inline-block slide-in-top"
+                >
+                  <a href={childLeague.href}>{childLeague.title}</a>
                 </div>
               );
             })}
