@@ -27,8 +27,8 @@ export default function NoticeRulesPage() {
 
   return (
     <Container>
-      <Title>이벤트 소식</Title>
-      <Subtitle>이벤트 소식을 공지합니다</Subtitle>
+      <Title>리그 규정</Title>
+      <Subtitle>리그 규정을 공지합니다</Subtitle>
       {loading ? (
         <div>Loading... (이펙트추가예정)</div>
       ) : (
