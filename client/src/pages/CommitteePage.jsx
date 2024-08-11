@@ -99,25 +99,25 @@ export default function CommitteePage() {
     <Container>
       <Title>운영위원</Title>
       <Subtitle>한국로보컵협회 운영위원을 소개합니다</Subtitle>
-      <div className="overflow-x-scroll">
-        <table className="text-nowrap">
-          <thead>
-            <tr className="h-10 border rounded-lg">
-              <th className="text-center border-r px-2">#</th>
-              <th className="text-start px-4">Name</th>
-              <th className="text-start px-4">Affiliation</th>
-              <th className="text-start px-4">E-Mail</th>
-              <th className="text-start px-4">Position</th>
+      <div className="border rounded-lg overflow-x-scroll">
+        <table className="w-full text-nowrap mt-2">
+          <thead className="border-b">
+            <tr>
+              <th className="text-center p-1">#</th>
+              <th className="text-start p-1">Name</th>
+              <th className="text-start p-1">Affiliation</th>
+              <th className="text-start p-1">E-Mail</th>
+              <th className="text-start p-1">Position</th>
             </tr>
           </thead>
           <tbody>
             {committeeData.map(({ no, name, affiliation, email, position }) => (
-              <tr className="h-10 border rounded-lg border-separate	">
-                <th className="text-center border-r px-2">{no}</th>
-                <td className="px-4">{name}</td>
-                <td className="px-4">{affiliation}</td>
-                <td className="px-4">{email}</td>
-                <td className="px-4">{position}</td>
+              <tr className="h-11">
+                <th className="text-center p-1">{no}</th>
+                <td className="p-1">{name}</td>
+                <td className="p-1">{affiliation}</td>
+                <td className="p-1">{email}</td>
+                <td className="p-1">{position}</td>
               </tr>
             ))}
           </tbody>
