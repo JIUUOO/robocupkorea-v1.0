@@ -8,16 +8,16 @@ export const handleScroll = () => {
   }
 
   const scrollTop = window.scrollY;
-  const scrollThreshold = 120;
+  const scrollThreshold = window.innerWidth < 1024 ? 180 : 350;
 
   if (scrollTop >= scrollThreshold) {
     element.style.position = "absolute";
     element.style.right = "0px";
-    element.style.top = "330px";
+    element.style.top = `${150+scrollThreshold}px`;
   } else {
     element.style.position = "fixed";
     element.style.right = "0px";
-    element.style.top = "210px";
+    element.style.top = "150px";
   }
 };
 

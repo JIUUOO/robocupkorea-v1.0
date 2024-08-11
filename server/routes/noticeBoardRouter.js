@@ -9,8 +9,17 @@ router.get("/", async (req, res) => {
 });
 
 router.get("/meta", async (req, res) => {
-  const notices = await Notice.find({}, "author date title");
-  res.json(notices);
+  const { category } = req.query;
+  if (category) {
+    const notices = await Notice.find(
+      { category: category },
+      "author date title"
+    );
+    res.json(notices);
+  } else {
+    const notices = await Notice.find({}, "author date title");
+    res.json(notices);
+  }
 });
 
 router.get("/:id", async (req, res) => {

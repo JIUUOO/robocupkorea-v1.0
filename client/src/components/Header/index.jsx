@@ -2,7 +2,7 @@ import { useContext, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { PATH } from "../../routes/path";
 import { NavContext } from "../../contexts/NavContext";
-import rckaLogo from "../../assets/logos/RCKA.png";
+
 import MobileIcon from "./components/MobileIcon";
 import DropdownMenu from "./components/DropdownMenu";
 import DropdownTitle from "./components/DropdownTitle";
@@ -75,7 +75,11 @@ export default function Header() {
           <nav className="flex flex-row items-center h-full">
             <div className="mr-16">
               <Link to={PATH.MAIN}>
-                <img src={rckaLogo} className="h-12 md:h-14" alt="rcka" />
+                <img
+                  src="/logos/RCKA.png"
+                  className="h-12 md:h-14"
+                  alt="rcka"
+                />
               </Link>
             </div>
             <ul className={styleMenu}>
@@ -105,7 +109,7 @@ export default function Header() {
                     onMouseEnter={() => handleNestDropdownEnter("JUNIOR")}
                     onMouseLeave={() => handleNestDropdownEnter(null)}
                   >
-                    <ChildDropdownTitle id="JUNIOR">
+                    <ChildDropdownTitle to={PATH.LEAGUES_JUNIOR} id="JUNIOR">
                       RoboCupJunior
                     </ChildDropdownTitle>
                     <ChildDropdownMenu id="JUNIOR">
@@ -124,7 +128,7 @@ export default function Header() {
                     onMouseEnter={() => handleNestDropdownEnter("SOCCER")}
                     onMouseLeave={() => handleNestDropdownEnter(null)}
                   >
-                    <ChildDropdownTitle id="SOCCER">
+                    <ChildDropdownTitle to={PATH.LEAGUES_SOCCER} id="SOCCER">
                       RoboCupSoccer
                     </ChildDropdownTitle>
                     <ChildDropdownMenu id="SOCCER">
@@ -149,7 +153,7 @@ export default function Header() {
                     onMouseEnter={() => handleNestDropdownEnter("RESCUE")}
                     onMouseLeave={() => handleNestDropdownEnter(null)}
                   >
-                    <ChildDropdownTitle id="RESCUE">
+                    <ChildDropdownTitle to={PATH.LEAGUES_RESCUE} id="RESCUE">
                       RoboCupRescue
                     </ChildDropdownTitle>
                     <ChildDropdownMenu id="RESCUE">
@@ -165,7 +169,7 @@ export default function Header() {
                     onMouseEnter={() => handleNestDropdownEnter("ATHOME")}
                     onMouseLeave={() => handleNestDropdownEnter(null)}
                   >
-                    <ChildDropdownTitle id="ATHOME">
+                    <ChildDropdownTitle to={PATH.LEAGUES_ATHOME} id="ATHOME">
                       RoboCup@Home
                     </ChildDropdownTitle>
                     <ChildDropdownMenu id="ATHOME">
@@ -188,7 +192,10 @@ export default function Header() {
                     onMouseEnter={() => handleNestDropdownEnter("INDUSTRIAL")}
                     onMouseLeave={() => handleNestDropdownEnter(null)}
                   >
-                    <ChildDropdownTitle id="INDUSTRIAL">
+                    <ChildDropdownTitle
+                      to={PATH.LEAGUES_INDUSTRIAL}
+                      id="INDUSTRIAL"
+                    >
                       RoboCupIndustrial
                     </ChildDropdownTitle>
                     <ChildDropdownMenu id="INDUSTRIAL">

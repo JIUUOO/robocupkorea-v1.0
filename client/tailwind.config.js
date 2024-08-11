@@ -2,15 +2,20 @@
 module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
+    screens: {
+      sm: "640px",
+      md: "768px",
+      lg: "1024px",
+    },
     container: {
       center: true,
       padding: {
-        DEFAULT: "1rem",
+        DEFAULT: "12px",
       },
     },
     extend: {
       spacing: {
-        xxs: "375px",
+        xxs: "370px",
         md: "768px",
       },
     },
