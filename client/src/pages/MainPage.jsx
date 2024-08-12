@@ -23,7 +23,7 @@ export default function MainPage() {
 
   return (
     <div>
-      <div className="max-w-[1536px] m-auto p-0">
+      <div className="max-w-lg m-auto p-0">
         <div className="mb-10">
           <iframe
             className="w-full aspect-video select-none pointer-events-none"
