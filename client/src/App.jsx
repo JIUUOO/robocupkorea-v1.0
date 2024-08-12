@@ -23,7 +23,7 @@ function App() {
       <Header />
       <ScrollToTop />
       <CloseNav />
-      <main className="mt-16 md:mt-20">
+      <main className="mt-16 md:mt-20 min-h-[60vh]">
         <Routes>
           <Route path={PATH.MAIN} Component={MainPage} />
           <Route path={PATH.ABOUT} Component={AboutPage} />

@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { Container } from "../components/layouts";
+import { Link } from "react-router-dom";
+import { PATH } from "../routes/path";
 import chevronDown from "../assets/icons/chevron-down-solid.svg";
 
 export default function MainPage() {
@@ -22,7 +24,7 @@ export default function MainPage() {
     } transition-transform duration-300`;
 
   return (
-    <div>
+    <>
       <div className="max-w-lg m-auto p-0">
         <div className="mb-10">
           <iframe
@@ -36,6 +38,17 @@ export default function MainPage() {
         </div>
       </div>
       <Container>
+        {/* <div>
+          <div className="h-80">
+            <div>제 5회 창의코딩대회</div>
+            <Link
+              to={PATH.EVENTS_LATEST}
+              className="inline-block ring ring-1 ring-black rounded-lg p-2"
+            >
+              바로가기
+            </Link>
+          </div>
+        </div> */}
         <div>
           <div className={styleAccordionWrap}>
             <div
@@ -89,6 +102,6 @@ export default function MainPage() {
           </div>
         </div>
       </Container>
-    </div>
+    </>
   );
 }
