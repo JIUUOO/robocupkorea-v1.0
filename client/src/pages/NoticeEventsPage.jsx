@@ -11,7 +11,9 @@ export default function NoticeEventsPage() {
   useEffect(() => {
     const getApi = async () => {
       try {
-        const { data } = await axios.get(`${apiBaseUrl}/meta`);
+        const { data } = await axios.get(
+          `${apiBaseUrl}/meta?category=announcement`
+        );
         setNotice(data);
         setLoading(false);
         console.log(data);
@@ -25,7 +27,7 @@ export default function NoticeEventsPage() {
   }, []);
 
   const onClick = () => {
-    console.log("click")
+    console.log("click");
   };
 
   return (
