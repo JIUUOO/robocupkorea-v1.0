@@ -58,7 +58,7 @@ export default function Header() {
     if (isMobileNavOpen) {
       // mobile sized
       setStyleMenu(
-        "bg-white md:inherit md:flex md:flex-row md:h-full transition ease duration-200 menu-is-mobile"
+        "max-md:container max-md:absolute max-md:top-full max-md:left-1/2 max-md:translate-x-[-50%] max-md:px-[24px] max-md:h-[calc(100vh-100%)] max-md:pb-20 max-md:overflow-y-scroll bg-white md:inherit md:flex md:flex-row md:h-full transition-opacity ease duration-200"
       );
     } else {
       // monitor sized
