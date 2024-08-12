@@ -54,12 +54,12 @@ export default function Footer() {
             </li>
           </ul>
         </div>
-        <div className="flex flex-col sm:flex-row justify-between py-4">
-          <div className="flex flex-col lg:flex-row">
+        <div className="flex flex-col justify-end sm:flex-row justify-between pt-4 pb-16">
+          <div className="flex flex-col max-lg:gap-2 lg:flex-row">
             <div>
               <a
                 href="https://www.motie.go.kr/"
-                className="institute"
+                className="hover:opacity-70 transition-opacity ease duration-200"
                 rel="noreferrer"
                 target="_blank"
               >
@@ -73,7 +73,7 @@ export default function Footer() {
             <div>
               <a
                 href="https://www.nts.go.kr/"
-                className="institute"
+                className="hover:opacity-70 transition-opacity ease duration-200"
                 rel="noreferrer"
                 target="_blank"
               >
@@ -87,7 +87,7 @@ export default function Footer() {
             <div>
               <a
                 href="https://www.acrc.go.kr/"
-                className="institute"
+                className="hover:opacity-70 transition-opacity ease duration-200"
                 rel="noreferrer"
                 target="_blank"
               >
@@ -99,14 +99,14 @@ export default function Footer() {
               </a>
             </div>
           </div>
-          <div className="flex flex-col justify-end sm:text-right pt-4 sm:pt-0 pb-10 text-sm font-light">
-            <div className="text-center sm:text-right">
+          <div className="flex flex-col justify-end px-4 sm:text-right pt-4 sm:pt-0 text-sm font-light">
+            <div className="text-start sm:text-right">
               <b>한국로보컵협회</b> | Tel : 070-4247-7485
             </div>
-            <div className="text-center sm:text-right pb-2">
+            <div className="text-start sm:text-right pb-2">
               주소: 서울시 서초구 서운로 13 중앙로얄 오피스텔 1308
             </div>
-            <div className="text-center sm:text-right">
+            <div className="text-start sm:text-right">
               Copyright © 한국로보컵협회. All rights reserved.
             </div>
           </div>
