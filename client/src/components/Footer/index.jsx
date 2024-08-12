@@ -18,7 +18,7 @@ export default function Footer() {
                 alt="RCKA.png"
               />
             </Link>
-            <p className="max-w-xxs break-keep font-light">
+            <p className="max-w-2xs break-keep font-light">
               &nbsp;사단법인 한국로보컵협회(이하 RCKA)는 로봇을 연구하는
               학생들을 위해 국가적 및 국제적 로봇 이벤트를 주최하는 프로젝트
               중심의 교육 증진 운동입니다.

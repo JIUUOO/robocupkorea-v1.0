@@ -15,7 +15,11 @@ module.exports = {
     },
     extend: {
       spacing: {
-        xxs: "370px",
+        "2xs": "370px",
+        md: "768px",
+      },
+      maxWidth: {
+        "2xs": "370px",
         md: "768px",
       },
     },
