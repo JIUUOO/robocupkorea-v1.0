@@ -11,7 +11,7 @@ export default function NestedDropdownTitle({ to, id, children }) {
   return (
     <Link
       to={to}
-      className={`py-1 md:px-3.5 md:flex md:justify-between md:items-center md:font-normal cursor-default ${style} transition ease duration-200 cursor-pointer`}
+      className={`py-1 max-md:px-1 md:px-3.5 md:flex md:justify-between md:items-center md:font-normal cursor-default ${style} transition ease duration-200 cursor-pointer`}
     >
       {children}
       <ChevronIcon direction="right" id={id} />
