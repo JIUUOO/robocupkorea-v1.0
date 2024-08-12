@@ -117,20 +117,22 @@ export default function LeaguesMapPage() {
     if (league.pathname === pathname) {
       return (
         <>
-          <Title>{league.title}</Title>
-          <Subtitle>로보컵 리그</Subtitle>
+          <div className="text-center slide-top ">
+            <Title>{league.title}</Title>
+            <Subtitle>로보컵 리그</Subtitle>
+          </div>
 
-          <div className="flex flex-col md:flex-row">
-            <div className="fade-in w-full md:w-3/5">
+          <div className="flex flex-col lg:flex-row">
+            <div className="fade-in w-full lg:w-3/5 mb-10">
               <img className="w-full" src={`${league.img}`} alt="Not Founded" />
             </div>
 
-            <div className="w-full md:w-2/5 md:ml-5 overflow-hidden">
+            <div className="w-full lg:w-2/5 lg:ml-5 overflow-hidden">
               {league.descriptions.map((description, index) => {
                 return (
                   <div
-                    className="slide-right mb-10 width"
-                    style={{ animationDelay: `${index * 0.1}s` }}
+                    className="slide-in-left mb-10"
+                    style={{ animationDelay: `${index * 0.3}s` }}
                   >
                     {description.text}
                   </div>
@@ -139,12 +141,11 @@ export default function LeaguesMapPage() {
             </div>
           </div>
 
-          <div className="flex flex-row justify-center gap-60 overflow-hidden">
-            {league.child.map((childLeague, index) => {
+          <div className="flex flex-row justify-center gap-40 md:gap-60 overflow-hidden">
+            {league.child.map((childLeague,) => {
               return (
-                <div
-                  className="inline-block slide-in-top"
-                >
+                <div className="inline-block slide-in-top"
+                style={{ animationDelay: "1.5s" }}>
                   <a href={childLeague.href}>{childLeague.title}</a>
                 </div>
               );

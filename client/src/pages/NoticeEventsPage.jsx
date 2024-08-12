@@ -11,11 +11,10 @@ export default function NoticeEventsPage() {
   useEffect(() => {
     const getApi = async () => {
       try {
-        const { data } = await axios.get(
-          `${apiBaseUrl}/meta?category=announcement`
-        );
+        const { data } = await axios.get(`${apiBaseUrl}/meta`);
         setNotice(data);
         setLoading(false);
+        console.log(data);
       } catch (error) {
         console.log(error);
       }
@@ -24,6 +23,10 @@ export default function NoticeEventsPage() {
     getApi();
     // eslint-disable-next-line
   }, []);
+
+  const onClick = () => {
+    console.log("click")
+  };
 
   return (
     <Container>
@@ -38,7 +41,9 @@ export default function NoticeEventsPage() {
               <tr className="border-y border-black h-9">
                 <th className="py-1 px-2 text-start">제목</th>
                 <th className="py-1 px-2 text-start">작성자</th>
-                <th className="py-1 px-2 text-start">날짜</th>
+                <th className="py-1 px-2 text-start" onClick={onClick}>
+                  날짜
+                </th>
               </tr>
             </thead>
             <tbody>
