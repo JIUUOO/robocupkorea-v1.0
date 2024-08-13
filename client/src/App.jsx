@@ -13,6 +13,7 @@ import EventsLatestPage from "./pages/EventsLatestPage";
 import EventsArchivePage from "./pages/EventsArchivePage";
 import NoticePage from "./pages/NoticePage";
 import NoticeDetailPage from "./pages/NoticeDetailPage";
+import NotFoundPage from "./pages/NotFoundPage";
 import "./styles/App.css";
 
 function App() {
@@ -22,7 +23,7 @@ function App() {
       <Header />
       <ScrollToTop />
       <CloseNav />
-      <main className="mt-16 md:mt-20 min-h-[60vh]">
+      <main className="mt-16 md:mt-20">
         <Routes>
           <Route path={PATH.MAIN} Component={MainPage} />
           <Route path={PATH.ABOUT} Component={AboutPage} />
@@ -60,6 +61,7 @@ function App() {
           <Route path={PATH.NOTICE_EVENTS_DETAIL} Component={NoticeDetailPage} />
           <Route path={PATH.NOTICE_RULES} Component={NoticePage} />
           <Route path={PATH.NOTICE_RULES_DETAIL} Component={NoticeDetailPage} />
+          <Route path="*" Component={NotFoundPage} />
         </Routes>
       </main>
       <Footer />
