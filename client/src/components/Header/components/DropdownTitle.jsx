@@ -12,7 +12,7 @@ export default function DropdownTitle({ id, children }) {
 
   return (
     <div
-      className={`${style} max-md:px-1 max-md:flex max-md:items-baseline max-md:justify-between md:px-2 md:py-4 cursor-default`}
+      className={`${style} max-md:px-1 max-md:flex max-md:items-baseline max-md:justify-between md:px-2 py-[9px] md:py-4 cursor-pointer md:cursor-default`}
     >
       {children}
       <div className="inline">

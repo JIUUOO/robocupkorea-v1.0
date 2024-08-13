@@ -19,7 +19,6 @@
   header .dropdown-is-active {
     display: flex;
     flex-direction: column;
-    padding: 6px 0;
   }
 }
 header .dropdown-is-inactive {
@@ -79,7 +78,6 @@ header .dropdown-is-inactive {
 
     /* opening each border */
     border-top: 1px solid black;
-    padding: 10px 0;
   }
 
   /* closing the last border */
