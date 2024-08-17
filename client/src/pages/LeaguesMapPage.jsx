@@ -2,6 +2,62 @@ import { useLocation } from "react-router-dom";
 import { Container, Title, Subtitle } from "../components/layouts";
 import { PATH } from "../routes/path";
 import "../styles/LeaguesMapPage.css";
+import { useEffect, useState, useRef } from "react";
+
+const useIntersectionObserver = (options) => {
+  const [isIntersecting, setIsIntersecting] = useState(false);
+  const ref = useRef();
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        setIsIntersecting(true);
+        observer.disconnect();
+      }
+    }, options);
+
+    if (ref.current) {
+      observer.observe(ref.current);
+    }
+
+    return () => {
+      observer.disconnect();
+    };
+  }, [options]);
+
+  return [ref, isIntersecting];
+};
+
+const Description = ({ text }) => {
+  const [ref, isIntersecting] = useIntersectionObserver({
+    threshold: 0.5,
+  });
+
+  return (
+    <div
+      ref={ref}
+      className={`mb-10 ${isIntersecting ? "slide-in-left" : "opacity-0"}`}
+    >
+      {text}
+    </div>
+  );
+};
+
+const ChildLink = ({ href, title }) => {
+  const [ref, isIntersecting] = useIntersectionObserver({
+    threshold: 0.5,
+  });
+
+  return (
+    <div
+      ref={ref}
+      className={`inline-block ${isIntersecting ? "slide-top" : "opacity-0"} underline underline-offset-2`}
+      style={{ animationDelay: "0.3s" }}
+    >
+      <a href={href}>{title}</a>
+    </div>
+  );
+};
 
 export default function LeaguesMapPage() {
   const { pathname } = useLocation();
@@ -117,7 +173,7 @@ export default function LeaguesMapPage() {
     if (league.pathname === pathname) {
       return (
         <>
-          <div className="text-center slide-top ">
+          <div className="text-center fade-in">
             <Title>{league.title}</Title>
             <Subtitle>로보컵 리그</Subtitle>
           </div>
@@ -128,28 +184,25 @@ export default function LeaguesMapPage() {
             </div>
 
             <div className="w-full lg:w-2/5 lg:ml-5 overflow-hidden">
-              {league.descriptions.map((description, index) => {
-                return (
-                  <div
-                    className="slide-in-left mb-10"
-                    style={{ animationDelay: `${index * 0.3}s` }}
-                  >
-                    {description.text}
-                  </div>
-                );
-              })}
+              {league.descriptions.map((description, index) => (
+                <Description
+                  key={index}
+                  text={description.text}
+                  index={index}
+                />
+              ))}
             </div>
           </div>
 
           <div className="flex flex-row justify-center gap-40 md:gap-60 overflow-hidden">
-            {league.child.map((childLeague,) => {
-              return (
-                <div className="inline-block slide-in-top"
-                style={{ animationDelay: "1.5s" }}>
-                  <a href={childLeague.href}>{childLeague.title}</a>
-                </div>
-              );
-            })}
+            {league.child.map((childLeague, index) => (
+              <ChildLink
+                key={index}
+                href={childLeague.href}
+                title={childLeague.title}
+                index={index}
+              />
+            ))}
           </div>
         </>
       );
