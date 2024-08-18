@@ -20,7 +20,7 @@ export const PATH = {
   LEAGUES_RESCUE_SIMULATION: "/leagues/rescue/simulation",
 
   LEAGUES_ATHOME: "/leagues/athome",
-  LEAGUES_ATHOME_OPENPLATFORM: "/leagues/athome/open-platform",
+  LEAGUES_ATHOME_OPEN_PLATFORM: "/leagues/athome/open-platform",
   LEAGUES_ATHOME_DOMESTIC_STANDARD_PLATFORM:
     "/leagues/athome/domestic-standard-platform",
   LEAGUES_ATHOME_SOCIAL_STANDARD_PLATFORM:

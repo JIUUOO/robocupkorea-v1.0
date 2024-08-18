@@ -30,6 +30,60 @@ export default function LeaguePage() {
       parent: "RoboCupSoccer",
       description: "와 축구! 제가 잘 알죠",
     },
+    {
+      pathname: PATH.LEAGUES_SOCCER_STANDARD_PLATFORM,
+      title: "Standard Platform",
+      parent: "RoboCupSoccer",
+      description: "와 축구! 제가 잘 알죠",
+    },
+    {
+      pathname: PATH.LEAGUES_SOCCER_MIDDLE_SIZE,
+      title: "Middle Size",
+      parent: "RoboCupSoccer",
+      description: "와 축구! 제가 잘 알죠",
+    },
+    {
+      pathname: PATH.LEAGUES_SOCCER_SMALL_SIZE,
+      title: "Small Size",
+      parent: "RoboCupSoccer",
+      description: "와 축구! 제가 잘 알죠",
+    },
+    {
+      pathname: PATH.LEAGUES_SOCCER_SIMULATION,
+      title: "Simulation",
+      parent: "RoboCupSoccer",
+      description: "와 축구! 제가 잘 알죠",
+    },
+    {
+      pathname: PATH.LEAGUES_RESCUE_ROBOT,
+      title: "Robot",
+      parent: "RoboCupRescue",
+      description: "레스큐가 가장 쉬웠어요",
+    },
+    {
+      pathname: PATH.LEAGUES_RESCUE_SIMULATION,
+      title: "Simulation",
+      parent: "RoboCupRescue",
+      description: "레스큐가 가장 쉬웠어요",
+    },
+    {
+      pathname: PATH.LEAGUES_ATHOME_OPEN_PLATFORM,
+      title: "Open Platform",
+      parent: "RoboCup@Home",
+      description: "애 돔",
+    },
+    {
+      pathname: PATH.LEAGUES_ATHOME_DOMESTIC_STANDARD_PLATFORM,
+      title: "Domestic Standard Platform",
+      parent: "RoboCup@Home",
+      description: "애 돔",
+    },
+    {
+      pathname: PATH.LEAGUES_ATHOME_SOCIAL_STANDARD_PLATFORM,
+      title: "Social Standard Platform",
+      parent: "RoboCup@Home",
+      description: "애 돔",
+    },
   ];
 
   return (
