@@ -1,6 +1,32 @@
 import { useLocation } from "react-router-dom";
 import { Container, Title, Subtitle } from "../components/layouts";
 import { PATH } from "../routes/path";
+import "../styles/LeaguePage.css";
+import { useEffect, useState, useRef } from "react";
+
+const useIntersectionObserver = (options) => {
+  const [isIntersecting, setIsIntersecting] = useState(false);
+  const ref = useRef();
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        setIsIntersecting(true);
+        observer.disconnect();
+      }
+    }, options);
+
+    if (ref.current) {
+      observer.observe(ref.current);
+    }
+
+    return () => {
+      observer.disconnect();
+    };
+  }, [options]);
+
+  return [ref, isIntersecting];
+};
 
 export default function LeaguePage() {
   const { pathname } = useLocation();
@@ -26,7 +52,7 @@ export default function LeaguePage() {
           text: `Soccer Entry(1:1 리그) 팀당 하나의 로봇으로 경쟁하는 하위 리그 입니다. 축구 엔트리는 Soccer 1:1 Standard Kit League와 Soccer 1:1 Lightweight로 구성됩니다.
 
           Soccer 1:1 Standard Kit League는 제한된 구성으로 처음 로봇컵에 참가하는 참가자들끼리 경쟁합니다.
-          
+
           Soccer 1:1 Lightweight는 경량화된 로봇으로 경쟁합니다. 2:2 Lightweight, 2:2 Open 리그에 도전하기 전 참가하는 리그입니다.`,
         },
       ],
@@ -105,6 +131,47 @@ export default function LeaguePage() {
       description: "애 돔",
     },
   ];
+  const Description = ({ headline, text }) => {
+    const [ref, isIntersecting] = useIntersectionObserver({
+      threshold: 0.5,
+    });
+
+    return (
+      <div ref={ref} className="overflow-hidden mt-5 mb-10 mr-10">
+        <div
+          className={`text-lg font-bold whitespace-pre-line ${
+            isIntersecting ? "slide-in-left" : "opacity-0"
+          }`}
+        >
+          {headline}
+        </div>
+        <div
+          className={`whitespace-pre-line ${
+            isIntersecting ? "slide-in-left" : "opacity-0"
+          }`}
+        >
+          {text}
+        </div>
+      </div>
+    );
+  };
+
+  const Notice = ({ title }) => {
+    const [ref, isIntersecting] = useIntersectionObserver({
+      threshold: 0.5,
+    });
+
+    return (
+      <div
+        ref={ref}
+        className={`inline-block border border-black border-1 rounded-lg p-1.5 ${
+          isIntersecting ? "slide-top" : "opacity-0"
+        }`}
+      >
+        <a href={PATH.NOTICE_EVENTS}>{title} 규정 알아보기</a>
+      </div>
+    );
+  };
 
   return (
     <Container>
@@ -112,29 +179,30 @@ export default function LeaguePage() {
         if (league.pathname === pathname)
           return (
             <>
-              <Title>{league.title}</Title>
-              <Subtitle>{league.parent}</Subtitle>
+              <div className="fade-in text-center">
+                <Title>{league.title}</Title>
+                <Subtitle>{league.parent}</Subtitle>
+              </div>
 
-              <div className="flex flex-col lg:flex-row">
-                <div className="w-full lg:w-3/5 mb-10">
+              <div className="flex flex-col">
+                <div className="fade-in w-full">
                   <img
                     className="w-full"
                     src={`${league.img}`}
                     alt="Not Founded"
                   />
                 </div>
-
-                {league.descriptions.map((description) => (
-                  <div className="w-full lg:w-2/5 lg:ml-10">
-                    <div className="text-lg font-bold whitespace-pre-line mb-5">
-                      {description.headline}
-                    </div>
-                    <div className="whitespace-pre-line mb-10">{description.text}</div>
-                  </div>
-                ))}
+                <div className="flex flex-row border-b">
+                  {league.descriptions.map((description) => (
+                    <Description
+                      headline={description.headline}
+                      text={description.text}
+                    />
+                  ))}
+                </div>
               </div>
-              <div className="inline-block border border-black border-1 rounded-lg p-1.5">
-                <a href={PATH.NOTICE_EVENTS}>{league.title} 규정 알아보기</a>
+              <div className="mt-5">
+                <Notice title={league.title} />
               </div>
             </>
           );
