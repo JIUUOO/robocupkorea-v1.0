@@ -23,7 +23,7 @@ export const handleScroll = () => {
 
 export const initializeScrollBehavior = () => {
   window.addEventListener("scroll", handleScroll);
-  window.addEventListener("resize", handleScroll); // Also handle resize events
+  window.addEventListener("resize", handleScroll);
 };
 
 export const cleanupScrollBehavior = () => {

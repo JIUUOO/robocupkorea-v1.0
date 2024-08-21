@@ -69,13 +69,17 @@
 
  @keyframes slide-in-bottom {
   0% {
-    transform: translateY(70%);
+    transform: translateY(100px);
     opacity: 0;
   }
   100% {
     transform: translateY(0);
     opacity: 1;
   }
+}
+
+.stroke {
+  text-shadow: -1px 0px gray, 0px 1px gray, 1px 0px gray, 0px -1px gray;
 }
 
 

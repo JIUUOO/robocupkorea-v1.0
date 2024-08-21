@@ -168,7 +168,7 @@ export default function LeaguePage() {
     });
 
     return (
-      <div ref={ref} className="overflow-hidden mt-5 mb-5 mr-10">
+      <div ref={ref} className="overflow-hidden mt-5 mb-5 ml-8 mr-10">
         <div className={` ${isIntersecting ? "slide-in-bottom" : "opacity-0"}`}>
           <div className="text-lg font-bold whitespace-pre-line">
             {headline}
@@ -202,27 +202,26 @@ export default function LeaguePage() {
         if (league.pathname === pathname)
           return (
             <>
-              <div className="fade-in text-center">
-                <Title>{league.title}</Title>
-                <Subtitle>{league.parent}</Subtitle>
+              <div
+                className="bg-fixed bg-cover md:bg-contain bg-center bg-no-repeat content-end bg"
+                style={{
+                  backgroundImage: `url(${league.img})`,
+                  height: "90vh",
+                }}
+              >
+                <div className="text-white fade-in w-full text-center stroke">
+                  <Title>{league.title}</Title>
+                  <Subtitle>{league.parent}</Subtitle>
+                </div>
               </div>
 
-              <div className="flex flex-col">
-                <div className="fade-in w-full">
-                  <img
-                    className="w-full"
-                    src={`${league.img}`}
-                    alt="Not Founded"
+              <div className="flex flex-row border-b">
+                {league.descriptions.map((description) => (
+                  <Description
+                    headline={description.headline}
+                    text={description.text}
                   />
-                </div>
-                <div className="flex flex-row border-b">
-                  {league.descriptions.map((description) => (
-                    <Description
-                      headline={description.headline}
-                      text={description.text}
-                    />
-                  ))}
-                </div>
+                ))}
               </div>
               <div className="mt-5">
                 <Notice title={league.title} />
