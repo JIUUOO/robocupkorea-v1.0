@@ -4,65 +4,6 @@ import { PATH } from "../routes/path";
 import "../styles/LeaguesMapPage.css";
 import { useEffect, useState, useRef } from "react";
 
-const useIntersectionObserver = (options) => {
-  const [isIntersecting, setIsIntersecting] = useState(false);
-  const ref = useRef();
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(([entry]) => {
-      if (entry.isIntersecting) {
-        setIsIntersecting(true);
-        observer.disconnect();
-      }
-    }, options);
-
-    if (ref.current) {
-      observer.observe(ref.current);
-    }
-
-    return () => {
-      observer.disconnect();
-    };
-  }, [options]);
-
-  return [ref, isIntersecting];
-};
-
-const Description = ({ text }) => {
-  const [ref, isIntersecting] = useIntersectionObserver({
-    threshold: 0.5,
-  });
-
-  return (
-    <div
-      ref={ref}
-      className={`mb-10 ${
-        isIntersecting ? "slide-in-left" : "opacity-0"
-      } whitespace-pre-line`}
-    >
-      {text}
-    </div>
-  );
-};
-
-const ChildLink = ({ href, title }) => {
-  const [ref, isIntersecting] = useIntersectionObserver({
-    threshold: 0.5,
-  });
-
-  return (
-    <div
-      ref={ref}
-      className={`inline-block ${
-        isIntersecting ? "slide-top" : "opacity-0"
-      } underline underline-offset-2`}
-      style={{ animationDelay: "0.3s" }}
-    >
-      <a href={href}>{title}</a>
-    </div>
-  );
-};
-
 export default function LeaguesMapPage() {
   const { pathname } = useLocation();
 
@@ -199,6 +140,64 @@ export default function LeaguesMapPage() {
     },
   ];
 
+  const useIntersectionObserver = (options) => {
+    const [isIntersecting, setIsIntersecting] = useState(false);
+    const ref = useRef();
+
+    useEffect(() => {
+      const observer = new IntersectionObserver(([entry]) => {
+        if (entry.isIntersecting) {
+          setIsIntersecting(true);
+          observer.disconnect();
+        }
+      }, options);
+
+      if (ref.current) {
+        observer.observe(ref.current);
+      }
+
+      return () => {
+        observer.disconnect();
+      };
+    }, [options]);
+
+    return [ref, isIntersecting];
+  };
+
+  const Description = ({ text }) => {
+    const [ref, isIntersecting] = useIntersectionObserver({
+      threshold: 0.5,
+    });
+
+    return (
+      <div
+        ref={ref}
+        className={`mb-10 ${
+          isIntersecting ? "slide-in-left" : "opacity-0"
+        } whitespace-pre-line`}
+      >
+        {text}
+      </div>
+    );
+  };
+
+  const ChildLink = ({ href, title }) => {
+    const [ref, isIntersecting] = useIntersectionObserver({
+      threshold: 0.5,
+    });
+
+    return (
+      <div
+        ref={ref}
+        className={`inline-block ${
+          isIntersecting ? "slide-top" : "opacity-0"
+        } underline underline-offset-2`}
+      >
+        <a href={href}>{title}</a>
+      </div>
+    );
+  };
+
   const league = leagues.map((league) => {
     if (league.pathname === pathname) {
       return (
@@ -208,23 +207,29 @@ export default function LeaguesMapPage() {
             <Subtitle>로보컵 리그</Subtitle>
           </div>
 
-          <div className="flex flex-col lg:flex-row">
-            <div className="fade-in w-full lg:w-3/5 mb-10">
-              <img className="w-full" src={`${league.img}`} alt="Not Founded" />
-            </div>
-
-            <div className="w-full lg:w-2/5 lg:ml-5 overflow-hidden">
-              {league.descriptions.map((description, index) => (
-                <Description
-                  key={index}
-                  text={description.text}
-                  index={index}
+          <div className="mb-5 border-b">
+            <div className="flex flex-col lg:flex-row">
+              <div className="fade-in w-full lg:w-3/5 mb-10">
+                <img
+                  className="w-full"
+                  src={`${league.img}`}
+                  alt="Not Founded"
                 />
-              ))}
+              </div>
+
+              <div className="w-full lg:w-2/5 lg:ml-5 overflow-hidden">
+                {league.descriptions.map((description, index) => (
+                  <Description
+                    key={index}
+                    text={description.text}
+                    index={index}
+                  />
+                ))}
+              </div>
             </div>
           </div>
 
-          <div className="flex flex-row justify-center gap-40 md:gap-60 overflow-hidden">
+          <div className="grid grid-flow-col auto-rows-max text-center">
             {league.child.map((childLeague, index) => (
               <ChildLink
                 key={index}
