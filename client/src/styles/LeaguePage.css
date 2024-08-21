@@ -66,3 +66,19 @@
   -webkit-animation: fade-in 1.2s cubic-bezier(0.39, 0.575, 0.565, 1) both;
   animation: fade-in 1.2s cubic-bezier(0.39, 0.575, 0.565, 1) both;
 }
+
+ @keyframes slide-in-bottom {
+  0% {
+    transform: translateY(70%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+
+.slide-in-bottom {
+	animation: slide-in-bottom 1.6s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}

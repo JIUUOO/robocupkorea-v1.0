@@ -14,7 +14,7 @@ export default function LeaguesMapPage() {
       img: "/images/RCJ_Soccer_1.jpg",
       descriptions: [
         {
-          text: `로보컵주니어(RoboCupJunior)는 19세까지의 학생들을 대상으로 프로젝트 지향적인 종목을 경쟁하는 부문입니다.
+          text: `로보컵주니어(RoboCupJunior)는 19세까지의 학생들을 대상으로 프로젝트 지향적인 종목을 경쟁하는 종목입니다.
           시니어 리그에 참여할 자원이 없는 학부생뿐만 아니라 초, 중등 어린이들까지 로보컵(RoboCup)을 경험할 수 있습니다.
           주니어 리그의 초점은 교육에 있습니다. 참가자들에게 국제 교류 프로그램에 참여하고 해외에서 온 다른 참가자들을 만나는 경험을 공유할 수 있는 기회를 제공합니다.`,
         },
@@ -79,7 +79,7 @@ export default function LeaguesMapPage() {
       img: "/images/RCJ_Rescue.jpg",
       descriptions: [
         {
-          text: "RoboCup Rescue는 문제 판단 인식과, 종합적인 개발능력을 키우고 경쟁하는 부문입니다. 경기장을 확인해 탐색 및 구조 애플리케이션을 설계할 수 있는 인지능력을 키웁니다.",
+          text: "RoboCup Rescue는 문제 판단 인식과, 종합적인 개발능력을 키우고 경쟁하는 종목입니다. 경기장을 확인해 탐색 및 구조 애플리케이션을 설계할 수 있는 인지능력을 키웁니다.",
         },
         {
           text: `효율적으로 탐색 및 구조 시나리오를 실행하기 위한 시뮬레이터를 개발해야합니다.

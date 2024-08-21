@@ -61,26 +61,57 @@ export default function LeaguePage() {
       pathname: PATH.LEAGUES_JUNIOR_ONSTAGE,
       title: "OnStage",
       parent: "RoboCupJunior",
-      description:
-        "로보컵 주니어 온스테이지는 팀들이 창의적이고 자율적인 물리적인 로봇들을 디자인하고, 제작하고, 프로그래밍하도록 초대합니다. 목표는 청중들을 참여시키기 위해 다양한 기술을 사용하는 라이브 또는 스트리밍된 로봇 공연을 만드는 것입니다. 이것은 춤, 스토리텔링, 극장 또는 예술 설치와 같은 가능한 공연의 범위를 포함합니다. 그 공연은 음악을 포함할 수 있지만, 이것은 선택 사항입니다. 그 리그는 개방형으로 의도되어 있습니다. 로봇의 디자인과 전체 공연의 디자인 모두에서, 팀들은 창의적이고, 혁신적이며, 즐거움을 주도록 격려됩니다. 모든 팀원은 14세 이상 19세 이하(7월 1일 기준)여야 합니다. 모든 팀은 TDP(Technical Description Poster), TDP(Technical Description Poster), 기술 시연(Technical Demonstration), 인터뷰(Technical Interview), 온스테이지 퍼포먼스(OnStage Performance) 등의 분야에서 심사를 받습니다.",
+      img: "/images/RCJ_OnStage.jpg",
+      descriptions: [
+        {
+          headline: "RoboCupJunior OnStage",
+          text: `OnStage의 팀들은 창의적이고 자율적으로 로봇들을 디자인하고, 제작하고, 프로그래밍합니다. 다양한 기술을 사용해 라이브 또는 스트리밍된 로봇 공연을 만들어 청중들에게 보여주는 것 입니다. 춤, 연극, 뮤지컬 등을 구상해 공연하는 것을 목표로 합니다.
+
+                 OnStage는 개방적인 종목입니다. 팀들은 창의적으로 공연을 구상하고 혁신적으로 로봇을 구현해 청중들을 즐겁게 하도록 노력합니다. 모든 팀은 TDP(Technical Description Poster), 기술 시연(Technical Demonstration), 인터뷰(Technical Interview), 온스테이지 퍼포먼스(OnStage Performance) 등의 분야에서 심사를 받습니다. 모든 팀원은 7월 1일 기준 14세 이상 19세 이하여야 합니다.`,
+        },
+      ],
     },
     {
       pathname: PATH.LEAGUES_JUNIOR_RESCUE,
       title: "Rescue",
       parent: "RoboCupJunior",
-      description: "레스큐!",
+      img: "/images/RCJ_Rescue.jpg",
+      descriptions: [
+        {
+          headline: "RoboCupJunior Rescue",
+          text: `Rescue는 탐색 및 구조 소프트웨어를 구현하는 종목입니다. 구조 시나리오를 제공받으면,
+          요구조자를 탐색 및 구출하기 위한 소프트웨어를 개발해 구조자의 능력이 부여되는 지능형 에이전트 및 로봇을 구현합니다.
+          주어진 환경에서 시뮬레이션을 하며 로봇의 하드웨어와 소프트웨어에 대한 객관적인 평가를 하며, 연구자 간의 협력을 목표로 합니다.
+          로봇은 평평한 표면에서의 선 추적부터 고르지 않은 지형의 장애물을 통과해 안전지역에 이르기까지 복잡한 재난 시나리오에서 요구조자를 식별해 안전한 공간에 운반하는 것을 목표로 합니다.`,
+        },
+      ],
     },
     {
       pathname: PATH.LEAGUES_SOCCER_HUMANOID,
       title: "Humanoid",
       parent: "RoboCupSoccer",
-      description: "와 축구! 제가 잘 알죠",
+      img: "",
+      descriptions: [
+        {
+          headline: "Humanoid League",
+          text: `Humanoid League에서는 인간과 유사한 구조와 인간과 유사한 센서를 가진 자율 로봇이 서로 축구를 합니다. 일반적인 휴머노이드 로봇과는 달리 범위 센서를 사용하여 보다 정교하게 경기장을 인식합니다. 일반적인 축구 규칙을 잘 따를 수 있는 "휴머노이드" 로봇을 구현하는 것이 큰 과제 입니다.
+          
+          휴머노이드 리그에서 연구된 많은 주요 구현 기능 중에는 균형유지, 걷고 뛰기, 공 인식, 공을 차기, 필드 인식하기, 자기 위치 파악, 상대 로봇과 우리 팀 로봇 인식, 팀 플레이가 있습니다. Humanoid League에서는 위 기능이 구현된 세계 최고의 자율 휴머노이드 로봇 팀들이 경쟁합니다.`,
+        },
+      ],
     },
     {
       pathname: PATH.LEAGUES_SOCCER_STANDARD_PLATFORM,
       title: "Standard Platform",
       parent: "RoboCupSoccer",
-      description: "와 축구! 제가 잘 알죠",
+      descriptions: [
+        {
+          headline: "Standard Platform League",
+          text: `Standard Platform League는 모든 팀이 동일한 로봇 플랫폼을 사용하여 참여하는 축구 리그입니다. 현재는 알데바란에서 제조한 NAO 휴머노이드 로봇이 표준 플랫폼으로 사용되고 있습니다. 이 리그는 완전 자율 로봇을 위한 알고리즘 개발에 중점을 두고 있습니다.
+
+                 매년 열리는 Standard Platform League에서 팀 축구 경기와 기술적 문제해결능력으로 경쟁합니다. RoboCup 2023에서 팀 축구는 Champion Cup 종목에서 7 대 7, Challenge Shield 종목에서 5 대 5로 진행됐습니다. 문제해결 종목에서는 시각센서 처리를 통한 축구 심판, 움직이는 공의 핸들링 판단 및 적어도 하나의 게임 내 참가가 포함됐습니다.`,
+        },
+      ],
     },
     {
       pathname: PATH.LEAGUES_SOCCER_MIDDLE_SIZE,
@@ -137,20 +168,12 @@ export default function LeaguePage() {
     });
 
     return (
-      <div ref={ref} className="overflow-hidden mt-5 mb-10 mr-10">
-        <div
-          className={`text-lg font-bold whitespace-pre-line ${
-            isIntersecting ? "slide-in-left" : "opacity-0"
-          }`}
-        >
-          {headline}
-        </div>
-        <div
-          className={`whitespace-pre-line ${
-            isIntersecting ? "slide-in-left" : "opacity-0"
-          }`}
-        >
-          {text}
+      <div ref={ref} className="overflow-hidden mt-5 mb-5 mr-10">
+        <div className={` ${isIntersecting ? "slide-in-bottom" : "opacity-0"}`}>
+          <div className="text-lg font-bold whitespace-pre-line">
+            {headline}
+          </div>
+          <div className="whitespace-pre-line">{text}</div>
         </div>
       </div>
     );
