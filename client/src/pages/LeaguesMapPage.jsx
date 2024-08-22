@@ -204,7 +204,7 @@ export default function LeaguesMapPage() {
       return (
         <>
           <div
-            className="bg-fixed bg-contain bg-center bg-no-repeat content-end bg"
+            className="bg-fixed bg-cover bg-center bg-no-repeat content-end bg"
             style={{
               backgroundImage: `url(${league.img})`,
               widows: "100vw",
@@ -217,7 +217,7 @@ export default function LeaguesMapPage() {
             </div>
           </div>
 
-          <div className="my-5 border-b">
+          <div className="my-5">
             <div className="overflow-hidden">
               {league.descriptions.map((description, index) => (
                 <Description

@@ -321,7 +321,7 @@ Small Size League는 각각 6대의 로봇으로 한 팀을 이루어 경기합�
                 </div>
               </div>
 
-              <div className="flex flex-col border-b">
+              <div className={`${league.descriptions.length === 1 ? "flex flex-col" : "flex flex-col md:grid md:grid-cols-2"} border-b`}>
                 {league.descriptions.map((description) => (
                   <Description
                     headline={description.headline}
