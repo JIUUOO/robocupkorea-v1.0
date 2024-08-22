@@ -58,7 +58,9 @@ export default function NoticePage() {
           <Title>{notice.title}</Title>
           <Subtitle>이벤트 소식을 공지합니다</Subtitle>
           {loading ? (
-            <div>Loading... (이펙트추가예정)</div>
+            <div className="grid grid-cols-1 place-items-center">
+              <img src="/Loading.gif"/>
+            </div>
           ) : (
             <div className="overflow-x-hidden">
               <table className="max-md:flex flex-col items-between text-nowrap w-full">
