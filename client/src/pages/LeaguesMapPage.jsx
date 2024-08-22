@@ -127,7 +127,7 @@ export default function LeaguesMapPage() {
     {
       pathname: PATH.LEAGUES_INDUSTRIAL,
       title: "RoboCupIndustrial",
-      descriptions: [{ text: "There's no scripts" }],
+      descriptions: [{ text: "" }],
       child: [
         {
           href: PATH.LEAGUES_INDUSTRIAL_ROBOCUP_ATWORK,
@@ -208,7 +208,7 @@ export default function LeaguesMapPage() {
             style={{
               backgroundImage: `url(${league.img})`,
               widows: "100vw",
-              height: "90vh",
+              height: `${league.img !== undefined ? "90vh" : "20vh"}`,
             }}
           >
             <div className="text-white fade-in w-full text-center stroke">

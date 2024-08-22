@@ -182,7 +182,7 @@ export default function Header() {
                         RoboCup@Home
                       </ChildDropdownTitle>
                       <ChildDropdownMenu id="ATHOME">
-                        <DropdownItem to={PATH.LEAGUES_ATHOME_OPENPLATFORM}>
+                        <DropdownItem to={PATH.LEAGUES_ATHOME_OPEN_PLATFORM}>
                           Open Platform
                         </DropdownItem>
                         <DropdownItem

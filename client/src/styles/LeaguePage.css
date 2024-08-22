@@ -32,7 +32,7 @@
 
 @keyframes slide-top {
   0% {
-    transform: translateY(-70%);
+    transform: translateY(-100%);
     opacity: 0;
   }
   100% {
