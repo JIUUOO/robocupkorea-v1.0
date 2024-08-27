@@ -27,14 +27,17 @@ export default function LeaguesMapPage() {
       child: [
         {
           href: PATH.LEAGUES_JUNIOR_SOCCER,
+          img: "/images/child/soccer.jpg",
           title: "Soccer",
         },
         {
           href: PATH.LEAGUES_JUNIOR_ONSTAGE,
+          img: "/images/child/onstage.jpg",
           title: "OnStage",
         },
         {
           href: PATH.LEAGUES_JUNIOR_RESCUE,
+          img: "/images/child/rescue.jpg",
           title: "Rescue",
         },
       ],
@@ -54,22 +57,27 @@ export default function LeaguesMapPage() {
       child: [
         {
           href: PATH.LEAGUES_SOCCER_HUMANOID,
+          img: "/images/RCJ_Soccer_1.jpg",
           title: "Humanoid",
         },
         {
           href: PATH.LEAGUES_SOCCER_STANDARD_PLATFORM,
+          img: "/images/RCJ_Soccer_1.jpg",
           title: "Standard Platform",
         },
         {
           href: PATH.LEAGUES_SOCCER_MIDDLE_SIZE,
+          img: "/images/RCJ_Soccer_1.jpg",
           title: "Middle Size",
         },
         {
           href: PATH.LEAGUES_SOCCER_SMALL_SIZE,
+          img: "/images/RCJ_Soccer_1.jpg",
           title: "Small Size",
         },
         {
           href: PATH.LEAGUES_SOCCER_SIMULATION,
+          img: "/images/RCJ_Soccer_1.jpg",
           title: "Simulation",
         },
       ],
@@ -182,20 +190,26 @@ export default function LeaguesMapPage() {
     );
   };
 
-  const ChildLink = ({ href, title }) => {
+  const ChildLink = ({ img, href, title }) => {
     const [ref, isIntersecting] = useIntersectionObserver({
       threshold: 0.5,
     });
 
     return (
-      <div
-        ref={ref}
-        className={`inline-block ${
-          isIntersecting ? "slide-top" : "opacity-0"
-        } underline underline-offset-2`}
-      >
-        <a href={href}>{title}</a>
-      </div>
+      <a href={href} className="inline-block mx-3">
+        <div
+          ref={ref}
+          className={`inline-block ${
+            isIntersecting ? "slide-top" : "opacity-0"
+          } underline underline-offset-2 rounded-lg bg-cover text-white w-full`}
+          style={{
+            backgroundImage: `url(${img})`,
+            height: "30vh",
+          }}
+        >
+          {title}
+        </div>
+      </a>
     );
   };
 
@@ -233,6 +247,7 @@ export default function LeaguesMapPage() {
             {league.child.map((childLeague, index) => (
               <ChildLink
                 key={index}
+                img={childLeague.img}
                 href={childLeague.href}
                 title={childLeague.title}
                 index={index}
