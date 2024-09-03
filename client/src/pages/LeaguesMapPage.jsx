@@ -27,17 +27,17 @@ export default function LeaguesMapPage() {
       child: [
         {
           href: PATH.LEAGUES_JUNIOR_SOCCER,
-          img: "/images/child/soccer.jpg",
+          img: "/images/RCJ_Soccer_1.jpg",
           title: "Soccer",
         },
         {
           href: PATH.LEAGUES_JUNIOR_ONSTAGE,
-          img: "/images/child/onstage.jpg",
+          img: "/images/RCJ_Soccer_1.jpg",
           title: "OnStage",
         },
         {
           href: PATH.LEAGUES_JUNIOR_RESCUE,
-          img: "/images/child/rescue.jpg",
+          img: "/images/RCJ_Soccer_1.jpg",
           title: "Rescue",
         },
       ],
@@ -57,27 +57,27 @@ export default function LeaguesMapPage() {
       child: [
         {
           href: PATH.LEAGUES_SOCCER_HUMANOID,
-          img: "/images/RCJ_Soccer_1.jpg",
+          img: "/images/RC_Soccer.gif",
           title: "Humanoid",
         },
         {
           href: PATH.LEAGUES_SOCCER_STANDARD_PLATFORM,
-          img: "/images/RCJ_Soccer_1.jpg",
+          img: "/images/RC_Soccer.gif",
           title: "Standard Platform",
         },
         {
           href: PATH.LEAGUES_SOCCER_MIDDLE_SIZE,
-          img: "/images/RCJ_Soccer_1.jpg",
+          img: "/images/RC_Soccer.gif",
           title: "Middle Size",
         },
         {
           href: PATH.LEAGUES_SOCCER_SMALL_SIZE,
-          img: "/images/RCJ_Soccer_1.jpg",
+          img: "/images/RC_Soccer.gif",
           title: "Small Size",
         },
         {
           href: PATH.LEAGUES_SOCCER_SIMULATION,
-          img: "/images/RCJ_Soccer_1.jpg",
+          img: "/images/RC_Soccer.gif",
           title: "Simulation",
         },
       ],
@@ -98,10 +98,12 @@ export default function LeaguesMapPage() {
       child: [
         {
           href: PATH.LEAGUES_RESCUE_ROBOT,
+          img: "/images/RCJ_Rescue.jpg",
           title: "Robot",
         },
         {
           href: PATH.LEAGUES_RESCUE_SIMULATION,
+          img: "/images/RCJ_Rescue.jpg",
           title: "Simulation",
         },
       ],
@@ -120,14 +122,17 @@ export default function LeaguesMapPage() {
       child: [
         {
           href: PATH.LEAGUES_ATHOME_OPEN_PLATFORM,
+          img: "/images/RCJ_Rescue.jpg",
           title: "Open Platform",
         },
         {
           href: PATH.LEAGUES_ATHOME_DOMESTIC_STANDARD_PLATFORM,
+          img: "/images/RCJ_Rescue.jpg",
           title: "Domestic Standard Platform",
         },
         {
           href: PATH.LEAGUES_ATHOME_SOCIAL_STANDARD_PLATFORM,
+          img: "/images/RCJ_Rescue.jpg",
           title: "Social Standard Platform",
         },
       ],
@@ -139,10 +144,12 @@ export default function LeaguesMapPage() {
       child: [
         {
           href: PATH.LEAGUES_INDUSTRIAL_ROBOCUP_ATWORK,
+          img: "/images/RCJ_Rescue.jpg",
           title: "RoboCup@Work",
         },
         {
           href: PATH.LEAGUES_INDUSTRIAL_LOGISTICS,
+          img: "/images/RCJ_Rescue.jpg",
           title: "Logistics",
         },
       ],
@@ -190,26 +197,28 @@ export default function LeaguesMapPage() {
     );
   };
 
-  const ChildLink = ({ img, href, title }) => {
+  const ChildLink = ({ href, title, img }) => {
     const [ref, isIntersecting] = useIntersectionObserver({
       threshold: 0.5,
     });
 
     return (
-      <a href={href} className="inline-block mx-3">
-        <div
-          ref={ref}
-          className={`inline-block ${
-            isIntersecting ? "slide-top" : "opacity-0"
-          } underline underline-offset-2 rounded-lg bg-cover text-white w-full`}
-          style={{
-            backgroundImage: `url(${img})`,
-            height: "30vh",
-          }}
-        >
-          {title}
-        </div>
-      </a>
+      <div className="mx-3 w-full">
+        <a href={href} className="inline-block w-full h-full">
+          <div
+            ref={ref}
+            className={`inline-block ${
+              isIntersecting ? "slide-top" : "opacity-0"
+            } underline underline-offset-2 rounded-lg bg-cover bg-center place-content-center stroke text-white w-full h-full`}
+            style={{
+              backgroundImage: `url(${img})`,
+              height: "30vh",
+            }}
+          >
+            {title}
+          </div>
+        </a>
+      </div>
     );
   };
 
@@ -218,7 +227,7 @@ export default function LeaguesMapPage() {
       return (
         <>
           <div
-            className="bg-fixed bg-cover bg-center bg-no-repeat content-end bg"
+            className="bg-fixed bg-cover bg-center bg-no-repeat content-end"
             style={{
               backgroundImage: `url(${league.img})`,
               widows: "100vw",
@@ -243,14 +252,14 @@ export default function LeaguesMapPage() {
             </div>
           </div>
 
-          <div className="grid grid-flow-col auto-rows-max text-center">
+          <div className={`flex flex-rows auto-rows-max text-center overflow-hidden`}>
             {league.child.map((childLeague, index) => (
               <ChildLink
                 key={index}
-                img={childLeague.img}
                 href={childLeague.href}
                 title={childLeague.title}
                 index={index}
+                img={childLeague.img}
               />
             ))}
           </div>
