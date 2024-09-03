@@ -1,7 +1,7 @@
 import { useLocation } from "react-router-dom";
 import { Container, Title, Subtitle } from "../components/layouts";
 import { PATH } from "../routes/path";
-import "../styles/LeaguesMapPage.css";
+import "../styles/LeaguePage.css";
 import { useEffect, useState, useRef } from "react";
 
 export default function LeaguesMapPage() {
@@ -189,8 +189,8 @@ export default function LeaguesMapPage() {
       <div
         ref={ref}
         className={`mb-10 ${
-          isIntersecting ? "slide-in-left" : "opacity-0"
-        } whitespace-pre-line`}
+          isIntersecting ? "slide-in-bottom" : "opacity-0"
+        } text-lg whitespace-pre-line`}
       >
         {text}
       </div>
@@ -208,7 +208,7 @@ export default function LeaguesMapPage() {
           <div
             ref={ref}
             className={`inline-block ${
-              isIntersecting ? "slide-top" : "opacity-0"
+              isIntersecting ? "slide-in-bottom" : "opacity-0"
             } underline underline-offset-2 rounded-lg bg-cover bg-center place-content-center stroke text-white w-full h-full`}
             style={{
               backgroundImage: `url(${img})`,
