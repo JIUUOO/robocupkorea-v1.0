@@ -91,6 +91,7 @@ export default function LeaguePage() {
       pathname: PATH.LEAGUES_SOCCER_HUMANOID,
       title: "Humanoid",
       parent: "RoboCupSoccer",
+      img: "/images/child/rcsHumanoid.png",
       descriptions: [
         {
           headline: "Humanoid League",
@@ -109,6 +110,7 @@ export default function LeaguePage() {
       pathname: PATH.LEAGUES_SOCCER_STANDARD_PLATFORM,
       title: "Standard Platform",
       parent: "RoboCupSoccer",
+      img: "/images/child/rcsStandard.png",
       descriptions: [
         {
           headline: "Standard Platform League",
@@ -122,6 +124,7 @@ export default function LeaguePage() {
       pathname: PATH.LEAGUES_SOCCER_MIDDLE_SIZE,
       title: "Middle Size",
       parent: "RoboCupSoccer",
+      img: "/images/child/rcsMiddle.png",
       descriptions: [
         {
           headline: "Middle Soccer League",
@@ -133,6 +136,7 @@ export default function LeaguePage() {
       pathname: PATH.LEAGUES_SOCCER_SMALL_SIZE,
       title: "Small Size",
       parent: "RoboCupSoccer",
+      img: "/images/child/rcsSmall.png",
       descriptions: [
         {
           headline: "Small Size League",
@@ -150,6 +154,7 @@ Small Size League는 각각 6대의 로봇으로 한 팀을 이루어 경기합�
       pathname: PATH.LEAGUES_SOCCER_SIMULATION,
       title: "Simulation",
       parent: "RoboCupSoccer",
+      img: "/images/child/rcsSimulation.png",
       descriptions: [
         {
           headline: "Simulation League",
@@ -173,6 +178,7 @@ Small Size League는 각각 6대의 로봇으로 한 팀을 이루어 경기합�
       pathname: PATH.LEAGUES_RESCUE_ROBOT,
       title: "Robot",
       parent: "RoboCupRescue",
+      img: "/images/child/rcrRobot.png",
       descriptions: [
         {
           headline: "USAR",
@@ -185,6 +191,7 @@ Small Size League는 각각 6대의 로봇으로 한 팀을 이루어 경기합�
       pathname: PATH.LEAGUES_RESCUE_SIMULATION,
       title: "Simulation",
       parent: "RoboCupRescue",
+      img: "/images/child/rcrSimulation.png",
       descriptions: [
         {
           headline: "Rescue Simulation League",
@@ -212,6 +219,7 @@ Small Size League는 각각 6대의 로봇으로 한 팀을 이루어 경기합�
       pathname: PATH.LEAGUES_ATHOME_OPEN_PLATFORM,
       title: "Open Platform",
       parent: "RoboCup@Home",
+      img: "/images/child/rchOpen.png",
       descriptions: [
         {
           headline: "Open Platform League",
@@ -223,6 +231,7 @@ Small Size League는 각각 6대의 로봇으로 한 팀을 이루어 경기합�
       pathname: PATH.LEAGUES_ATHOME_DOMESTIC_STANDARD_PLATFORM,
       title: "Domestic Standard Platform",
       parent: "RoboCup@Home",
+      img: "/images/child/rchDomestic.png",
       descriptions: [
         {
           headline: "Domestic Standard Platform League",
@@ -234,6 +243,7 @@ Small Size League는 각각 6대의 로봇으로 한 팀을 이루어 경기합�
       pathname: PATH.LEAGUES_ATHOME_SOCIAL_STANDARD_PLATFORM,
       title: "Social Standard Platform",
       parent: "RoboCup@Home",
+      img: "/images/child/rchSocial.png",
       descriptions: [
         {
           headline: "Social Standard Platform League",
@@ -246,6 +256,7 @@ Small Size League는 각각 6대의 로봇으로 한 팀을 이루어 경기합�
       pathname: PATH.LEAGUES_INDUSTRIAL_ROBOCUP_ATWORK,
       title: "RoboCup@work",
       parent: "RoboCupIndustrial",
+      img: "/images/child/rciWork.png",
       descriptions: [
         {
           headline: "RoboCup@work",
@@ -257,6 +268,7 @@ Small Size League는 각각 6대의 로봇으로 한 팀을 이루어 경기합�
       pathname: PATH.LEAGUES_INDUSTRIAL_LOGISTICS,
       title: "Logistics",
       parent: "RoboCupIndustrial",
+      img: "/images/child/rciLogistics.png",
       descriptions: [
         {
           headline: "RoboCup Logistics League",
@@ -321,7 +333,13 @@ Small Size League는 각각 6대의 로봇으로 한 팀을 이루어 경기합�
                 </div>
               </div>
 
-              <div className={`${league.descriptions.length === 1 ? "flex flex-col" : "flex flex-col md:grid md:grid-cols-2"} border-b`}>
+              <div
+                className={`${
+                  league.descriptions.length === 1
+                    ? "flex flex-col"
+                    : "flex flex-col md:grid md:grid-cols-2"
+                } border-b`}
+              >
                 {league.descriptions.map((description) => (
                   <Description
                     headline={description.headline}
