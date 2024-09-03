@@ -27,17 +27,17 @@ export default function LeaguesMapPage() {
       child: [
         {
           href: PATH.LEAGUES_JUNIOR_SOCCER,
-          img: "/images/RCJ_Soccer_1.jpg",
+          img: "/images/child/rcjSoccer.png",
           title: "Soccer",
         },
         {
           href: PATH.LEAGUES_JUNIOR_ONSTAGE,
-          img: "/images/RCJ_Soccer_1.jpg",
+          img: "/images/child/rcjOnstage.png",
           title: "OnStage",
         },
         {
           href: PATH.LEAGUES_JUNIOR_RESCUE,
-          img: "/images/RCJ_Soccer_1.jpg",
+          img: "/images/child/rcjRescue.png",
           title: "Rescue",
         },
       ],
@@ -57,27 +57,27 @@ export default function LeaguesMapPage() {
       child: [
         {
           href: PATH.LEAGUES_SOCCER_HUMANOID,
-          img: "/images/RC_Soccer.gif",
+          img: "/images/child/rcsHumanoid.png",
           title: "Humanoid",
         },
         {
           href: PATH.LEAGUES_SOCCER_STANDARD_PLATFORM,
-          img: "/images/RC_Soccer.gif",
+          img: "/images/child/rcsStandard.png",
           title: "Standard Platform",
         },
         {
           href: PATH.LEAGUES_SOCCER_MIDDLE_SIZE,
-          img: "/images/RC_Soccer.gif",
+          img: "/images/child/rcsMiddle.png",
           title: "Middle Size",
         },
         {
           href: PATH.LEAGUES_SOCCER_SMALL_SIZE,
-          img: "/images/RC_Soccer.gif",
+          img: "/images/child/rcsSmall.png",
           title: "Small Size",
         },
         {
           href: PATH.LEAGUES_SOCCER_SIMULATION,
-          img: "/images/RC_Soccer.gif",
+          img: "/images/child/rcsSimulation.png",
           title: "Simulation",
         },
       ],
@@ -98,12 +98,12 @@ export default function LeaguesMapPage() {
       child: [
         {
           href: PATH.LEAGUES_RESCUE_ROBOT,
-          img: "/images/RCJ_Rescue.jpg",
+          img: "/images/child/rcrRobot.png",
           title: "Robot",
         },
         {
           href: PATH.LEAGUES_RESCUE_SIMULATION,
-          img: "/images/RCJ_Rescue.jpg",
+          img: "/images/child/rcrSimulation.png",
           title: "Simulation",
         },
       ],
@@ -111,6 +111,7 @@ export default function LeaguesMapPage() {
     {
       pathname: PATH.LEAGUES_ATHOME,
       title: "RoboCup@Home",
+      img: "/images/RC@Home.png",
       descriptions: [
         {
           text: "RoboCup@Home 리그는 미래의 개인 국내 애플리케이션과 관련성이 높은 서비스 및 보조 로봇 기술을 개발하는 것을 목표로 합니다. 이 대회는 자율 서비스 로봇을 위한 가장 큰 국제 연례 대회이며 RoboCup initiative의 일부입니다. 일련의 벤치마크 테스트는 현실적인 비표준화된 가정 환경 환경에서 로봇의 능력과 성능을 평가하는 데 사용됩니다.",
@@ -122,17 +123,17 @@ export default function LeaguesMapPage() {
       child: [
         {
           href: PATH.LEAGUES_ATHOME_OPEN_PLATFORM,
-          img: "/images/RCJ_Rescue.jpg",
+          img: "/images/child/rchOpen.png",
           title: "Open Platform",
         },
         {
           href: PATH.LEAGUES_ATHOME_DOMESTIC_STANDARD_PLATFORM,
-          img: "/images/RCJ_Rescue.jpg",
+          img: "/images/child/rchDomestic.png",
           title: "Domestic Standard Platform",
         },
         {
           href: PATH.LEAGUES_ATHOME_SOCIAL_STANDARD_PLATFORM,
-          img: "/images/RCJ_Rescue.jpg",
+          img: "/images/child/rchSocial.png",
           title: "Social Standard Platform",
         },
       ],
@@ -140,16 +141,17 @@ export default function LeaguesMapPage() {
     {
       pathname: PATH.LEAGUES_INDUSTRIAL,
       title: "RoboCupIndustrial",
+      img: "/images/RC_Industrial.jpg",
       descriptions: [{ text: "" }],
       child: [
         {
           href: PATH.LEAGUES_INDUSTRIAL_ROBOCUP_ATWORK,
-          img: "/images/RCJ_Rescue.jpg",
+          img: "/images/child/rciWork.png",
           title: "RoboCup@Work",
         },
         {
           href: PATH.LEAGUES_INDUSTRIAL_LOGISTICS,
-          img: "/images/RCJ_Rescue.jpg",
+          img: "/images/child/rciLogistics.png",
           title: "Logistics",
         },
       ],
@@ -227,7 +229,7 @@ export default function LeaguesMapPage() {
       return (
         <>
           <div
-            className="bg-fixed bg-cover bg-center bg-no-repeat content-end"
+            className="bg-fixed bg-contain bg-center bg-no-repeat content-end"
             style={{
               backgroundImage: `url(${league.img})`,
               widows: "100vw",
@@ -252,7 +254,9 @@ export default function LeaguesMapPage() {
             </div>
           </div>
 
-          <div className={`flex flex-rows auto-rows-max text-center overflow-hidden`}>
+          <div
+            className={`flex flex-rows auto-rows-max text-center overflow-hidden`}
+          >
             {league.child.map((childLeague, index) => (
               <ChildLink
                 key={index}
