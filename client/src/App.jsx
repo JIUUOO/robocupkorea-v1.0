@@ -7,6 +7,7 @@ import Footer from "./components/Footer";
 import MainPage from "./pages/MainPage";
 import AboutPage from "./pages/AboutPage";
 import CommitteePage from "./pages/CommitteePage";
+import SponsorPage from "./pages/SponsorPage";
 import LeaguesMapPage from "./pages/LeaguesMapPage";
 import LeaguePage from "./pages/LeaguePage";
 import EventsLatestPage from "./pages/EventsLatestPage";
@@ -28,6 +29,7 @@ function App() {
           <Route path={PATH.MAIN} Component={MainPage} />
           <Route path={PATH.ABOUT} Component={AboutPage} />
           <Route path={PATH.COMMITTEE} Component={CommitteePage} />
+          <Route path={PATH.SPONSOR} Component={SponsorPage} />
 
           <Route path={PATH.LEAGUES_JUNIOR} Component={LeaguesMapPage} />
           <Route path={PATH.LEAGUES_JUNIOR_SOCCER} Component={LeaguePage} />

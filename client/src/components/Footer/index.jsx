@@ -29,6 +29,7 @@ export default function Footer() {
               <div className={menuHeadStyle}>한국로보켭협회</div>
               <MenuItem to={PATH.ABOUT}>소개</MenuItem>
               <MenuItem to={PATH.COMMITTEE}>운영위원</MenuItem>
+              <MenuItem to={PATH.SPONSOR}>후원 안내</MenuItem>
             </li>
             <li className={menuStyle}>
               <div className={menuHeadStyle}>로보컵 리그</div>
