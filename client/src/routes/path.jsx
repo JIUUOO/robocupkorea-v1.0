@@ -2,6 +2,7 @@ export const PATH = {
   MAIN: "/",
   ABOUT: "/about",
   COMMITTEE: "/committee",
+  SPONSOR: "/sponsor",
 
   LEAGUES_JUNIOR: "/leagues/junior",
   LEAGUES_JUNIOR_SOCCER: "/leagues/junior/soccer",

@@ -1,50 +1,3 @@
-@keyframes slide-in-top {
-  0% {
-    -webkit-transform: translateY(-100%);
-    transform: translateY(-100%);
-    opacity: 0;
-  }
-  100% {
-    -webkit-transform: translateY(0);
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-
-.slide-in-top {
-  animation: slide-in-top 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
-}
-
-@keyframes slide-in-left {
-  0% {
-    transform: translateX(-60%);
-    opacity: 0;
-  }
-  100% {
-    transform: translateX(0);
-    opacity: 1;
-  }
-}
-
-.slide-in-left {
-  animation: slide-in-left 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
-}
-
-@keyframes slide-top {
-  0% {
-    transform: translateY(-100%);
-    opacity: 0;
-  }
-  100% {
-    transform: translateY(0%);
-    opacity: 1;
-  }
-}
-
-.slide-top {
-  animation: slide-top 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
-}
-
 @-webkit-keyframes fade-in {
   0% {
     opacity: 0;
@@ -67,7 +20,7 @@
   animation: fade-in 1.2s cubic-bezier(0.39, 0.575, 0.565, 1) both;
 }
 
- @keyframes slide-in-bottom {
+@keyframes slide-in-bottom {
   0% {
     transform: translateY(100px);
     opacity: 0;
@@ -78,11 +31,10 @@
   }
 }
 
-.stroke {
-  text-shadow: -1px 0px gray, 0px 1px gray, 1px 0px gray, 0px -1px gray;
+.slide-in-bottom {
+  animation: slide-in-bottom 1.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 }
 
-
-.slide-in-bottom {
-	animation: slide-in-bottom 1.6s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+.stroke {
+  text-shadow: -1px 0px gray, 0px 1px gray, 1px 0px gray, 0px -1px gray;
 }

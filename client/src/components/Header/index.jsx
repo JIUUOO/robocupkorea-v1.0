@@ -101,6 +101,7 @@ export default function Header() {
                   <DropdownMenu id="RCKA">
                     <DropdownItem to={PATH.ABOUT}>소개</DropdownItem>
                     <DropdownItem to={PATH.COMMITTEE}>운영위원</DropdownItem>
+                    <DropdownItem to={PATH.SPONSOR}>후원 안내</DropdownItem>
                   </DropdownMenu>
                 </li>
                 <li

@@ -46,7 +46,9 @@ export default function NoticeDetailPage() {
       <Subtitle>공지사항</Subtitle>
 
       {loading ? (
-        <div>Loading...(이펙트추가예정)</div>
+        <div className="grid grid-cols-1 place-items-center">
+          <img src="/Loading.gif" />
+        </div>
       ) : (
         <div>
           <div className="min-h-10 pb-6">{notice.content}</div>
