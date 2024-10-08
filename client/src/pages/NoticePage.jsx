@@ -54,12 +54,12 @@ export default function NoticePage() {
   const notice = notices.map((notice) => {
     if (notice.pathname === pathname) {
       return (
-        <Container>
+        <Container key={Math.random()}>
           <Title>{notice.title}</Title>
           <Subtitle>이벤트 소식을 공지합니다</Subtitle>
           {loading ? (
             <div className="grid grid-cols-1 place-items-center">
-              <img src="/Loading.gif"/>
+              <img src="/Loading.gif" />
             </div>
           ) : (
             <div className="overflow-x-hidden">
