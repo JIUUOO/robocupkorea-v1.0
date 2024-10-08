@@ -8,9 +8,8 @@ const noticeBoardRouter = require("./routes/noticeBoardRouter");
 dotenv.config();
 
 const app = express();
-const PORT = 3000;
-const URI =
-  "mongodb+srv://nninjiuuoo:1Q2w3e4r5!@bulletinboard.yhejnoi.mongodb.net/NoticeBoard?retryWrites=true&w=majority";
+const PORT = process.env.PORT || 3000;
+const URI = process.env.MONGODB_ATLAS_URI;
 
 app.use(express.static(path.join(__dirname, "../client/build")));
 app.use(cors());
