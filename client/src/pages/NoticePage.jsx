@@ -5,7 +5,7 @@ import { PATH } from "../routes/path";
 import { useLocation } from "react-router-dom";
 
 export default function NoticePage() {
-  const apiBaseUrl = "http://localhost:3000/api/NoticeBoard";
+  const apiBaseUrl = process.env.REACT_APP_API_BASE_URL;
   const [noticeData, setNoticeData] = useState([]);
   const [loading, setLoading] = useState(true);
   const { pathname } = useLocation();
