@@ -19,13 +19,13 @@ function LanguageSelectButton() {
   const { i18n } = useTranslation();
 
   const style =
-    "cursor-pointer md:py-2 md:px-1 mr-2 hover:md:rounded-lg hover:md:shadow hover:md:bg-gray-200";
+    "cursor-pointer md:py-3 md:px-2 mr-2 hover:md:rounded-lg hover:md:shadow hover:md:bg-zinc-200";
 
   return (
     <>
       <div
         className={`${
-          i18n.language === "ko" ? "opacity-70" : "opacity-40"
+          i18n.language === "ko" ? "opacity-60" : "opacity-40"
         } ${style}`}
         onClick={() => i18n.changeLanguage("ko")}
       >
@@ -33,7 +33,7 @@ function LanguageSelectButton() {
       </div>
       <div
         className={`${
-          i18n.language === "en" ? "opacity-70" : "opacity-40"
+          i18n.language === "en" ? "opacity-60" : "opacity-40"
         } ${style}`}
         onClick={() => i18n.changeLanguage("en")}
       >
