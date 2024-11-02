@@ -58,7 +58,7 @@ function App() {
 
           <Route path={PATH.EVENTS_LATEST} Component={EventsLatestPage} />
           <Route path={PATH.EVENTS_ARCHIVE} Component={EventsArchivePage} />
-
+          
           <Route path={PATH.NOTICE_EVENTS} Component={NoticePage} />
           <Route path={PATH.NOTICE_EVENTS_DETAIL} Component={NoticeDetailPage} />
           <Route path={PATH.NOTICE_RULES} Component={NoticePage} />

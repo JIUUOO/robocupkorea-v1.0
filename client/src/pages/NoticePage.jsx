@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useLayoutEffect } from "react";
 import axios from "axios";
 import { Container, Title, Subtitle } from "../components/layouts";
 import { PATH } from "../routes/path";
@@ -25,13 +25,17 @@ export default function NoticePage() {
     },
   ];
 
-  useEffect(() => {
+  useLayoutEffect(() => {
+    setNoticeData([]);
+    setLoading(true);
+
     const getApi = async () => {
       try {
         const { data } = await axios.get(
           `${apiBaseUrl}/meta?category=${notices
             .map((notice) => {
               if (notice.pathname === pathname) return notice.category;
+              return undefined;
             })
             .filter((notice) => notice !== undefined)}`
         );
@@ -59,7 +63,11 @@ export default function NoticePage() {
           <Subtitle>이벤트 소식을 공지합니다</Subtitle>
           {loading ? (
             <div className="grid grid-cols-1 place-items-center">
-              <img src="/Loading.gif" />
+              <img
+                src="/Loading.gif"
+                className="w-[6rem] opacity-40"
+                alt="Loading.gif"
+              />
             </div>
           ) : (
             <div className="overflow-x-hidden">
@@ -69,11 +77,11 @@ export default function NoticePage() {
                     <th className="py-1 px-2 max-md:inline-block max-md:w-[65vw] text-start">
                       제목
                     </th>
-                    <th className="py-1 px-2 max-md:inline-block max-md:w-[50px] text-start">
+                    <th className="py-1 px-2 max-md:inline-block max-md:w-[80px] text-start">
                       작성자
                     </th>
                     <th
-                      className="py-1 px-2 max-md:inline-block max-md:w-[50px] text-start"
+                      className="py-1 px-2 max-md:inline-block max-md:w-[80px] text-start"
                       onClick={onClick}
                     >
                       날짜
@@ -93,10 +101,10 @@ export default function NoticePage() {
                                 {notice.title}
                               </a>
                             </td>
-                            <td className="p-2 max-md:inline-block max-md:w-[50px] font-semibold">
+                            <td className="p-2 max-md:inline-block max-md:w-[80px] font-semibold">
                               <div className="truncate">{notice.author}</div>
                             </td>
-                            <td className="p-2 max-md:inline-block max-md:w-[50px]">
+                            <td className="p-2 max-md:inline-block max-md:w-[80px]">
                               <div className="truncate">
                                 {notice.date.split("T")[0]}
                               </div>
@@ -112,6 +120,7 @@ export default function NoticePage() {
         </Container>
       );
     }
+    return undefined;
   });
 
   return notice;

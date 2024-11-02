@@ -1,10 +1,19 @@
 import { Link } from "react-router-dom";
 import { PATH } from "../../routes/path";
-import MenuItem from "./components/MenuItem";
+
+function MenuItem({ to, children }) {
+  return (
+    <div className="pb-1">
+      <Link to={to} className="font-light hover:underline underline-offset-3">
+        {children}
+      </Link>
+    </div>
+  );
+}
 
 export default function Footer() {
   const menuStyle = "pb-4";
-  const menuHeadStyle = "pb-1 font-light";
+  const menuHeadStyle = "pb-1 font-normal";
 
   return (
     <footer className="mt-12">
@@ -24,7 +33,7 @@ export default function Footer() {
               중심의 교육 증진 운동입니다.
             </p>
           </div>
-          <ul className="grid md:grid-cols-5">
+          <ul className="grid md:grid-cols-4">
             <li className={menuStyle}>
               <div className={menuHeadStyle}>한국로보켭협회</div>
               <MenuItem to={PATH.ABOUT}>소개</MenuItem>

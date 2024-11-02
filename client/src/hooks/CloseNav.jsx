@@ -1,4 +1,4 @@
-import { useContext, useEffect } from "react";
+import { useContext, useLayoutEffect } from "react";
 import { NavContext } from "../contexts/NavContext";
 import { useLocation } from "react-router-dom";
 
@@ -8,11 +8,11 @@ export default function CloseNav() {
 
   const { pathname } = useLocation();
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     setShowDropdown(null);
     setShowChildDropdown(null);
     setMobileNavOpen(false);
-  }, [pathname]);
+  }, [setShowDropdown, setShowChildDropdown, setMobileNavOpen, pathname]);
 
   return null;
 }
