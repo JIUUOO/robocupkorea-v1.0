@@ -352,6 +352,7 @@ Small Size League는 각각 6대의 로봇으로 한 팀을 이루어 경기합�
               </div>
             </>
           );
+        return undefined;
       })}
     </Container>
   );

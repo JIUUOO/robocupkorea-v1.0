@@ -164,6 +164,7 @@ export default function EventsLatestPage() {
       </div>
       <div className="mt-5 mb-5 flex justify-center">
         <iframe
+          title="map"
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3149.871843885177!2d127.7535481758491!3d37.8632889719632!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3562e5afb78335db%3A0xdc925b533affd7c6!2z7LaY7LKc7Zi467CY7LK07Jyh6rSA!5e0!3m2!1sko!2skr!4v1721979589038!5m2!1sko!2skr"
           className="aspect-video w-full max-w-2xl"
           loading="lazy"

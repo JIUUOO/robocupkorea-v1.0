@@ -47,7 +47,11 @@ export default function NoticeDetailPage() {
 
       {loading ? (
         <div className="grid grid-cols-1 place-items-center">
-          <img src="/Loading.gif" />
+          <img
+            src="/Loading.gif"
+            className="w-[6rem] opacity-40"
+            alt="Loading.gif"
+          />
         </div>
       ) : (
         <div>

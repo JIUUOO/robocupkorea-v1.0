@@ -1,12 +1,12 @@
 import { useContext, useEffect, useState } from "react";
-import { NavContext } from "../../../contexts/NavContext";
+import { NavigationContext } from "../../../contexts/NavigationContext";
 
-export default function DropdownMenu({ id, children }) {
-  const { showDropdown } = useContext(NavContext);
+export default function MainMenuItemList({ id, children }) {
+  const { expandMainMenu } = useContext(NavigationContext);
   const [style, setStyle] = useState("dropdown-is-inactive");
 
   useEffect(() => {
-    if (showDropdown === id && style === "dropdown-is-inactive") {
+    if (expandMainMenu === id && style === "dropdown-is-inactive") {
       setStyle(
         "dropdown-is-active max-md:pb-2 md:shadow md:ring md:ring-inset md:ring-1 md:ring-gray-100 md:rounded-lg"
       );
@@ -14,7 +14,7 @@ export default function DropdownMenu({ id, children }) {
       setStyle("dropdown-is-inactive");
     }
     // eslint-disable-next-line
-  }, [showDropdown]);
+  }, [expandMainMenu]);
 
   return <div className={style}>{children}</div>;
 }

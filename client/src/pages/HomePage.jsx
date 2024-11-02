@@ -1,10 +1,8 @@
 import { useState } from "react";
 import { Container } from "../components/layouts";
-import { Link } from "react-router-dom";
-import { PATH } from "../routes/path";
 import chevronDown from "../assets/icons/chevron-down-solid.svg";
 
-export default function MainPage() {
+export default function HomePage() {
   const [showAccordion, setShowAcoordian] = useState("RCKA");
 
   const handleAcoordianClick = (name) =>
@@ -15,13 +13,17 @@ export default function MainPage() {
   const styleAccordionHead =
     "p-4 flex items-end justify-between cursor-pointer";
   const styleAccordionBody = (name) =>
-    `overflow-hidden font-light transition-[max-height] ease duration-500 ${
-      name === showAccordion ? "max-h-[40rem] w-full" : "max-h-0"
+    `overflow-hidden font-light  ${
+      name === showAccordion
+        ? "max-h-[40rem] w-full transition-[max-height] ease-in-out duration-1000"
+        : "max-h-0"
     }`;
   const styleChevronIcon = (name) =>
     `h-4 mb-1 ${
-      name === showAccordion ? "rotate-180" : ""
-    } transition-transform duration-300`;
+      name === showAccordion
+        ? "rotate-180 transition-transform duration-400"
+        : ""
+    }`;
 
   return (
     <>
@@ -38,17 +40,6 @@ export default function MainPage() {
         </div>
       </div>
       <Container>
-        {/* <div>
-          <div className="h-80">
-            <div>제 5회 창의코딩대회</div>
-            <Link
-              to={PATH.EVENTS_LATEST}
-              className="inline-block ring ring-1 ring-black rounded-lg p-2"
-            >
-              바로가기
-            </Link>
-          </div>
-        </div> */}
         <div>
           <div className={styleAccordionWrap}>
             <div
