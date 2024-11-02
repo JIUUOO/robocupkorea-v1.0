@@ -1,13 +1,13 @@
 import { useContext } from "react";
-import { NavContext } from "../../../contexts/NavContext";
+import { NavigationContext } from "../../../contexts/NavigationContext";
 import chevronDown from "../../../assets/icons/chevron-down-solid.svg";
 import chevronRight from "../../../assets/icons/chevron-right-solid.svg";
 
 export default function ChevronIcon({ direction, id }) {
-  const { showDropdown, showChildDropdown } = useContext(NavContext);
+  const { expandMainMenu, expandSubMenu } = useContext(NavigationContext);
 
   const style =
-    showDropdown === id || showChildDropdown === id
+    expandMainMenu === id || expandSubMenu === id
       ? "opacity-100"
       : "opacity-70";
 
@@ -23,7 +23,7 @@ export default function ChevronIcon({ direction, id }) {
     return (
       <img
         src={chevronRight}
-        className={`inline pl-3 h-3 ${style} transition ease duration-200 hidden md:inline`}
+        className={`inline pl-3 h-3 ${style} transition ease duration-200 max-md:hidden`}
         alt="chevronRight"
       ></img>
     );

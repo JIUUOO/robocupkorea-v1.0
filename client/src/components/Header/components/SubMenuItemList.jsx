@@ -1,8 +1,8 @@
 import { useContext, useEffect, useState } from "react";
-import { NavContext } from "../../../contexts/NavContext";
+import { NavigationContext } from "../../../contexts/NavigationContext";
 
-export default function NestedDropdownMenu({ id, children }) {
-  const { showChildDropdown } = useContext(NavContext);
+export default function SubMenuItemList({ id, children }) {
+  const { expandSubMenu } = useContext(NavigationContext);
   const [styleNestedDropdownMenu, SetStyleNestedDropdownMenu] = useState(
     "dropdown--nested-is-inactive"
   );
@@ -10,7 +10,7 @@ export default function NestedDropdownMenu({ id, children }) {
   useEffect(() => {
     const style = async () => {
       if (
-        showChildDropdown === id &&
+        expandSubMenu === id &&
         styleNestedDropdownMenu === "dropdown--nested-is-inactive"
       ) {
         SetStyleNestedDropdownMenu(
@@ -23,7 +23,7 @@ export default function NestedDropdownMenu({ id, children }) {
 
     style();
     // eslint-disable-next-line
-  }, [showChildDropdown]);
+  }, [expandSubMenu]);
 
   return <div className={styleNestedDropdownMenu}>{children}</div>;
 }

@@ -1,80 +1,96 @@
-import { useContext, useState, useEffect } from "react";
+import { useContext, useState, useLayoutEffect } from "react";
 import { Link } from "react-router-dom";
-import { PATH } from "../../routes/path";
-import { NavContext } from "../../contexts/NavContext";
+import { useTranslation } from "react-i18next";
 
+import { PATH } from "../../routes/path";
+import { NavigationContext } from "../../contexts/NavigationContext";
+import { BreakpointContext } from "../../contexts/BreakpointContext";
 import MobileIcon from "./components/MobileIcon";
-import DropdownMenu from "./components/DropdownMenu";
-import DropdownTitle from "./components/DropdownTitle";
-import DropdownItem from "./components/DropdownItem";
-import ChildDropdownMenu from "./components/ChildDropdownMenu";
-import ChildDropdownTitle from "./components/ChildDropdownTitle";
+import MainMenuItemList from "./components/MainMenuItemList";
+import MainMenuHead from "./components/MainMenuHead";
+import MainMenuWrapper from "./components/MainMenuWrapper";
+import SubMenuItemList from "./components/SubMenuItemList";
+import SubMenuHead from "./components/SubMenuHead";
+import SubMenuWrapper from "./components/SubMenuList";
+import MenuItem from "./components/MenuItem";
 import "../../styles/Header.css";
 
+function LanguageSelectButton() {
+  const { i18n } = useTranslation();
+
+  const style =
+    "cursor-pointer md:py-3 md:px-2 mr-2 hover:md:rounded-lg hover:md:shadow hover:md:bg-zinc-200";
+
+  return (
+    <>
+      <div
+        className={`${
+          i18n.language === "ko" ? "opacity-60" : "opacity-40"
+        } ${style}`}
+        onClick={() => i18n.changeLanguage("ko")}
+      >
+        KOR
+      </div>
+      <div
+        className={`${
+          i18n.language === "en" ? "opacity-60" : "opacity-40"
+        } ${style}`}
+        onClick={() => i18n.changeLanguage("en")}
+      >
+        ENG
+      </div>
+    </>
+  );
+}
+
 export default function Header() {
+  const { t } = useTranslation();
+
   const {
-    showDropdown,
-    setShowDropdown,
-    setShowChildDropdown,
-    isMobileNavOpen,
-    setMobileNavOpen,
-  } = useContext(NavContext);
-  const [styleMenu, setStyleMenu] = useState("hidden");
-  const [innerWidth, setInnerWidth] = useState(window.innerWidth);
+    expandMainMenu,
+    setExpandMainMenu,
+    setExpandSubMenu,
+    toggleModal,
+    setToggleModal,
+  } = useContext(NavigationContext);
+  const { isMobileView, isDesktopView } = useContext(BreakpointContext);
+  const [styleMenuWrapper, setStyleMenuWrapper] = useState(null);
 
-  // only on monitor
-  const handleDropdownEnter = (name) =>
-    innerWidth >= 768 && setShowDropdown(name);
+  const handleClickMainMenu = (name) =>
+    isMobileView && setExpandMainMenu(expandMainMenu === name ? null : name);
 
-  // only on mobile
-  const handleDropdownClick = (name) =>
-    innerWidth < 768 && setShowDropdown(showDropdown === name ? null : name);
+  const handleAboveMainMenu = (name) =>
+    isDesktopView && setExpandMainMenu(name);
 
-  const handleNestDropdownEnter = (name) =>
-    innerWidth >= 768 && setShowChildDropdown(name);
+  const handleAboveSubMenu = (name) => isDesktopView && setExpandSubMenu(name);
 
-  const handleButtonClick = () => {
-    setShowDropdown(null);
-    setMobileNavOpen(!isMobileNavOpen);
+  const handleClickModal = () => {
+    setExpandMainMenu(null);
+    setToggleModal(!toggleModal);
   };
 
-  // whether to verify on mobile or desktop
-  useEffect(() => {
-    const handleResize = () => {
-      setInnerWidth(window.innerWidth);
-
-      // when the window is resized to the desktop, then close it
-      innerWidth >= 768 && setShowDropdown(null);
-    };
-    window.addEventListener("resize", handleResize);
-
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-    // eslint-disable-next-line
-  }, [window.innerWidth]);
-
-  useEffect(() => {
-    if (isMobileNavOpen) {
+  useLayoutEffect(() => {
+    if (toggleModal) {
       // mobile sized
-      setStyleMenu(
+      setStyleMenuWrapper(
         "max-md:container max-md:absolute max-md:left-1/2 max-md:translate-x-[-50%] max-md:px-4 max-md:h-[calc(100vh)] max-md:pb-20 max-md:overflow-y-scroll max-md:bg-white md:inherit md:flex md:flex-row md:h-full transition-opacity ease duration-200"
       );
     } else {
-      // monitor sized
-      setStyleMenu(
+      // desktop sized
+      setStyleMenuWrapper(
         "max-md:absolute max-md:w-0 max-md:h-0 max-md:overflow-hidden max-md:opacity-0 md:flex md:flex-row md:h-full"
       );
     }
-  }, [isMobileNavOpen]);
+  }, [toggleModal]);
 
   return (
+    // prettier-ignore
     <header className="fixed top-0 w-full h-16 md:h-20 z-10 border-b bg-white">
       <div className="container h-full">
         <div className="flex flex-row justify-between items-center h-full">
-          <nav className="flex flex-row items-center h-full">
+          <nav className="flex flex-row items-center h-full w-full">
             <div className="mr-16">
-              <Link to={PATH.MAIN}>
+              <Link to={PATH.HOME}>
                 <img
                   src="/logos/RCKA.png"
                   className="h-12 md:h-14"
@@ -84,182 +100,90 @@ export default function Header() {
             </div>
             <div
               className={
-                isMobileNavOpen
+                toggleModal && isMobileView
                   ? "max-md:absolute max-md:w-screen max-md:bg-white max-md:top-full max-md:left-1/2 max-md:translate-x-[-50%] max-md:h-[calc(100vh-100%)] max-md:overflow-y-srcoll"
-                  : "max-md:invisible md:h-full"
+                  : "max-md:invisible md:h-full md:flex md:justify-between md:w-full"
               }
             >
-              <ul className={styleMenu}>
-                <li
-                  onMouseEnter={() => handleDropdownEnter("RCKA")}
-                  onMouseLeave={() => handleDropdownEnter(null)}
-                  className="dropdown__head"
-                >
-                  <div onClick={() => handleDropdownClick("RCKA")}>
-                    <DropdownTitle id="RCKA">한국로보컵협회</DropdownTitle>
-                  </div>
-                  <DropdownMenu id="RCKA">
-                    <DropdownItem to={PATH.ABOUT}>소개</DropdownItem>
-                    <DropdownItem to={PATH.COMMITTEE}>운영위원</DropdownItem>
-                    <DropdownItem to={PATH.SPONSOR}>후원 안내</DropdownItem>
-                  </DropdownMenu>
-                </li>
-                <li
-                  onMouseEnter={() => handleDropdownEnter("LEAGUES")}
-                  onMouseLeave={() => handleDropdownEnter(null)}
-                  className="dropdown__head"
-                >
-                  <div onClick={() => handleDropdownClick("LEAGUES")}>
-                    <DropdownTitle id="LEAGUES">로보컵 리그</DropdownTitle>
-                  </div>
-                  <DropdownMenu id="LEAGUES" className="leagues">
-                    <div
-                      onMouseEnter={() => handleNestDropdownEnter("JUNIOR")}
-                      onMouseLeave={() => handleNestDropdownEnter(null)}
-                    >
-                      <ChildDropdownTitle to={PATH.LEAGUES_JUNIOR} id="JUNIOR">
-                        RoboCupJunior
-                      </ChildDropdownTitle>
-                      <ChildDropdownMenu id="JUNIOR">
-                        <DropdownItem to={PATH.LEAGUES_JUNIOR_SOCCER}>
-                          Soccer
-                        </DropdownItem>
-                        <DropdownItem to={PATH.LEAGUES_JUNIOR_ONSTAGE}>
-                          OnStage
-                        </DropdownItem>
-                        <DropdownItem to={PATH.LEAGUES_JUNIOR_RESCUE}>
-                          Rescue
-                        </DropdownItem>
-                      </ChildDropdownMenu>
-                    </div>
-                    <div
-                      onMouseEnter={() => handleNestDropdownEnter("SOCCER")}
-                      onMouseLeave={() => handleNestDropdownEnter(null)}
-                    >
-                      <ChildDropdownTitle to={PATH.LEAGUES_SOCCER} id="SOCCER">
-                        RoboCupSoccer
-                      </ChildDropdownTitle>
-                      <ChildDropdownMenu id="SOCCER">
-                        <DropdownItem to={PATH.LEAGUES_SOCCER_HUMANOID}>
-                          Humanoid
-                        </DropdownItem>
-                        <DropdownItem
-                          to={PATH.LEAGUES_SOCCER_STANDARD_PLATFORM}
-                        >
-                          Standard Platform
-                        </DropdownItem>
-                        <DropdownItem to={PATH.LEAGUES_SOCCER_MIDDLE_SIZE}>
-                          Middle Size
-                        </DropdownItem>
-                        <DropdownItem to={PATH.LEAGUES_SOCCER_SMALL_SIZE}>
-                          Small Size
-                        </DropdownItem>
-                        <DropdownItem to={PATH.LEAGUES_SOCCER_SIMULATION}>
-                          Simulation
-                        </DropdownItem>
-                      </ChildDropdownMenu>
-                    </div>
-                    <div
-                      onMouseEnter={() => handleNestDropdownEnter("RESCUE")}
-                      onMouseLeave={() => handleNestDropdownEnter(null)}
-                    >
-                      <ChildDropdownTitle to={PATH.LEAGUES_RESCUE} id="RESCUE">
-                        RoboCupRescue
-                      </ChildDropdownTitle>
-                      <ChildDropdownMenu id="RESCUE">
-                        <DropdownItem to={PATH.LEAGUES_RESCUE_ROBOT}>
-                          Robot
-                        </DropdownItem>
-                        <DropdownItem to={PATH.LEAGUES_RESCUE_SIMULATION}>
-                          Simulation
-                        </DropdownItem>
-                      </ChildDropdownMenu>
-                    </div>
-                    <div
-                      onMouseEnter={() => handleNestDropdownEnter("ATHOME")}
-                      onMouseLeave={() => handleNestDropdownEnter(null)}
-                    >
-                      <ChildDropdownTitle to={PATH.LEAGUES_ATHOME} id="ATHOME">
-                        RoboCup@Home
-                      </ChildDropdownTitle>
-                      <ChildDropdownMenu id="ATHOME">
-                        <DropdownItem to={PATH.LEAGUES_ATHOME_OPEN_PLATFORM}>
-                          Open Platform
-                        </DropdownItem>
-                        <DropdownItem
-                          to={PATH.LEAGUES_ATHOME_DOMESTIC_STANDARD_PLATFORM}
-                        >
-                          Domestic Standard Platform
-                        </DropdownItem>
-                        <DropdownItem
-                          to={PATH.LEAGUES_ATHOME_SOCIAL_STANDARD_PLATFORM}
-                        >
-                          Social Standard Platform
-                        </DropdownItem>
-                      </ChildDropdownMenu>
-                    </div>
-                    <div
-                      onMouseEnter={() => handleNestDropdownEnter("INDUSTRIAL")}
-                      onMouseLeave={() => handleNestDropdownEnter(null)}
-                    >
-                      <ChildDropdownTitle
-                        to={PATH.LEAGUES_INDUSTRIAL}
-                        id="INDUSTRIAL"
-                      >
-                        RoboCupIndustrial
-                      </ChildDropdownTitle>
-                      <ChildDropdownMenu id="INDUSTRIAL">
-                        <DropdownItem
-                          to={PATH.LEAGUES_INDUSTRIAL_ROBOCUP_ATWORK}
-                        >
-                          RoboCup@Work
-                        </DropdownItem>
-                        <DropdownItem to={PATH.LEAGUES_INDUSTRIAL_LOGISTICS}>
-                          Logistics
-                        </DropdownItem>
-                      </ChildDropdownMenu>
-                    </div>
-                  </DropdownMenu>
-                </li>
-                <li
-                  onMouseEnter={() => handleDropdownEnter("EVENTS")}
-                  onMouseLeave={() => handleDropdownEnter(null)}
-                  className="dropdown__head"
-                >
-                  <div onClick={() => handleDropdownClick("EVENTS")}>
-                    <DropdownTitle id="EVENTS">로보컵 이벤트</DropdownTitle>
-                  </div>
-                  <DropdownMenu id="EVENTS">
-                    <DropdownItem to={PATH.EVENTS_LATEST}>
-                      제 5회 한국창의코딩대회
-                    </DropdownItem>
-                    <DropdownItem to={PATH.EVENTS_ARCHIVE}>
-                      이벤트 아카이브
-                    </DropdownItem>
-                  </DropdownMenu>
-                </li>
-                <li
-                  onMouseEnter={() => handleDropdownEnter("NOTICE")}
-                  onMouseLeave={() => handleDropdownEnter(null)}
-                  className="dropdown__head"
-                >
-                  <div onClick={() => handleDropdownClick("NOTICE")}>
-                    <DropdownTitle id="NOTICE">공지사항</DropdownTitle>
-                  </div>
-                  <DropdownMenu id="NOTICE">
-                    <DropdownItem to={PATH.NOTICE_EVENTS}>
-                      이벤트 소식
-                    </DropdownItem>
-                    <DropdownItem to={PATH.NOTICE_RULES}>
-                      리그 규정
-                    </DropdownItem>
-                  </DropdownMenu>
+              <ul className={styleMenuWrapper}>
+                <MainMenuWrapper handler={handleAboveMainMenu} id="RCKA">
+                  <MainMenuHead onClick={handleClickMainMenu} id="RCKA" title={t("header.rcka")} />
+                  <MainMenuItemList id="RCKA">
+                    <MenuItem to={PATH.ABOUT} title={"소개"} />
+                    <MenuItem to={PATH.COMMITTEE} title={"운영위원"} />
+                    <MenuItem to={PATH.SPONSOR} title={"후원 안내"} />
+                  </MainMenuItemList>
+                </MainMenuWrapper>
+                <MainMenuWrapper handler={handleAboveMainMenu} id="LEAGUES">
+                  <MainMenuHead onClick={handleClickMainMenu} id="LEAGUES" title={t("header.league")} />
+                  <MainMenuItemList id="LEAGUES" className="leagues">
+                    <SubMenuWrapper handler={handleAboveSubMenu} id="JUNIOR">
+                      <SubMenuHead to={PATH.LEAGUES_JUNIOR} id="JUNIOR" title={"RoboCupJunior"} />
+                      <SubMenuItemList id="JUNIOR">
+                        <MenuItem to={PATH.LEAGUES_JUNIOR_SOCCER} title={"Soccer"} />
+                        <MenuItem to={PATH.LEAGUES_JUNIOR_ONSTAGE} title={"OnStage"} />
+                        <MenuItem to={PATH.LEAGUES_JUNIOR_RESCUE} title={"Rescue"} />
+                      </SubMenuItemList>
+                    </SubMenuWrapper>
+                    <SubMenuWrapper handler={handleAboveSubMenu} id="SOCCER">
+                      <SubMenuHead to={PATH.LEAGUES_SOCCER} id="SOCCER" title={"RoboCupSoccer"} />
+                      <SubMenuItemList id="SOCCER">
+                        <MenuItem to={PATH.LEAGUES_SOCCER_HUMANOID} title={"Humanoid"} />
+                        <MenuItem to={PATH.LEAGUES_SOCCER_STANDARD_PLATFORM} title={"Standard Platform"} />
+                        <MenuItem to={PATH.LEAGUES_SOCCER_MIDDLE_SIZE} title={"Middle Size"} />
+                        <MenuItem to={PATH.LEAGUES_SOCCER_SMALL_SIZE} title={"Small Size"} />
+                        <MenuItem to={PATH.LEAGUES_SOCCER_SIMULATION} title={"Simulation"} />
+                      </SubMenuItemList>
+                    </SubMenuWrapper>
+                    <SubMenuWrapper handler={handleAboveSubMenu} id="RESCUE">
+                      <SubMenuHead to={PATH.LEAGUES_RESCUE} id="RESCUE" title={"RoboCupRescue"} />
+                      <SubMenuItemList id="RESCUE">
+                        <MenuItem to={PATH.LEAGUES_RESCUE_ROBOT} title={"Robot"} />
+                        <MenuItem to={PATH.LEAGUES_RESCUE_SIMULATION} title={"Simulation"} />
+                      </SubMenuItemList>
+                    </SubMenuWrapper>
+                    <SubMenuWrapper handler={handleAboveSubMenu} id="ATHOME">
+                      <SubMenuHead to={PATH.LEAGUES_ATHOME} id="ATHOME" title={"RoboCup@Home"} />
+                      <SubMenuItemList id="ATHOME">
+                        <MenuItem to={PATH.LEAGUES_ATHOME_OPEN_PLATFORM} title={"Open Platform"} />
+                        <MenuItem to={PATH.LEAGUES_ATHOME_DOMESTIC_STANDARD_PLATFORM} title={"Domestic Standard Platform"} />
+                        <MenuItem to={PATH.LEAGUES_ATHOME_SOCIAL_STANDARD_PLATFORM} title={"Social Standard Platform"} />
+                      </SubMenuItemList>
+                    </SubMenuWrapper>
+                    <SubMenuWrapper handler={handleAboveSubMenu} id="INDUSTRIAL">
+                      <SubMenuHead to={PATH.LEAGUES_INDUSTRIAL} id="INDUSTRIAL" title={"RoboCupIndustrial"} />
+                      <SubMenuItemList id="INDUSTRIAL">
+                        <MenuItem to={PATH.LEAGUES_INDUSTRIAL_ROBOCUP_ATWORK} title={"RoboCup@Work"} />
+                        <MenuItem to={PATH.LEAGUES_INDUSTRIAL_LOGISTICS} title={"Logistics"} />
+                      </SubMenuItemList>
+                    </SubMenuWrapper>
+                  </MainMenuItemList>
+                </MainMenuWrapper>
+                <MainMenuWrapper handler={handleAboveMainMenu} id="EVENTS">
+                  <MainMenuHead onClick={handleClickMainMenu} id="EVENTS" title={t("header.event")} />
+                  <MainMenuItemList id="EVENTS">
+                    <MenuItem to={PATH.EVENTS_LATEST} title={"제 5회 한국창의코딩대회"} />
+                    <MenuItem to={PATH.EVENTS_ARCHIVE} title={"이벤트 아카이브"} />
+                  </MainMenuItemList>
+                </MainMenuWrapper>
+                <MainMenuWrapper handler={handleAboveMainMenu} id="NOTICE">
+                  <MainMenuHead onClick={handleClickMainMenu} id="NOTICE" title={t("header.notice")} />
+                  <MainMenuItemList id="NOTICE">
+                    <MenuItem to={PATH.NOTICE_EVENTS} title={"이벤트 소식"} />
+                    <MenuItem to={PATH.NOTICE_RULES} title={"리그 규정"} />
+                  </MainMenuItemList>
+                </MainMenuWrapper>
+                <li className={`${isMobileView ? "dropdown__head" : ""} flex px-1 py-[9px] md:hidden`}>
+                  <LanguageSelectButton />
                 </li>
               </ul>
+              <div className={`${isDesktopView ? "" : "hidden"} h-full flex items-center pl-2`}>
+                <LanguageSelectButton />
+              </div>
             </div>
           </nav>
           <div className="flex justify-center align-center md:hidden h-full w-5">
-            <MobileIcon onClick={handleButtonClick} />
+            <MobileIcon onClick={handleClickModal} />
           </div>
         </div>
       </div>

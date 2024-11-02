@@ -1,10 +1,10 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { PATH } from "./routes/path";
 import ScrollToTop from "./hooks/ScrollToTop";
-import CloseNav from "./hooks/CloseNav";
+import CloseNavigation from "./hooks/CloseNavigation";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import MainPage from "./pages/MainPage";
+import HomePage from "./pages/HomePage";
 import AboutPage from "./pages/AboutPage";
 import CommitteePage from "./pages/CommitteePage";
 import SponsorPage from "./pages/SponsorPage";
@@ -17,16 +17,20 @@ import NoticeDetailPage from "./pages/NoticeDetailPage";
 import NotFoundPage from "./pages/NotFoundPage";
 import "./styles/App.css";
 
+function MainContainer({ children }) {
+  return <main className="mt-16 md:mt-20">{children}</main>;
+}
+
 function App() {
   // prettier-ignore
   return (
     <Router>
       <Header />
       <ScrollToTop />
-      <CloseNav />
-      <main className="mt-16 md:mt-20">
+      <CloseNavigation />
+      <MainContainer>
         <Routes>
-          <Route path={PATH.MAIN} Component={MainPage} />
+          <Route path={PATH.HOME} Component={HomePage} />
           <Route path={PATH.ABOUT} Component={AboutPage} />
           <Route path={PATH.COMMITTEE} Component={CommitteePage} />
           <Route path={PATH.SPONSOR} Component={SponsorPage} />
@@ -63,9 +67,10 @@ function App() {
           <Route path={PATH.NOTICE_EVENTS_DETAIL} Component={NoticeDetailPage} />
           <Route path={PATH.NOTICE_RULES} Component={NoticePage} />
           <Route path={PATH.NOTICE_RULES_DETAIL} Component={NoticeDetailPage} />
+          
           <Route path="*" Component={NotFoundPage} />
         </Routes>
-      </main>
+      </MainContainer>
       <Footer />
     </Router>
   );

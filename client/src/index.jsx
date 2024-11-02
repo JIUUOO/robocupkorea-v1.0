@@ -1,14 +1,19 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+
 import App from "./App";
-import NavProvider from "./contexts/NavContext";
+import NavigationProvider from "./contexts/NavigationContext";
+import BreakpointProvider from "./contexts/BreakpointContext";
+import "./locales/i18n";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <NavProvider>
-      <App />
-    </NavProvider>
+    <NavigationProvider>
+      <BreakpointProvider>
+        <App />
+      </BreakpointProvider>
+    </NavigationProvider>
   </React.StrictMode>
 );
 // test

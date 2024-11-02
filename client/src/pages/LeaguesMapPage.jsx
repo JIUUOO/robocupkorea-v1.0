@@ -270,6 +270,7 @@ export default function LeaguesMapPage() {
         </>
       );
     }
+    return undefined;
   });
 
   return <Container>{league}</Container>;
