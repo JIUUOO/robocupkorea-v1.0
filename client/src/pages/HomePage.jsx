@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Container } from "../components/layouts";
 import chevronDown from "../assets/icons/chevron-down-solid.svg";
 
-export default function MainPage() {
+export default function HomePage() {
   const [showAccordion, setShowAcoordian] = useState("RCKA");
 
   const handleAcoordianClick = (name) =>

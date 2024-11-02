@@ -31,7 +31,7 @@ export default function About() {
       </div>
       <div className="flex flex-col">
         {articles.map((article) => (
-          <>
+          <div key={article.href}>
             <div className="flex pb-5">
               <div className="mr-3">
                 <img
@@ -54,7 +54,7 @@ export default function About() {
                 </a>
               </div>
             </div>
-          </>
+          </div>
         ))}
       </div>
     </Container>
