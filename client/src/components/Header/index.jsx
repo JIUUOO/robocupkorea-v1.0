@@ -85,15 +85,15 @@ export default function Header() {
 
   return (
     // prettier-ignore
-    <header className="fixed top-0 w-full h-16 md:h-20 z-10 border-b bg-white">
+    <header className="fixed top-0 w-full max-md:h-16 md:h-20 z-10 border-b bg-white">
       <div className="container h-full">
         <div className="flex flex-row justify-between items-center h-full">
           <nav className="flex flex-row items-center h-full w-full">
-            <div className="mr-16">
+            <div>
               <Link to={PATH.HOME}>
                 <img
                   src="/logos/RCKA.png"
-                  className="h-12 md:h-14"
+                  className="max-md:h-12 md:h-14 mr-16"
                   alt="rcka"
                 />
               </Link>
