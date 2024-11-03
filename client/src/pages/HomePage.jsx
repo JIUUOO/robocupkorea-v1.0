@@ -9,7 +9,7 @@ export default function HomePage() {
     name === showAccordion ? setShowAcoordian(null) : setShowAcoordian(name);
 
   const styleAccordionWrap =
-    "inline-block mb-4 w-full ring ring-inset ring-1 ring-gray-600 opacity-100 rounded-lg";
+    "inline-block mb-4 w-full ring ring-inset ring-1 ring-gray-300 rounded-lg shadow";
   const styleAccordionHead =
     "p-4 flex items-end justify-between cursor-pointer";
   const styleAccordionBody = (name) =>
