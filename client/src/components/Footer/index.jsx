@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { PATH } from "../../routes/path";
+import { useTranslation } from "react-i18next";
 
 function MenuItem({ to, children }) {
   return (
@@ -12,6 +13,8 @@ function MenuItem({ to, children }) {
 }
 
 export default function Footer() {
+  const { t } = useTranslation();
+
   const menuStyle = "pb-4";
   const menuHeadStyle = "pb-1 font-normal";
 
@@ -28,39 +31,55 @@ export default function Footer() {
               />
             </Link>
             <p className="max-w-2xs break-keep font-light">
-              &nbsp;사단법인 한국로보컵협회(이하 RCKA)는 로봇을 연구하는
-              학생들을 위해 국가적 및 국제적 로봇 이벤트를 주최하는 프로젝트
-              중심의 교육 증진 운동입니다.
+              {t("menu.rcka_about")}
             </p>
           </div>
           <ul className="grid md:grid-cols-4">
             <li className={menuStyle}>
-              <div className={menuHeadStyle}>한국로보켭협회</div>
-              <MenuItem to={PATH.ABOUT}>소개</MenuItem>
-              <MenuItem to={PATH.COMMITTEE}>운영위원</MenuItem>
-              <MenuItem to={PATH.SPONSOR}>후원 안내</MenuItem>
+              <div className={menuHeadStyle}>{t("menu.main.head.rcka")}</div>
+              <MenuItem to={PATH.ABOUT}>{t("menu.main.item.about")}</MenuItem>
+              <MenuItem to={PATH.COMMITTEE}>
+                {t("menu.main.item.committee")}
+              </MenuItem>
+              <MenuItem to={PATH.SPONSOR}>
+                {t("menu.main.item.sponser")}
+              </MenuItem>
             </li>
             <li className={menuStyle}>
-              <div className={menuHeadStyle}>로보컵 리그</div>
-              <MenuItem to={PATH.LEAGUES_JUNIOR}>RoboCupJunior</MenuItem>
-              <MenuItem to={PATH.LEAGUES_SOCCER}>RoboCupSoccer</MenuItem>
-              <MenuItem to={PATH.LEAGUES_RESCUE}>RoboCupRescue</MenuItem>
-              <MenuItem to={PATH.LEAGUES_ATHOME}>RoboCup@Home</MenuItem>
+              <div className={menuHeadStyle}>{t("menu.main.head.leagues")}</div>
+              <MenuItem to={PATH.LEAGUES_JUNIOR}>
+                {t("menu.sub.head.leagues_junior")}
+              </MenuItem>
+              <MenuItem to={PATH.LEAGUES_SOCCER}>
+                {t("menu.sub.head.leagues_soccer")}
+              </MenuItem>
+              <MenuItem to={PATH.LEAGUES_RESCUE}>
+                {t("menu.sub.head.leagues_rescue")}
+              </MenuItem>
+              <MenuItem to={PATH.LEAGUES_ATHOME}>
+                {t("menu.sub.head.leagues_athome")}
+              </MenuItem>
               <MenuItem to={PATH.LEAGUES_INDUSTRIAL}>
-                RoboCupIndustrial
+                {t("menu.sub.head.leagues_industrial")}
               </MenuItem>
             </li>
             <li className={menuStyle}>
-              <div className={menuHeadStyle}>로보컵 이벤트</div>
+              <div className={menuHeadStyle}>{t("menu.main.head.events")}</div>
               <MenuItem to={PATH.EVENTS_LATEST}>
-                제 5회 한국창의코딩대회
+                {t("menu.main.item.events_latest")}
               </MenuItem>
-              <MenuItem to={PATH.EVENTS_ARCHIVE}>이벤트 아카이브</MenuItem>
+              <MenuItem to={PATH.EVENTS_ARCHIVE}>
+                {t("menu.main.item.events_archive")}
+              </MenuItem>
             </li>
             <li className={menuStyle}>
-              <div className={menuHeadStyle}>공지사항</div>
-              <MenuItem to={PATH.NOTICE_EVENTS}>이벤트 소식</MenuItem>
-              <MenuItem to={PATH.NOTICE_RULES}>리그 규정</MenuItem>
+              <div className={menuHeadStyle}>{t("menu.main.head.notices")}</div>
+              <MenuItem to={PATH.NOTICE_EVENTS}>
+                {t("menu.main.item.notices_events")}
+              </MenuItem>
+              <MenuItem to={PATH.NOTICE_RULES}>
+                {t("menu.main.item.notices_rules")}
+              </MenuItem>
             </li>
           </ul>
         </div>
