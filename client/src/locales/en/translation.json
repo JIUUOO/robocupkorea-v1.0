@@ -1,8 +1,47 @@
 {
-  "header": {
-    "rcka": "RCKA",
-    "league": "RoboCup Leagues",
-    "event": "RopboCup Events",
-    "notice": "Notices"
+  "menu": {
+    "main": {
+      "head": {
+        "rcka": "RCKA",
+        "leagues": "RoboCup Leagues",
+        "events": "RopboCup Events",
+        "notices": "Notices"
+      },
+      "item": {
+        "about": "About",
+        "committee": "Committee",
+        "sponser": "Sponser",
+        "events_latest": "제 5회 한국창의코딩대회",
+        "events_archive": "Events Archive",
+        "notices_events": "Events News",
+        "notices_rules": "League Rules"
+      }
+    },
+    "sub": {
+      "head": {
+        "leagues_junior": "RoboCupJunior",
+        "leagues_soccer": "RoboCupSoccer",
+        "leagues_rescue": "RoboCupRescue",
+        "leagues_athome": "RoboCup@Home",
+        "leagues_industrial": "RoboCupIndustrial"
+      },
+      "item": {
+        "leagues_junior_soccer": "Soccer",
+        "leagues_junior_onstage": "OnStage",
+        "leagues_junior_rescue": "Rescue",
+        "leagues_soccer_humanoid": "Humanoid",
+        "leagues_soccer_standard_platform": "Standard Platform",
+        "leagues_soccer_middle_size": "Middle Size",
+        "leagues_soccer_small_size": "Small Size",
+        "leagues_soccer_simulation": "Simulation",
+        "leagues_rescue_robot": "Robot",
+        "leagues_rescue_simulation": "Simulation",
+        "leagues_athome_open_platform": "Open Platform",
+        "leagues_athome_domestic_standard_platform": "Domestic Standard Platform",
+        "leagues_athome_social_standard_platform": "Social Standard Platform",
+        "leagues_industrial_robocup_atwork": "RoboCup@Work",
+        "leagues_industrial_logistics": "Logistics"
+      }
+    }
   }
 }
