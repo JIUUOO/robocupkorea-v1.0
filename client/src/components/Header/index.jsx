@@ -107,70 +107,70 @@ export default function Header() {
             >
               <ul className={styleMenuWrapper}>
                 <MainMenuWrapper handler={handleAboveMainMenu} id="RCKA">
-                  <MainMenuHead onClick={handleClickMainMenu} id="RCKA" title={t("header.rcka")} />
+                  <MainMenuHead onClick={handleClickMainMenu} id="RCKA" title={t("menu.main.head.rcka")} />
                   <MainMenuItemList id="RCKA">
-                    <MenuItem to={PATH.ABOUT} title={"소개"} />
-                    <MenuItem to={PATH.COMMITTEE} title={"운영위원"} />
-                    <MenuItem to={PATH.SPONSOR} title={"후원 안내"} />
+                    <MenuItem to={PATH.ABOUT} title={t("menu.main.item.about")} />
+                    <MenuItem to={PATH.COMMITTEE} title={t("menu.main.item.committee")} />
+                    <MenuItem to={PATH.SPONSOR} title={t("menu.main.item.sponser")} />
                   </MainMenuItemList>
                 </MainMenuWrapper>
                 <MainMenuWrapper handler={handleAboveMainMenu} id="LEAGUES">
-                  <MainMenuHead onClick={handleClickMainMenu} id="LEAGUES" title={t("header.league")} />
+                  <MainMenuHead onClick={handleClickMainMenu} id="LEAGUES" title={t("menu.main.head.leagues")} />
                   <MainMenuItemList id="LEAGUES" className="leagues">
                     <SubMenuWrapper handler={handleAboveSubMenu} id="JUNIOR">
-                      <SubMenuHead to={PATH.LEAGUES_JUNIOR} id="JUNIOR" title={"RoboCupJunior"} />
+                      <SubMenuHead to={PATH.LEAGUES_JUNIOR} id="JUNIOR" title={t("menu.sub.head.leagues_junior")} />
                       <SubMenuItemList id="JUNIOR">
-                        <MenuItem to={PATH.LEAGUES_JUNIOR_SOCCER} title={"Soccer"} />
-                        <MenuItem to={PATH.LEAGUES_JUNIOR_ONSTAGE} title={"OnStage"} />
-                        <MenuItem to={PATH.LEAGUES_JUNIOR_RESCUE} title={"Rescue"} />
+                        <MenuItem to={PATH.LEAGUES_JUNIOR_SOCCER} title={t("menu.sub.item.leagues_junior_soccer")} />
+                        <MenuItem to={PATH.LEAGUES_JUNIOR_ONSTAGE} title={t("menu.sub.item.leagues_junior_onstage")} />
+                        <MenuItem to={PATH.LEAGUES_JUNIOR_RESCUE} title={t("menu.sub.item.leagues_junior_rescue")} />
                       </SubMenuItemList>
                     </SubMenuWrapper>
                     <SubMenuWrapper handler={handleAboveSubMenu} id="SOCCER">
-                      <SubMenuHead to={PATH.LEAGUES_SOCCER} id="SOCCER" title={"RoboCupSoccer"} />
+                      <SubMenuHead to={PATH.LEAGUES_SOCCER} id="SOCCER" title={t("menu.sub.head.leagues_soccer")} />
                       <SubMenuItemList id="SOCCER">
-                        <MenuItem to={PATH.LEAGUES_SOCCER_HUMANOID} title={"Humanoid"} />
-                        <MenuItem to={PATH.LEAGUES_SOCCER_STANDARD_PLATFORM} title={"Standard Platform"} />
-                        <MenuItem to={PATH.LEAGUES_SOCCER_MIDDLE_SIZE} title={"Middle Size"} />
-                        <MenuItem to={PATH.LEAGUES_SOCCER_SMALL_SIZE} title={"Small Size"} />
-                        <MenuItem to={PATH.LEAGUES_SOCCER_SIMULATION} title={"Simulation"} />
+                        <MenuItem to={PATH.LEAGUES_SOCCER_HUMANOID} title={t("menu.sub.item.leagues_soccer_humanoid")} />
+                        <MenuItem to={PATH.LEAGUES_SOCCER_STANDARD_PLATFORM} title={t("menu.sub.item.leagues_soccer_standard_platform")} />
+                        <MenuItem to={PATH.LEAGUES_SOCCER_MIDDLE_SIZE} title={t("menu.sub.item.leagues_soccer_middle_size")} />
+                        <MenuItem to={PATH.LEAGUES_SOCCER_SMALL_SIZE} title={t("menu.sub.item.leagues_soccer_small_size")} />
+                        <MenuItem to={PATH.LEAGUES_SOCCER_SIMULATION} title={t("menu.sub.item.leagues_soccer_simulation")} />
                       </SubMenuItemList>
                     </SubMenuWrapper>
                     <SubMenuWrapper handler={handleAboveSubMenu} id="RESCUE">
-                      <SubMenuHead to={PATH.LEAGUES_RESCUE} id="RESCUE" title={"RoboCupRescue"} />
+                      <SubMenuHead to={PATH.LEAGUES_RESCUE} id="RESCUE" title={t("menu.sub.head.leagues_rescue")} />
                       <SubMenuItemList id="RESCUE">
-                        <MenuItem to={PATH.LEAGUES_RESCUE_ROBOT} title={"Robot"} />
-                        <MenuItem to={PATH.LEAGUES_RESCUE_SIMULATION} title={"Simulation"} />
+                        <MenuItem to={PATH.LEAGUES_RESCUE_ROBOT} title={t("menu.sub.item.leagues_rescue_robot")} />
+                        <MenuItem to={PATH.LEAGUES_RESCUE_SIMULATION} title={t("menu.sub.item.leagues_rescue_simulation")} />
                       </SubMenuItemList>
                     </SubMenuWrapper>
                     <SubMenuWrapper handler={handleAboveSubMenu} id="ATHOME">
-                      <SubMenuHead to={PATH.LEAGUES_ATHOME} id="ATHOME" title={"RoboCup@Home"} />
+                      <SubMenuHead to={PATH.LEAGUES_ATHOME} id="ATHOME" title={t("menu.sub.head.leagues_athome")} />
                       <SubMenuItemList id="ATHOME">
-                        <MenuItem to={PATH.LEAGUES_ATHOME_OPEN_PLATFORM} title={"Open Platform"} />
-                        <MenuItem to={PATH.LEAGUES_ATHOME_DOMESTIC_STANDARD_PLATFORM} title={"Domestic Standard Platform"} />
-                        <MenuItem to={PATH.LEAGUES_ATHOME_SOCIAL_STANDARD_PLATFORM} title={"Social Standard Platform"} />
+                        <MenuItem to={PATH.LEAGUES_ATHOME_OPEN_PLATFORM} title={t("menu.sub.item.leagues_athome_open_platform")} />
+                        <MenuItem to={PATH.LEAGUES_ATHOME_DOMESTIC_STANDARD_PLATFORM} title={t("menu.sub.item.leagues_athome_domestic_standard_platform")} />
+                        <MenuItem to={PATH.LEAGUES_ATHOME_SOCIAL_STANDARD_PLATFORM} title={t("menu.sub.item.leagues_athome_social_standard_platform")} />
                       </SubMenuItemList>
                     </SubMenuWrapper>
                     <SubMenuWrapper handler={handleAboveSubMenu} id="INDUSTRIAL">
-                      <SubMenuHead to={PATH.LEAGUES_INDUSTRIAL} id="INDUSTRIAL" title={"RoboCupIndustrial"} />
+                      <SubMenuHead to={PATH.LEAGUES_INDUSTRIAL} id="INDUSTRIAL" title={t("menu.sub.head.leagues_industrial")} />
                       <SubMenuItemList id="INDUSTRIAL">
-                        <MenuItem to={PATH.LEAGUES_INDUSTRIAL_ROBOCUP_ATWORK} title={"RoboCup@Work"} />
-                        <MenuItem to={PATH.LEAGUES_INDUSTRIAL_LOGISTICS} title={"Logistics"} />
+                        <MenuItem to={PATH.LEAGUES_INDUSTRIAL_ROBOCUP_ATWORK} title={t("menu.sub.item.leagues_industrial_robocup_atwork")} />
+                        <MenuItem to={PATH.LEAGUES_INDUSTRIAL_LOGISTICS} title={t("menu.sub.item.leagues_industrial_logistics")} />
                       </SubMenuItemList>
                     </SubMenuWrapper>
                   </MainMenuItemList>
                 </MainMenuWrapper>
                 <MainMenuWrapper handler={handleAboveMainMenu} id="EVENTS">
-                  <MainMenuHead onClick={handleClickMainMenu} id="EVENTS" title={t("header.event")} />
+                  <MainMenuHead onClick={handleClickMainMenu} id="EVENTS" title={t("menu.main.head.events")} />
                   <MainMenuItemList id="EVENTS">
-                    <MenuItem to={PATH.EVENTS_LATEST} title={"제 5회 한국창의코딩대회"} />
-                    <MenuItem to={PATH.EVENTS_ARCHIVE} title={"이벤트 아카이브"} />
+                    <MenuItem to={PATH.EVENTS_LATEST} title={t("menu.main.item.events_latest")} />
+                    <MenuItem to={PATH.EVENTS_ARCHIVE} title={t("menu.main.item.events_archive")} />
                   </MainMenuItemList>
                 </MainMenuWrapper>
-                <MainMenuWrapper handler={handleAboveMainMenu} id="NOTICE">
-                  <MainMenuHead onClick={handleClickMainMenu} id="NOTICE" title={t("header.notice")} />
-                  <MainMenuItemList id="NOTICE">
-                    <MenuItem to={PATH.NOTICE_EVENTS} title={"이벤트 소식"} />
-                    <MenuItem to={PATH.NOTICE_RULES} title={"리그 규정"} />
+                <MainMenuWrapper handler={handleAboveMainMenu} id="NOTICES">
+                  <MainMenuHead onClick={handleClickMainMenu} id="NOTICES" title={t("menu.main.head.notices")} />
+                  <MainMenuItemList id="NOTICES">
+                    <MenuItem to={PATH.NOTICE_EVENTS} title={t("menu.main.item.notices_events")} />
+                    <MenuItem to={PATH.NOTICE_RULES} title={t("menu.main.item.notices_rules")} />
                   </MainMenuItemList>
                 </MainMenuWrapper>
                 <li className={`${isMobileView ? "dropdown__head" : ""} flex px-1 py-[9px] md:hidden`}>
