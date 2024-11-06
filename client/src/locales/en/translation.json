@@ -42,6 +42,7 @@
         "leagues_industrial_robocup_atwork": "RoboCup@Work",
         "leagues_industrial_logistics": "Logistics"
       }
-    }
+    },
+    "rcka_about": "The RoboCup Korea Association is a project-based educational promotion initiative that hosts national and international robot events for students researching robotics."
   }
 }
