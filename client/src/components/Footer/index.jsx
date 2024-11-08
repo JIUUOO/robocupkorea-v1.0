@@ -24,49 +24,13 @@ export default function Footer() {
       <div className="container">
         <div className="px-4">
           <div className="pb-8">
-            <div className="flex items-center justify-between">
-              <Link to={PATH.MAIN}>
-                <img
-                  src="/logos/RCKA.png"
-                  className="inline max-md:h-12 md:h-14 mb-2 mr-4"
-                  alt="RCKA.png"
-                />
-              </Link>
-              <div className="flex">
-                <a
-                  href="https://www.robocup.org/"
-                  className="hover:opacity-70 transition-opacity ease duration-200 mr-2"
-                  rel="noreferrer"
-                  target="_blank"
-                >
-                  <img
-                    src="/logos/RoboCup.png"
-                    className="h-10"
-                    alt="RoboCup"
-                  />
-                </a>
-                <a
-                  href="https://junior.robocup.org/"
-                  className="hover:opacity-70 transition-opacity ease duration-200 mr-2"
-                  rel="noreferrer"
-                  target="_blank"
-                >
-                  <img
-                    src="/logos/RoboCupJunior.jpg"
-                    className="h-10"
-                    alt="RoboCupJunior"
-                  />
-                </a>
-                <a
-                  href="https://robocupap.org/"
-                  className="hover:opacity-70 transition-opacity ease duration-200 mr-2"
-                  rel="noreferrer"
-                  target="_blank"
-                >
-                  <img src="/logos/RCAP.png" className="h-10" alt="RCAP" />
-                </a>
-              </div>
-            </div>
+            <Link to={PATH.MAIN}>
+              <img
+                src="/logos/RCKA.png"
+                className="inline h-12 md:h-14 mb-2"
+                alt="RCKA.png"
+              />
+            </Link>
             <p className="max-w-2xs break-keep font-light">
               {t("menu.rcka_about")}
             </p>
@@ -165,10 +129,14 @@ export default function Footer() {
               </a>
             </div>
           </div>
-          <div className="flex flex-col justify-end px-4 sm:text-right pt-4 sm:pt-0 text-sm font-light max-w-sm">
+          <div className="flex flex-col justify-end px-4 sm:text-right pt-4 sm:pt-0 text-sm font-light">
             <div className="text-start sm:text-right">
-              <b>{language === "ko" ? "한국로보컵협회" : "RCKA"}</b>| Tel :
-              070-4247-7485
+              <b>
+                {language === "ko"
+                  ? "한국로보컵협회"
+                  : "RoboCup Korea Association"}
+              </b>
+              | Tel : 070-4247-7485
             </div>
             <div className="text-start sm:text-right pb-2">
               {language === "ko"
@@ -176,8 +144,11 @@ export default function Footer() {
                 : "Address: Room 1308, Jungang Royal Officetel, 13 Seoun-ro, Seocho-gu, Seoul, South Korea"}
             </div>
             <div className="text-start sm:text-right">
-              Copyright ©{language === "ko" ? "한국로보컵협회" : "RCKA"}. All
-              rights reserved.
+              Copyright ©
+              {language === "ko"
+                ? "한국로보컵협회"
+                : "RoboCup Korea Association"}
+              . All rights reserved.
             </div>
           </div>
         </div>
