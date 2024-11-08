@@ -1,6 +1,10 @@
+import { useTranslation } from "react-i18next";
 import { Container, Title, Subtitle } from "../components/layouts";
 
 export default function CommitteePage() {
+  const { i18n, t } = useTranslation();
+  const { language } = i18n;
+
   const committeeData = [
     {
       no: 1,
@@ -97,8 +101,12 @@ export default function CommitteePage() {
 
   return (
     <Container>
-      <Title>운영위원</Title>
-      <Subtitle>한국로보컵협회 운영위원을 소개합니다</Subtitle>
+      <Title>{t("menu.main.item.committee")}</Title>
+      <Subtitle>
+        {language === "ko"
+          ? "한국로보컵협회 운영위원을 소개합니다"
+          : "Meet the RCKA Committee Members"}
+      </Subtitle>
       <div className="border rounded-lg overflow-x-scroll">
         <table className="w-full text-nowrap mt-2">
           <thead className="border-b">

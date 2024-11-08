@@ -3,8 +3,12 @@ import axios from "axios";
 import { Container, Title, Subtitle } from "../components/layouts";
 import { PATH } from "../routes/path";
 import { useLocation } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 export default function NoticePage() {
+  const { i18n, t } = useTranslation();
+  const { language } = i18n;
+
   const apiBaseUrl = process.env.REACT_APP_API_BASE_URL;
   const [noticeData, setNoticeData] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -13,14 +17,18 @@ export default function NoticePage() {
   const notices = [
     {
       pathname: PATH.NOTICE_EVENTS,
-      title: "이벤트 소식",
-      subtitle: "이벤트 소식을 공지합니다",
+      title: t("menu.main.item.notices_events"),
+      subtitle:
+        language === "ko" ? "이벤트 소식을 공지합니다" : "Event Announcements",
       category: "announcement",
     },
     {
       pathname: PATH.NOTICE_RULES,
-      title: "리그 규정",
-      subtitle: "리그 규정을 공지합니다",
+      title: t("menu.main.item.notices_rules"),
+      subtitle:
+        language === "ko"
+          ? "리그 규정을 공지합니다"
+          : "League Regulations Announcements",
       category: "reference",
     },
   ];
@@ -60,7 +68,7 @@ export default function NoticePage() {
       return (
         <Container key={Math.random()}>
           <Title>{notice.title}</Title>
-          <Subtitle>이벤트 소식을 공지합니다</Subtitle>
+          <Subtitle>{notice.subtitle}</Subtitle>
           {loading ? (
             <div className="grid grid-cols-1 place-items-center">
               <img

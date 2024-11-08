@@ -1,6 +1,10 @@
+import { useTranslation } from "react-i18next";
 import { Container, Title, Subtitle } from "../components/layouts";
 
 export default function About() {
+  const { i18n, t } = useTranslation();
+  const { language } = i18n;
+
   const articles = [
     {
       href: "https://www.irobotnews.com/news/articleView.html?idxno=35753",
@@ -17,8 +21,10 @@ export default function About() {
 
   return (
     <Container>
-      <Title>소개</Title>
-      <Subtitle>한국로보컵협회를 소개합니다</Subtitle>
+      <Title>{t("menu.main.item.about")}</Title>
+      <Subtitle>
+        {language === "ko" ? "한국로보컵협회를 소개합니다" : "Introducing RCKA"}
+      </Subtitle>
       <div className="pb-5">
         <iframe
           className="w-full aspect-video max-w-md"
@@ -30,32 +36,33 @@ export default function About() {
         ></iframe>
       </div>
       <div className="flex flex-col">
-        {articles.map((article) => (
-          <div key={article.href}>
-            <div className="flex pb-5">
-              <div className="mr-3">
-                <img
-                  src="/logos/Robot_News.png"
-                  className="min-w-32 max-w-32"
-                  alt="Robot_News.png"
-                />
-              </div>
-              <div className="w-[50vw]">
-                <a
-                  href={article.href}
-                  className="hover:underline underline-offset-2 transition ease-in-out duration-50 cursor-pointer"
-                  rel="noreferrer"
-                  target="_blank"
-                >
-                  <p className="pt-[9px] truncate">{article.title}</p>
-                  <p className="text-sm font-light truncate">
-                    {article.subtitle}
-                  </p>
-                </a>
+        {language === "ko" &&
+          articles.map((article) => (
+            <div key={article.href}>
+              <div className="flex pb-5">
+                <div className="mr-3">
+                  <img
+                    src="/logos/Robot_News.png"
+                    className="min-w-32 max-w-32"
+                    alt="Robot_News.png"
+                  />
+                </div>
+                <div className="w-[50vw]">
+                  <a
+                    href={article.href}
+                    className="hover:underline underline-offset-2 transition ease-in-out duration-50 cursor-pointer"
+                    rel="noreferrer"
+                    target="_blank"
+                  >
+                    <p className="pt-[9px] truncate">{article.title}</p>
+                    <p className="text-sm font-light truncate">
+                      {article.subtitle}
+                    </p>
+                  </a>
+                </div>
               </div>
             </div>
-          </div>
-        ))}
+          ))}
       </div>
     </Container>
   );
