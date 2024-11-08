@@ -1,9 +1,18 @@
-import { useEffect, useState } from "react";
+import { useContext, useLayoutEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { Container, Title, Subtitle } from "../components/layouts";
 import axios from "axios";
+import { Document, Page } from "react-pdf";
+import "react-pdf/dist/Page/AnnotationLayer.css";
+import "react-pdf/dist/Page/TextLayer.css";
+
+import { Container, Title, Subtitle } from "../components/layouts";
+import { useTranslation } from "react-i18next";
+import { BreakpointContext } from "../contexts/BreakpointContext";
 
 export default function NoticeDetailPage() {
+  const { t } = useTranslation();
+
+  const { innerWidth, isDesktopView } = useContext(BreakpointContext);
   const [loading, setLoading] = useState(true);
   const apiBaseUrl = process.env.REACT_APP_API_BASE_URL;
   const { id } = useParams();
@@ -18,7 +27,7 @@ export default function NoticeDetailPage() {
 
   const [files, setFiles] = useState([]);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const getApi = async () => {
       try {
         const { data } = await axios.get(`${apiBaseUrl}/${id}`);
@@ -43,7 +52,7 @@ export default function NoticeDetailPage() {
   return (
     <Container>
       <Title>{notice.title}</Title>
-      <Subtitle>공지사항</Subtitle>
+      <Subtitle>{t("menu.main.head.notices")}</Subtitle>
 
       {loading ? (
         <div className="grid grid-cols-1 place-items-center">
@@ -56,6 +65,30 @@ export default function NoticeDetailPage() {
       ) : (
         <div>
           <div className="min-h-10 pb-6">{notice.content}</div>
+          <div>
+            <ul>
+              {files.length === 1
+                ? files.map((file) => {
+                    return (
+                      <div
+                        className="mb-4"
+                        key={`${apiBaseUrl}/file/${file._id}/${file.name}`}
+                      >
+                        <Document
+                          file={`${apiBaseUrl}/file/${file._id}/${file.name}`}
+                        >
+                          <Page
+                            pageNumber={1}
+                            className="border border-1 max-w-fit"
+                            scale={isDesktopView ? 1.0 : innerWidth / 768}
+                          />
+                        </Document>
+                      </div>
+                    );
+                  })
+                : undefined}
+            </ul>
+          </div>
           <div>
             <ul>
               {files.length
