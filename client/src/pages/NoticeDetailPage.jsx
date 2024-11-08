@@ -65,7 +65,7 @@ export default function NoticeDetailPage() {
       ) : (
         <div>
           <div className="min-h-10 pb-6">{notice.content}</div>
-          <div>
+          <div className="mb-4">
             <ul>
               {files.length > 0 && files[0].type === "application/pdf" && (
                 <Document
