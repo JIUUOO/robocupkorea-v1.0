@@ -13,7 +13,8 @@ function MenuItem({ to, children }) {
 }
 
 export default function Footer() {
-  const { t } = useTranslation();
+  const { i18n, t } = useTranslation();
+  const { language } = i18n;
 
   const menuStyle = "pb-4";
   const menuHeadStyle = "pb-1 font-normal";
@@ -130,13 +131,24 @@ export default function Footer() {
           </div>
           <div className="flex flex-col justify-end px-4 sm:text-right pt-4 sm:pt-0 text-sm font-light">
             <div className="text-start sm:text-right">
-              <b>한국로보컵협회</b> | Tel : 070-4247-7485
+              <b>
+                {language == "ko"
+                  ? "한국로보컵협회"
+                  : "RoboCup Korea Association"}
+              </b>
+              | Tel : 070-4247-7485
             </div>
             <div className="text-start sm:text-right pb-2">
-              주소: 서울시 서초구 서운로 13 중앙로얄 오피스텔 1308
+              {language == "ko"
+                ? "주소: 서울시 서초구 서운로 13 중앙로얄 오피스텔 1308"
+                : "Address: Room 1308, Jungang Royal Officetel, 13 Seoun-ro, Seocho-gu, Seoul, South Korea"}
             </div>
             <div className="text-start sm:text-right">
-              Copyright © 한국로보컵협회. All rights reserved.
+              Copyright ©
+              {language == "ko"
+                ? "한국로보컵협회"
+                : "RoboCup Korea Association"}
+              . All rights reserved.
             </div>
           </div>
         </div>
