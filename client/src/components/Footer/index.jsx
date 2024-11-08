@@ -132,20 +132,20 @@ export default function Footer() {
           <div className="flex flex-col justify-end px-4 sm:text-right pt-4 sm:pt-0 text-sm font-light">
             <div className="text-start sm:text-right">
               <b>
-                {language == "ko"
+                {language === "ko"
                   ? "한국로보컵협회"
                   : "RoboCup Korea Association"}
               </b>
               | Tel : 070-4247-7485
             </div>
             <div className="text-start sm:text-right pb-2">
-              {language == "ko"
+              {language === "ko"
                 ? "주소: 서울시 서초구 서운로 13 중앙로얄 오피스텔 1308"
                 : "Address: Room 1308, Jungang Royal Officetel, 13 Seoun-ro, Seocho-gu, Seoul, South Korea"}
             </div>
             <div className="text-start sm:text-right">
               Copyright ©
-              {language == "ko"
+              {language === "ko"
                 ? "한국로보컵협회"
                 : "RoboCup Korea Association"}
               . All rights reserved.
