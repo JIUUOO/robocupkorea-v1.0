@@ -67,45 +67,32 @@ export default function NoticeDetailPage() {
           <div className="min-h-10 pb-6">{notice.content}</div>
           <div>
             <ul>
-              {files.length === 1
-                ? files.map((file) => {
-                    return (
-                      <div
-                        className="mb-4"
-                        key={`${apiBaseUrl}/file/${file._id}/${file.name}`}
-                      >
-                        <Document
-                          file={`${apiBaseUrl}/file/${file._id}/${file.name}`}
-                        >
-                          <Page
-                            pageNumber={1}
-                            className="border border-1 max-w-fit"
-                            scale={isDesktopView ? 1.0 : innerWidth / 768}
-                          />
-                        </Document>
-                      </div>
-                    );
-                  })
-                : undefined}
+              {files.length > 0 && files[0].type === "application/pdf" && (
+                <Document
+                  file={`${apiBaseUrl}/file/${files[0]._id}/${files[0].name}`}
+                >
+                  <Page
+                    pageNumber={1}
+                    className="border border-1 max-w-fit"
+                    scale={isDesktopView ? 1.0 : innerWidth / 768}
+                  />
+                </Document>
+              )}
             </ul>
           </div>
           <div>
             <ul>
-              {files.length
-                ? files.map((file) => {
-                    return (
-                      <li key={file._id}>
-                        <div className="inline-block mb-2 font-light underline underline-offset-4 decoration-1 decoration-zinc-300 hover:decoration-zinc-700 rounded-lg">
-                          <a
-                            href={`${apiBaseUrl}/file/${file._id}/${file.name}`}
-                          >
-                            {file.name}
-                          </a>
-                        </div>
-                      </li>
-                    );
-                  })
-                : undefined}
+              {files.map((file) => {
+                return (
+                  <li key={file._id}>
+                    <div className="inline-block mb-2 font-light underline underline-offset-4 decoration-1 decoration-zinc-300 hover:decoration-zinc-700 rounded-lg">
+                      <a href={`${apiBaseUrl}/file/${file._id}/${file.name}`}>
+                        {file.name}
+                      </a>
+                    </div>
+                  </li>
+                );
+              })}
             </ul>
           </div>
           <div className="text-right font-light pt-10">
