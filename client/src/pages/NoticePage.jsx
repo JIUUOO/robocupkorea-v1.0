@@ -4,6 +4,7 @@ import { Container, Title, Subtitle } from "../components/layouts";
 import { PATH } from "../routes/path";
 import { useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
 
 export default function NoticePage() {
   const { i18n, t } = useTranslation();
@@ -102,12 +103,12 @@ export default function NoticePage() {
                         return (
                           <tr key={notice._id}>
                             <td className="p-2 max-md:inline-block max-md:w-[65vw]">
-                              <a
-                                href={`${PATH.NOTICE_EVENTS}/${notice._id}`}
+                              <Link
+                                to={`${PATH.NOTICE_EVENTS}/${notice._id}`}
                                 className="block truncate"
                               >
                                 {notice.title}
-                              </a>
+                              </Link>
                             </td>
                             <td className="p-2 max-md:inline-block max-md:w-[80px] font-semibold">
                               <div className="truncate">{notice.author}</div>
