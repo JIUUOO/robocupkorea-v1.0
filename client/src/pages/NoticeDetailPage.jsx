@@ -16,10 +16,11 @@ import { useTranslation } from "react-i18next";
 import { BreakpointContext } from "../contexts/BreakpointContext";
 
 export default function NoticeDetailPage() {
-  const { t } = useTranslation();
+  const { i18n, t } = useTranslation();
+  const { language } = i18n;
 
   const [documentWidth, setDocumentWidth] = useState();
-  const { innerWidth } = useContext(BreakpointContext);
+  const { innerWidth, isDesktopView } = useContext(BreakpointContext);
   const [loading, setLoading] = useState(true);
   const apiBaseUrl = process.env.REACT_APP_API_BASE_URL;
   const { id } = useParams();
@@ -61,7 +62,9 @@ export default function NoticeDetailPage() {
 
   useEffect(() => {
     if (containerRef.current) {
-      setDocumentWidth(containerRef.current.clientWidth);
+      isDesktopView
+        ? setDocumentWidth(containerRef.current.clientWidth * 0.6)
+        : setDocumentWidth(containerRef.current.clientWidth);
     }
   }, [innerWidth, isDocumentLoadSucess]);
 
@@ -80,7 +83,8 @@ export default function NoticeDetailPage() {
         </div>
       ) : (
         <div>
-          <div className="min-h-10 pb-6">{notice.content}</div>
+          <div className="min-h-10">{notice.content}</div>
+
           <div className="mb-4" ref={containerRef}>
             {files.length > 0 && files[0].type === "application/pdf" && (
               <Document
@@ -95,7 +99,11 @@ export default function NoticeDetailPage() {
               </Document>
             )}
           </div>
-          <div>
+
+          <div className="text-xl pb-2">
+            {language === "ko" ? "첨부파일" : "Attached document"}
+          </div>
+          <div className="ml-2">
             <ul>
               {files.map((file) => {
                 return (
