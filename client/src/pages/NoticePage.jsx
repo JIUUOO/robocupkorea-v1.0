@@ -20,7 +20,7 @@ export default function NoticePage() {
       title: t("menu.main.item.notices_events"),
       subtitle:
         language === "ko" ? "이벤트 소식을 공지합니다" : "Event Announcements",
-      category: "announcement",
+      category: language === "ko" ? "announcement-ko" : "announcement-en",
     },
     {
       pathname: PATH.NOTICE_RULES,
@@ -29,7 +29,7 @@ export default function NoticePage() {
         language === "ko"
           ? "리그 규정을 공지합니다"
           : "League Regulations Announcements",
-      category: "reference",
+      category: language === "ko" ? "reference-ko" : "reference-en",
     },
   ];
 
