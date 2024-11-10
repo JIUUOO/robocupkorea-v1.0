@@ -1,4 +1,10 @@
-import { useContext, useLayoutEffect, useState } from "react";
+import {
+  useContext,
+  useEffect,
+  useLayoutEffect,
+  useState,
+  useRef,
+} from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import { Document, Page } from "react-pdf";
@@ -12,7 +18,8 @@ import { BreakpointContext } from "../contexts/BreakpointContext";
 export default function NoticeDetailPage() {
   const { t } = useTranslation();
 
-  const { innerWidth, isDesktopView } = useContext(BreakpointContext);
+  const [documentWidth, setDocumentWidth] = useState();
+  const { innerWidth } = useContext(BreakpointContext);
   const [loading, setLoading] = useState(true);
   const apiBaseUrl = process.env.REACT_APP_API_BASE_URL;
   const { id } = useParams();
@@ -26,6 +33,7 @@ export default function NoticeDetailPage() {
   });
 
   const [files, setFiles] = useState([]);
+  const containerRef = useRef();
 
   useLayoutEffect(() => {
     const getApi = async () => {
@@ -49,6 +57,14 @@ export default function NoticeDetailPage() {
     // eslint-disable-next-line
   }, []);
 
+  const [isDocumentLoadSucess, setDocumentLoadSuccess] = useState(false);
+
+  useEffect(() => {
+    if (containerRef.current) {
+      setDocumentWidth(containerRef.current.clientWidth);
+    }
+  }, [innerWidth, isDocumentLoadSucess]);
+
   return (
     <Container>
       <Title>{notice.title}</Title>
@@ -65,20 +81,19 @@ export default function NoticeDetailPage() {
       ) : (
         <div>
           <div className="min-h-10 pb-6">{notice.content}</div>
-          <div className="mb-4">
-            <ul>
-              {files.length > 0 && files[0].type === "application/pdf" && (
-                <Document
-                  file={`${apiBaseUrl}/file/${files[0]._id}/${files[0].name}`}
-                >
-                  <Page
-                    pageNumber={1}
-                    className="border border-1 max-w-fit"
-                    scale={isDesktopView ? 1.0 : innerWidth / 768}
-                  />
-                </Document>
-              )}
-            </ul>
+          <div className="mb-4" ref={containerRef}>
+            {files.length > 0 && files[0].type === "application/pdf" && (
+              <Document
+                file={`${apiBaseUrl}/file/${files[0]._id}/${files[0].name}`}
+                onLoadSuccess={setDocumentLoadSuccess.bind(this, true)}
+              >
+                <Page
+                  pageNumber={1}
+                  className="border border-1 max-w-fit"
+                  width={documentWidth}
+                />
+              </Document>
+            )}
           </div>
           <div>
             <ul>
