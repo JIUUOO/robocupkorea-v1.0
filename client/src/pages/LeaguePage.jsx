@@ -30,7 +30,7 @@ const useIntersectionObserver = (options) => {
 };
 
 export default function LeaguePage() {
-  const { i18n, t } = useTranslation();
+  const { i18n } = useTranslation();
   const { language } = i18n;
 
   const { pathname } = useLocation();
@@ -404,22 +404,22 @@ export default function LeaguePage() {
     );
   };
 
-  const Notice = ({ title }) => {
-    const [ref, isIntersecting] = useIntersectionObserver({
-      threshold: 0.5,
-    });
+  // const Notice = ({ title }) => {
+  //   const [ref, isIntersecting] = useIntersectionObserver({
+  //     threshold: 0.5,
+  //   });
 
-    return (
-      <div
-        ref={ref}
-        className={`inline-block border border-black border-1 rounded-lg p-1.5 ${
-          isIntersecting ? "slide-top" : "opacity-0"
-        }`}
-      >
-        <a href={PATH.NOTICE_EVENTS}>{title} 규정 알아보기</a>
-      </div>
-    );
-  };
+  //   return (
+  //     <div
+  //       ref={ref}
+  //       className={`inline-block border border-black border-1 rounded-lg p-1.5 ${
+  //         isIntersecting ? "slide-top" : "opacity-0"
+  //       }`}
+  //     >
+  //       <a href={PATH.NOTICE_EVENTS}>{title} 규정 알아보기</a>
+  //     </div>
+  //   );
+  // };
 
   return (
     <Container>
