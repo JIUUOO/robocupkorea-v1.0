@@ -12,7 +12,12 @@ const noticeSchema = new mongoose.Schema({
   files: [{ type: mongoose.Schema.Types.ObjectId, ref: "File" }],
   category: {
     type: String,
-    enum: ["announcement", "reference"],
+    enum: [
+      "announcement-ko",
+      "reference-ko",
+      "announcement-en",
+      "reference-en",
+    ],
     required: true,
   },
 });
