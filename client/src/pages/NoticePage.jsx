@@ -57,7 +57,7 @@ export default function NoticePage() {
 
     getApi();
     // eslint-disable-next-line
-  }, [pathname]);
+  }, [pathname, language]);
 
   const onClick = () => {
     console.log("click");
