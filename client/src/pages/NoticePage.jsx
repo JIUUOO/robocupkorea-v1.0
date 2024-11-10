@@ -83,16 +83,16 @@ export default function NoticePage() {
                 <thead>
                   <tr className="border-y border-black">
                     <th className="py-1 px-2 max-md:inline-block max-md:w-[65vw] text-start">
-                      제목
+                      {language === "ko" ? "제목" : "Title"}
                     </th>
                     <th className="py-1 px-2 max-md:inline-block max-md:w-[80px] text-start">
-                      작성자
+                      {language === "ko" ? "작성자" : "Author"}
                     </th>
                     <th
                       className="py-1 px-2 max-md:inline-block max-md:w-[80px] text-start"
                       onClick={onClick}
                     >
-                      날짜
+                      {language === "ko" ? "날짜" : "Date"}
                     </th>
                   </tr>
                 </thead>
