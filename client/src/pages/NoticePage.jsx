@@ -20,7 +20,7 @@ export default function NoticePage() {
       title: t("menu.main.item.notices_events"),
       subtitle:
         language === "ko" ? "이벤트 소식을 공지합니다" : "Event Announcements",
-      category: "announcement",
+      category: language === "ko" ? "announcement-ko" : "announcement-en",
     },
     {
       pathname: PATH.NOTICE_RULES,
@@ -29,7 +29,7 @@ export default function NoticePage() {
         language === "ko"
           ? "리그 규정을 공지합니다"
           : "League Regulations Announcements",
-      category: "reference",
+      category: language === "ko" ? "reference-ko" : "reference-en",
     },
   ];
 
@@ -57,7 +57,7 @@ export default function NoticePage() {
 
     getApi();
     // eslint-disable-next-line
-  }, [pathname]);
+  }, [pathname, language]);
 
   const onClick = () => {
     console.log("click");
@@ -83,16 +83,16 @@ export default function NoticePage() {
                 <thead>
                   <tr className="border-y border-black">
                     <th className="py-1 px-2 max-md:inline-block max-md:w-[65vw] text-start">
-                      제목
+                      {language === "ko" ? "제목" : "Title"}
                     </th>
                     <th className="py-1 px-2 max-md:inline-block max-md:w-[80px] text-start">
-                      작성자
+                      {language === "ko" ? "작성자" : "Author"}
                     </th>
                     <th
                       className="py-1 px-2 max-md:inline-block max-md:w-[80px] text-start"
                       onClick={onClick}
                     >
-                      날짜
+                      {language === "ko" ? "날짜" : "Date"}
                     </th>
                   </tr>
                 </thead>
