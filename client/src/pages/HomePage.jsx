@@ -52,7 +52,7 @@ export default function HomePage() {
             >
               {language === "ko"
                 ? "한국로보컵협회는 어떤 단체인가요?"
-                : "What kind of organization is the Korean RoboCup Association?"}
+                : "What kind of organization is the RoboCup Korea Association?"}
               <img
                 src={chevronDown}
                 className={styleChevronIcon("RCKA")}
@@ -63,7 +63,7 @@ export default function HomePage() {
               <div className="px-3 pb-3">
                 {language === "ko"
                   ? "한국로보컵협회(RCKA) 홈페이지를 방문해주신 여러분께 깊이 감사드립니다. 사단법인 한국로보컵협회(이하 RCKA)는 로봇을 연구하는 학생들을 위해 국가적 및 국제적 로봇 이벤트인 로보컵(Robocup) 리그를 주최하는 프로젝트 중심의 교육 증진 운동입니다. RCKA는 참된 로봇교육에 뜻을 같이 하는 교육관련 종사자와 자원봉사자들로 구성된 비영리 기관입니다. RCKA는 도전, 협동 및 경쟁 촉면 등 교육에 필요한 여러가지를 모두 제공합니다. 여러분의 끊임없는 격려와 관심으로 성원해주시길 부탁드립니다."
-                  : "Thank you sincerely for visiting the Korean RoboCup Association (RCKA) website. The Korean RoboCup Association (hereinafter RCKA) is a project-centered educational promotion movement that hosts the RoboCup League, a national and international robotics event, for students researching robotics. RCKA is a non-profit organization comprised of educators and volunteers who share a commitment to true robotics education. RCKA provides essential elements for education, including challenges, collaboration, and the promotion of healthy competition. We ask for your continuous support and interest to encourage us on this journey."}
+                  : "Thank you sincerely for visiting the RoboCup Korea Association(RCKA) website. The RoboCup Korea Association(RCKA) is a project-centered educational promotion movement that hosts the RoboCup League, a national and international robotics event, for students researching robotics. RCKA is a non-profit organization comprised of educators and volunteers who share a commitment to true robotics education. RCKA provides essential elements for education, including challenges, collaboration, and the promotion of healthy competition. We ask for your continuous support and interest to encourage us on this journey."}
               </div>
             </div>
           </div>
