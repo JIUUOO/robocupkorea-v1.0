@@ -102,6 +102,15 @@ export default function Footer() {
             </li>
             <li className={menuStyle}>
               <div className={menuHeadStyle}>{t("menu.main.head.events")}</div>
+              <MenuItem
+                to={
+                  i18n.language === "KO"
+                    ? "/notice/events/672e18d557b434002578c553"
+                    : "/notice/events/674d6523bfb7cc75578032aa"
+                }
+              >
+                {t("menu.main.item.rcko")}
+              </MenuItem>
               <MenuItem to={PATH.EVENTS_LATEST}>
                 {t("menu.main.item.events_latest")}
               </MenuItem>
