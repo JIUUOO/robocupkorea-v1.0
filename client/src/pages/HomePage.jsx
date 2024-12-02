@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Container } from "../components/layouts";
 import chevronDown from "../assets/icons/chevron-down-solid.svg";
 import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
 
 export default function HomePage() {
   const { i18n } = useTranslation();
@@ -31,18 +32,39 @@ export default function HomePage() {
 
   return (
     <>
-      <div className="max-w-lg m-auto p-0">
-        <div className="mb-10">
-          <iframe
-            className="w-full aspect-video select-none pointer-events-none"
-            src="https://www.youtube.com/embed/QB5dvHHnSMk?si=H8vYmersBfckFq5m&autoplay=1&mute=1&loop=1&controls=0&color=white&modestbranding=0&rel=0&playsinline=1&enablejsapi=18&playlist=QB5dvHHnSMk"
-            title="RoboCup RCAP Pyeongchang 2023"
-            allow="autoplay;"
-            referrerPolicy="strict-origin-when-cross-origin"
-            allowFullScreen
-          ></iframe>
+      <Container>
+        <div className="flex md:gap-3 max-md:flex-col p-4">
+          <div className="flex justify-center items-center max-md:border-b max-md:mb-2 p-1">
+            <Link
+              className="md:pr-2 md:border-r-2"
+              to={
+                language === "ko"
+                  ? "/notice/events/672e18d557b434002578c553"
+                  : "/notice/events/674d6523bfb7cc75578032aa"
+              }
+            >
+              <img
+                className="max-h-72 hover:opacity-70 transition-opacity ease duration-200 bg-repeat-x"
+                src="/banners/2025_RCOPEN.png"
+                alt="2025_RCOPEN.png"
+              />
+            </Link>
+          </div>
+          <div className="max-w-lg w-full m-auto">
+            <div className="mb-10">
+              <iframe
+                className="w-full aspect-video select-none pointer-events-none rounded rounded-2xl"
+                src="https://www.youtube.com/embed/QB5dvHHnSMk?si=H8vYmersBfckFq5m&autoplay=1&mute=1&loop=1&controls=0&color=white&modestbranding=0&rel=0&playsinline=1&enablejsapi=18&playlist=QB5dvHHnSMk"
+                title="RoboCup RCAP Pyeongchang 2023"
+                allow="autoplay;"
+                referrerPolicy="strict-origin-when-cross-origin"
+                allowFullScreen
+              ></iframe>
+            </div>
+          </div>
         </div>
-      </div>
+      </Container>
+
       <Container>
         <div>
           <div className={styleAccordionWrap}>
