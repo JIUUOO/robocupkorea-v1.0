@@ -163,7 +163,7 @@ export default function Header() {
                 <MainMenuWrapper handler={handleAboveMainMenu} id="EVENTS">
                   <MainMenuHead onClick={handleClickMainMenu} id="EVENTS" title={t("menu.main.head.events")} />
                   <MainMenuItemList id="EVENTS">
-                    <MenuItem to={i18.language === "KO"
+                    <MenuItem to={i18n.language === "KO"
                     ? "/notice/events/672e18d557b434002578c553"
                     : "/notice/events/674d6523bfb7cc75578032aa"} title={t("menu.main.item.rcko")} />
                     <MenuItem to={PATH.EVENTS_LATEST} title={t("menu.main.item.events_latest")} />
