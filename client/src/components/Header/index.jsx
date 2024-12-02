@@ -17,7 +17,6 @@ import "../../styles/Header.css";
 
 function LanguageSelectButton() {
   const { i18n } = useTranslation();
-  const { language } = i18n;
 
   const style =
     "cursor-pointer md:py-3 md:px-2 mr-2 hover:md:rounded-lg hover:md:shadow hover:md:bg-zinc-200";
@@ -45,7 +44,7 @@ function LanguageSelectButton() {
 }
 
 export default function Header() {
-  const { t } = useTranslation();
+  const { i18n, t } = useTranslation();
 
   const {
     expandMainMenu,
@@ -163,9 +162,8 @@ export default function Header() {
                 <MainMenuWrapper handler={handleAboveMainMenu} id="EVENTS">
                   <MainMenuHead onClick={handleClickMainMenu} id="EVENTS" title={t("menu.main.head.events")} />
                   <MainMenuItemList id="EVENTS">
-                    <MenuItem to={i18n.language === "KO"
-                    ? "/notice/events/672e18d557b434002578c553"
-                    : "/notice/events/674d6523bfb7cc75578032aa"} title={t("menu.main.item.rcko")} />
+                    {i18n.language === "ko" && <MenuItem to="/notice/events/672e18d557b434002578c553" title={t("menu.main.item.rcko")} />}
+                    {i18n.language === "en" && <MenuItem to="/notice/events/674d6523bfb7cc75578032aa" title={t("menu.main.item.rcko")} />}
                     <MenuItem to={PATH.EVENTS_LATEST} title={t("menu.main.item.events_latest")} />
                     <MenuItem to={PATH.EVENTS_ARCHIVE} title={t("menu.main.item.events_archive")} />
                   </MainMenuItemList>
