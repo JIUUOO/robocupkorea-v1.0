@@ -5,7 +5,7 @@ import {
   useState,
   useRef,
 } from "react";
-import { useParams } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 import axios from "axios";
 import { Document, Page } from "react-pdf";
 import "react-pdf/dist/Page/AnnotationLayer.css";
@@ -18,6 +18,8 @@ import { BreakpointContext } from "../contexts/BreakpointContext";
 export default function NoticeDetailPage() {
   const { i18n, t } = useTranslation();
   const { language } = i18n;
+
+  const { pathname } = useLocation();
 
   const [documentWidth, setDocumentWidth] = useState();
   const { innerWidth, isDesktopView } = useContext(BreakpointContext);
@@ -59,11 +61,12 @@ export default function NoticeDetailPage() {
   }, []);
 
   const [isDocumentLoadSucess, setDocumentLoadSuccess] = useState(false);
+  const [numPages, setNumpages] = useState(0);
 
   useEffect(() => {
     if (containerRef.current) {
       isDesktopView
-        ? setDocumentWidth(containerRef.current.clientWidth * 0.6)
+        ? setDocumentWidth(containerRef.current.clientWidth * 0.8)
         : setDocumentWidth(containerRef.current.clientWidth);
     }
   }, [innerWidth, isDocumentLoadSucess]);
@@ -72,7 +75,6 @@ export default function NoticeDetailPage() {
     <Container>
       <Title>{notice.title}</Title>
       <Subtitle>{t("menu.main.head.notices")}</Subtitle>
-
       {loading ? (
         <div className="grid grid-cols-1 place-items-center">
           <img
@@ -89,14 +91,38 @@ export default function NoticeDetailPage() {
             {files.length > 0 && files[0].type === "application/pdf" && (
               <Document
                 file={`${apiBaseUrl}/file/${files[0]._id}/${files[0].name}`}
-                onLoadSuccess={setDocumentLoadSuccess.bind(this, true)}
+                onLoadSuccess={({ numPages }) => {
+                  setNumpages(numPages);
+                  setDocumentLoadSuccess(true);
+                }}
               >
-                <Page
-                  pageNumber={1}
-                  className="border border-1 max-w-fit"
-                  width={documentWidth}
-                />
+                {pathname.includes("67528c8e4764ab48ae249894") ||
+                pathname.includes("6752935a4764ab48ae24989b") ? (
+                  Array.from({ length: numPages }, (_, index) => (
+                    <Page
+                      key={index}
+                      pageNumber={index + 1}
+                      className="border border-1 max-w-fit"
+                      width={documentWidth}
+                    />
+                  ))
+                ) : (
+                  <Page
+                    pageNumber={1}
+                    className="border border-1 max-w-fit"
+                    width={documentWidth}
+                  />
+                )}
               </Document>
+            )}
+            {(pathname.includes("67528c8e4764ab48ae249894") ||
+              pathname.includes("6752935a4764ab48ae24989b")) && (
+              <a
+                className="mt-8 mb-10 inline-flex justify-center items-center px-5 py-2 rounded bg-blue-600 hover:bg-blue-800 text-white"
+                href="https://robocupkorea-c2bf28e61bde.herokuapp.com/api/NoticeBoard/file/67528c8e4764ab48ae249896/Application_Form_RCKO_2025.xlsx"
+              >
+                {language === "ko" ? "사전 등록하기" : "Pre-Registration"}
+              </a>
             )}
           </div>
 
@@ -108,11 +134,13 @@ export default function NoticeDetailPage() {
               {files.map((file) => {
                 return (
                   <li key={file._id}>
-                    <div className="inline-block mb-2 font-light underline underline-offset-4 decoration-1 decoration-zinc-300 hover:decoration-zinc-700 rounded-lg">
-                      <a href={`${apiBaseUrl}/file/${file._id}/${file.name}`}>
-                        {file.name}
-                      </a>
-                    </div>
+                    {!file.name.includes("xlsx") && (
+                      <div className="inline-block mb-2 font-light underline underline-offset-4 decoration-1 decoration-zinc-300 hover:decoration-zinc-700 rounded-lg">
+                        <a href={`${apiBaseUrl}/file/${file._id}/${file.name}`}>
+                          {file.name}
+                        </a>
+                      </div>
+                    )}
                   </li>
                 );
               })}
