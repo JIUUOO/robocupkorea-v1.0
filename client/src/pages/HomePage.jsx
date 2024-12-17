@@ -39,7 +39,7 @@ export default function HomePage() {
               className="md:pr-2 md:border-r-2"
               to={
                 language === "ko"
-                  ? "/notice/events/672e18d557b434002578c553"
+                  ? "/notice/events/6752935a4764ab48ae24989b"
                   : "/notice/events/674d6523bfb7cc75578032aa"
               }
             >

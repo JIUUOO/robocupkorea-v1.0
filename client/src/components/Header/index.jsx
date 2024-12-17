@@ -162,7 +162,7 @@ export default function Header() {
                 <MainMenuWrapper handler={handleAboveMainMenu} id="EVENTS">
                   <MainMenuHead onClick={handleClickMainMenu} id="EVENTS" title={t("menu.main.head.events")} />
                   <MainMenuItemList id="EVENTS">
-                    {i18n.language === "ko" && <MenuItem to="/notice/events/672e18d557b434002578c553" title={t("menu.main.item.rcko")} />}
+                    {i18n.language === "ko" && <MenuItem to="/notice/events/6752935a4764ab48ae24989b" title={t("menu.main.item.rcko")} />}
                     {i18n.language === "en" && <MenuItem to="/notice/events/674d6523bfb7cc75578032aa" title={t("menu.main.item.rcko")} />}
                     <MenuItem to={PATH.EVENTS_LATEST} title={t("menu.main.item.events_latest")} />
                     <MenuItem to={PATH.EVENTS_ARCHIVE} title={t("menu.main.item.events_archive")} />

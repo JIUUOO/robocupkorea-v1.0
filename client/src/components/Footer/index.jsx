@@ -105,7 +105,7 @@ export default function Footer() {
               <MenuItem
                 to={
                   i18n.language === "KO"
-                    ? "/notice/events/672e18d557b434002578c553"
+                    ? "/notice/events/6752935a4764ab48ae24989b"
                     : "/notice/events/674d6523bfb7cc75578032aa"
                 }
               >
