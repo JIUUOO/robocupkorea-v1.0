@@ -21,7 +21,6 @@ export default function Popup() {
           />
         </div>
         <Link
-          className=""
           onClick={() => setPopupClose(true)}
           to={
             language === "ko"
@@ -33,8 +32,8 @@ export default function Popup() {
             className="hover:opacity-70 transition-opacity ease duration-200"
             src={
               isMobileView
-                ? "/banners/2025_RCOPEN_Poster.png"
-                : "/banners/2025_RCOPEN.png"
+                ? "/banners/2025_RCOPEN_Poster.jpg"
+                : "/banners/2025_RCOPEN.jpg"
             }
             alt="2025_RCOPEN.png"
           />
