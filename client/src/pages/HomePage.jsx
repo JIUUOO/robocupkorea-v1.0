@@ -34,22 +34,6 @@ export default function HomePage() {
     <>
       <Container>
         <div className="flex md:gap-3 max-md:flex-col p-4">
-          <div className="flex justify-center items-center max-md:border-b max-md:mb-2 p-1">
-            <Link
-              className="md:pr-2 md:border-r-2"
-              to={
-                language === "ko"
-                  ? "/notice/events/6752935a4764ab48ae24989b"
-                  : "/notice/events/674d6523bfb7cc75578032aa"
-              }
-            >
-              <img
-                className="max-h-72 hover:opacity-70 transition-opacity ease duration-200 bg-repeat-x"
-                src="/banners/2025_RCOPEN.png"
-                alt="2025_RCOPEN.png"
-              />
-            </Link>
-          </div>
           <div className="max-w-lg w-full m-auto">
             <div className="mb-10">
               <iframe

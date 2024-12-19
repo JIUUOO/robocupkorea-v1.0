@@ -16,6 +16,7 @@ import NoticePage from "./pages/NoticePage";
 import NoticeDetailPage from "./pages/NoticeDetailPage";
 import NotFoundPage from "./pages/NotFoundPage";
 import "./styles/App.css";
+import Popup from "./hooks/Popup";
 
 function MainContainer({ children }) {
   return <main className="mt-16 md:mt-20">{children}</main>;
@@ -25,9 +26,11 @@ function App() {
   // prettier-ignore
   return (
     <Router>
+      <Popup/>
       <Header />
       <ScrollToTop />
       <CloseNavigation />
+      
       <MainContainer>
         <Routes>
           <Route path={PATH.HOME} Component={HomePage} />
