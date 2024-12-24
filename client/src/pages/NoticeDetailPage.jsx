@@ -121,7 +121,7 @@ export default function NoticeDetailPage() {
                 className="mt-8 mb-10 inline-flex justify-center items-center px-5 py-2 rounded bg-blue-600 hover:bg-blue-800 text-white"
                 href={
                   language === "ko"
-                    ? "https://robocupkorea-c2bf28e61bde.herokuapp.com/api/NoticeBoard/file/675c2010e5f1a0a332885308/입회신청서_연령기준_RCKO2025.xlsx"
+                    ? "https://robocupkorea-c2bf28e61bde.herokuapp.com/api/NoticeBoard/file/676a3ec5c3b429bebde12f3f/입회신청서_연령기준_RCKO2025.xlsx"
                     : "https://robocupkorea-c2bf28e61bde.herokuapp.com/api/NoticeBoard/file/67528c8e4764ab48ae249896/Application_Form_RCKO_2025.xlsx"
                 }
               >
